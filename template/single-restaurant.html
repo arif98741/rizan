@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Restaurant info - Ki-Kothai</title>
+  <link rel="shortcut icon" href="./assets/img/logo - favicon.png" type="image/x-icon">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- font-awesome css -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- google-font css -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,800|Roboto:400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- navbar start -->
+  <section class="navigation-with-search fixed-top">
+    <div class="nav-container">
+      <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./assets/img/logo.png" alt="logo">
+        </a>
+        <a class="navbar-toggler show-on-sml" onclick="showSearch()"> <i class="fas fa-search"></i> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./offer.html">Offers <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./all-restaurant.html">Restaurants</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./all-food.html">Foods</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./all-places.html">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about-us.html">About us</a>
+            </li>
+            <li class="nav-item hide-on-sml">
+              <a class="nav-link" onclick="showSearch()"> <i class="fas fa-search"></i> </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hidden-search-bar" id="hidden-search-bar">
+      <div class="nav-container">
+        <div class="input-group">
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" autofocus>
+          <div class="input-group-append">
+            <span class="input-group-text cross-btn" onclick="hideSearch()"> <i class="far fa-times-circle"></i> </span>
+            <span class="input-group-text srch-btn"> <i class="fas fa-search"></i> </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- navbar end -->
+ 
+  <!-- hero start -->
+  <section class="hero-single-res">
+    <div class="map-img">
+      <iframe width="100%" height="100%" src="https://maps.google.com/maps?width=100%&amp;height=500&amp;hl=en&amp;q=Suite%20600%2C%20101%20Frederick%20Street%2C%20Kitchener%2C%20ON%2C%20Canada%20N2H%206R3+(My%20Business%20Name)&amp;ie=UTF8&amp;t=p&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        
+      </iframe>
+    </div>
+  </section>
+  <!-- hero end -->
+
+  <!-- restaurant info. start -->
+  <div class="res-info-container">
+    <div class="res-info">
+      <h5 class="res-name">Grandiose Restaurant</h5>
+      <span class="res-type">Coffe Shop and Burger house</span>
+      <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Dhanmondi</span>
+      </div>
+      <div class="review-icon">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+  
+      <div class="social-icon">
+        <ul>
+          <li>
+              <a href="#">
+                <i class="fab fa-facebook-square"></i>
+              </a>
+            </i>
+          </li>
+          <li>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </i>
+          </li>
+          <li>
+              <a href="#">
+                <i class="fas fa-globe"></i>
+              </a>
+            </i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- restaurant info. end -->
+
+  <!-- menu start -->
+  <section class="menu-sngl-res">
+    <div class="menu-full">
+      <h2 class="headline">Food Items</h2>
+      <div class="menu-container">
+
+        <div class="row">
+          <div class="col-sm-4 item-each">
+            <a href="./single-food.html">
+              <img class="img-fluid" src="./assets/img/food-img1.png" alt="">
+              <div class="title">
+                <h5 class="name">Sushi with salad</h5>
+                <p class="price">BDT 290</p>
+                <div class="review-icon">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4 item-each">
+            <a href="./single-food.html">
+              <img class="img-fluid" src="./assets/img/food-img-2.jpg" alt="">
+              <div class="title">
+                <h5 class="name">Sushi with salad</h5>
+                <p class="price">BDT 290</p>
+                <div class="review-icon">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4 item-each">
+            <a href="./single-food.html">
+              <img class="img-fluid" src="./assets/img/food-img1.png" alt="">
+              <div class="title">
+                <h5 class="name">Sushi with salad</h5>
+                <p class="price">BDT 290</p>
+                <div class="review-icon">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4 item-each">
+            <a href="./single-food.html">
+              <img class="img-fluid" src="./assets/img/food-img-2.jpg" alt="">
+              <div class="title">
+                <h5 class="name">Sushi with salad</h5>
+                <p class="price">BDT 290</p>
+                <div class="review-icon">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4 item-each">
+            <a href="./single-food.html">
+              <img class="img-fluid" src="./assets/img/food-img1.png" alt="">
+              <div class="title">
+                <h5 class="name">Sushi with salad</h5>
+                <p class="price">BDT 290</p>
+                <div class="review-icon">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4 item-each">
+            <a href="./single-food.html">
+              <img class="img-fluid" src="./assets/img/food-img-2.jpg" alt="">
+              <div class="title">
+                <h5 class="name">Sushi with salad</h5>
+                <p class="price">BDT 290</p>
+                <div class="review-icon">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#">Page</a>
+        </li>
+        <li class="page-item disabled"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+      </ul>
+    </nav>
+  </section>
+  <!-- menu end -->
+
+  <!-- submit review start -->
+  <section class="submit-review-single-res">
+    <h2 class="headline">Submit a review</h2>
+    <div class="review-container">
+      <form action="">
+        <div class="row">
+          <div class="col-sm-6">
+            <input class="form-control" type="text" placeholder="Your name">
+          </div>
+          <div class="col-sm-6">
+            <input class="form-control" type="email" placeholder="Your Email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <textarea class="form-control" rows="5" placeholder="Your comment about this restaurant"></textarea>
+          </div>
+          <div class="col-sm-6">
+            <div class="review-icon">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </form>
+      
+      <div class="text-center">
+        <button class="review-btn">Submit</button>
+      </div>
+    </div>
+  </section>
+  <!-- submit review end -->
+
+  <!-- review & comments start -->
+  <section class="review-rating-read">
+    <h2 class="headline">Review and Rating</h2>
+    <div class="review-rating-container">
+      <div class="single-comment">
+        <div class="row">
+          <div class="col">
+            <h5 class="person-name">Pronab Bissas</h5>
+          </div>
+          <div class="col">
+            <div class="review-icon">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="date">
+          <span class="review-date">18 Feb 2020</span>
+          <hr>
+        </div>
+        <p class="black-clr-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus velit tenetur modi distinctio, eligendi earum eveniet quasi consequatur porro est dolorum dolor cum aliquid laborum nihil sequi quod adipisci quis?</p>
+      </div>
+
+      <div class="single-comment">
+        <div class="row">
+          <div class="col">
+            <h5 class="person-name">Imran Khan</h5>
+          </div>
+          <div class="col">
+            <div class="review-icon">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="date">
+          <span class="review-date">18 Feb 2020</span>
+          <hr>
+        </div>
+        <p class="black-clr-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus velit tenetur modi distinctio, eligendi earum eveniet quasi consequatur porro est dolorum dolor cum aliquid laborum nihil sequi quod adipisci quis?</p>
+      </div>
+    </div>
+  </section>
+  <!-- review & comments end -->
+  
+  <!-- footer start -->
+  <section class="footer">
+    <div class="footer-container">
+      <div class="row">
+        <div class="col-sm-4 footer-each">
+          <h5>Know Us</h5>
+          <ul class="un-list">
+            <li class=""> <a href="./about-us.html">About Us</a> </li>
+            <li class=""> <a href="./terms-condition.html">Terms & Conditions</a> </li>
+            <li class=""> <a href="./team-members.html">Team Members</a> </li>
+          </ul>
+        </div>
+        <div class="col-sm-4 footer-each">
+          <h5>Contact Us</h5>
+          <ul class="un-list">
+            <li class=""> Phone: 01804001100 </li>
+            <li class=""> Email: mailname@gmail.com </li>
+          </ul>
+        </div>
+        <div class="col-sm-4 footer-each">
+          <h5>For Restaurant Owner</h5>
+          <ul class="un-list">
+            <li class=""> <a href="">My Account</a> </li>
+            <li class=""> <a href="">Get New Account</a> </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-sm-6">
+          <div class="social-icon">
+            <a href=""> <i class="fab fa-facebook-square"></i> </a>
+            <a href=""> <i class="fab fa-twitter"></i> </a>
+            <a href=""> <i class="fab fa-instagram"></i> </a>
+          </div>
+        </div>
+        <div class="col-sm-6 text-center">
+          <p>&copy; 2020 KiKothay, All rights Reserved</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- footer end -->
+
+
+
+
+  <!-- js for bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <!-- custom js -->
+  <script>
+    function showSearch() {
+      document.getElementById("hidden-search-bar").style.display = "block";
+    }
+    function hideSearch() {
+      document.getElementById("hidden-search-bar").style.display = "none";
+    }
+  </script>
+</body>
+</html>

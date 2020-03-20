@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Current Offers - Ki-Kothai</title>
+  <link rel="shortcut icon" href="./assets/img/logo - favicon.png" type="image/x-icon">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- font-awesome css -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <!-- custom css -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- google-font css -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,800|Roboto:400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- navbar start -->
+  <section class="navigation-with-search fixed-top">
+    <div class="nav-container">
+      <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="./index.html">
+          <img src="./assets/img/logo.png" alt="logo">
+        </a>
+        <a class="navbar-toggler show-on-sml" onclick="showSearch()"> <i class="fas fa-search"></i> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./offer.html">Offers <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./all-restaurant.html">Restaurants</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./all-food.html">Foods</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./all-places.html">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about-us.html">About us</a>
+            </li>
+            <li class="nav-item hide-on-sml">
+              <a class="nav-link" onclick="showSearch()"> <i class="fas fa-search"></i> </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hidden-search-bar" id="hidden-search-bar">
+      <div class="nav-container">
+        <div class="input-group">
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" autofocus>
+          <div class="input-group-append">
+            <span class="input-group-text cross-btn" onclick="hideSearch()"> <i class="far fa-times-circle"></i> </span>
+            <span class="input-group-text srch-btn"> <i class="fas fa-search"></i> </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- navbar end -->
+ 
+  <!-- hero start -->
+  <section class="hero-current-offer">
+    <h2 class="current-offer-heading"> <span>Current Offers</span> </h2>
+  </section>
+  <!-- hero end -->
+
+  <!-- offer item start -->
+  <section class="offer-item">
+    <div class="offer-item-container">
+      <div class="row">
+        <div class="col-sm-4 img-part">
+          <img class="img-fluid" src="./assets/img/food-img-4.jpg" alt="">
+        </div>
+        <div class="col-sm-8 desc-part">
+          <h5 class="food-name">Chicken Burger</h5>
+          <span class="prev-price">BDT 250</span>
+          <span class="offer-price">BDT 140</span>
+          <p class="offer-start mt-2">Offer Start: 18 may 2020</p>
+          <p class="offer-end mb-2">Offer End: 20 may 2020</p>
+          <p class="offer-desc">
+            This is offer description. Write some here about offer of your Restaurant.Write some here about offer of your Restaurant.
+          </p>
+          <h6 class="res-name"> <span>On</span> <a href="./single-restaurant.html">Grandiose Restaurant</a></h6>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer-item">
+    <div class="offer-item-container">
+      <div class="row">
+        <div class="col-sm-4 img-part">
+          <img class="img-fluid" src="./assets/img/food-img-3.jpg" alt="">
+        </div>
+        <div class="col-sm-8 desc-part">
+          <h5 class="food-name">Chicken Burger</h5>
+          <span class="prev-price">BDT 250</span>
+          <span class="offer-price">BDT 140</span>
+          <p class="offer-start mt-2">Offer Start: 18 may 2020</p>
+          <p class="offer-end mb-2">Offer End: 20 may 2020</p>
+          <p class="offer-desc">
+            This is offer description. Write some here about offer of your Restaurant.Write some here about offer of your Restaurant.
+          </p>
+          <h6 class="res-name"> <span>On</span> <a href="./single-restaurant.html">Grandiose Restaurant</a></h6>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- offer item end -->
+  
+  <!-- footer start -->
+  <section class="footer">
+    <div class="footer-container">
+      <div class="row">
+        <div class="col-sm-4 footer-each">
+          <h5>Know Us</h5>
+          <ul class="un-list">
+            <li class=""> <a href="./about-us.html">About Us</a> </li>
+            <li class=""> <a href="./terms-condition.html">Terms & Conditions</a> </li>
+            <li class=""> <a href="./team-members.html">Team Members</a> </li>
+          </ul>
+        </div>
+        <div class="col-sm-4 footer-each">
+          <h5>Contact Us</h5>
+          <ul class="un-list">
+            <li class=""> Phone: 01804001100 </li>
+            <li class=""> Email: mailname@gmail.com </li>
+          </ul>
+        </div>
+        <div class="col-sm-4 footer-each">
+          <h5>For Restaurant Owner</h5>
+          <ul class="un-list">
+            <li class=""> <a href="">My Account</a> </li>
+            <li class=""> <a href="">Get New Account</a> </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-sm-6">
+          <div class="social-icon">
+            <a href=""> <i class="fab fa-facebook-square"></i> </a>
+            <a href=""> <i class="fab fa-twitter"></i> </a>
+            <a href=""> <i class="fab fa-instagram"></i> </a>
+          </div>
+        </div>
+        <div class="col-sm-6 text-center">
+          <p>&copy; 2020 KiKothay, All rights Reserved</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- footer end -->
+
+
+
+
+  <!-- js for bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <!-- custom js -->
+  <script>
+    function showSearch() {
+      document.getElementById("hidden-search-bar").style.display = "block";
+    }
+    function hideSearch() {
+      document.getElementById("hidden-search-bar").style.display = "none";
+    }
+  </script>
+</body>
+</html>
