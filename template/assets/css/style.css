@@ -1277,6 +1277,52 @@ a {
 }
 /* our team members end */
 
+/* terms & conditions start */
+.terms {
+  margin: 5rem 0 4rem;
+  font-family: 'Roboto', sans-serif;
+}
+.terms .terms-container {
+  width: 70%;
+  margin: 0 auto;
+}
+.terms .heading {
+  padding-bottom: .5rem;
+}
+.terms ul {
+  color: #505050;
+  padding-left: 1rem;
+}
+/* terms & conditions end */
+
+/* get new account start */
+.get-your-ac {
+  margin: 5rem 0 4rem;
+  font-family: 'Roboto', sans-serif;
+}
+.get-your-ac .get-your-ac-container {
+  width: 70%;
+  margin: 0 auto;
+}
+.get-your-ac .heading {
+  padding-bottom: .5rem;
+}
+.get-your-ac p {
+  color: #505050;
+}
+/* get new account end */
+
+/* arrow up */
+#arrowUp {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 /* custom responsive start */
 @media (min-width: 1400px) {
   /* home */
@@ -1493,6 +1539,16 @@ a {
   .objective .objective-container {
     width: 80% !important;
   }
+
+  /* terms-condition */
+  .terms .terms-container {
+    width: 90%;
+  }
+
+  /* get your account */
+  .get-your-ac .get-your-ac-container {
+    width: 90%;
+  }
 }
 
 @media (max-width: 575px) {
@@ -1675,3 +1731,214 @@ a {
   }
 }
 /* custom responsive end */
+
+/* restaurant admin login start */
+.login-res-admin {
+  margin: 15vh 0;
+}
+.login-res-admin a {
+  color: #031936;
+}
+.login-res-admin .logo {
+  text-align: center;
+}
+.login-res-admin .logo img {
+  width: 80px;
+  height: auto;
+}
+.login-res-admin .logo h5 {
+  margin: 16px 0;
+}
+.login-res-admin .full-login {
+  width: 40%;
+  margin: 0 auto;
+  background: #E5E5E5;
+  border-radius: 8px;
+  padding: 2.5rem 3rem;
+}
+.login-res-admin form {
+  margin: 2rem 0;
+}
+.login-res-admin .submit-btn {
+  color: #fff;
+  background-image: linear-gradient(to right, #1A437B, #1D245C);
+}
+.login-res-admin .submit-btn:hover {
+  box-shadow: none;
+}
+/* restaurant admin login end */
+
+/* restaurant admin start */
+/* top navbar */
+.res-admin .navTop {
+  background: #1A237E;
+  color: #fff;
+  max-height: 56px;
+  padding-left: 0px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+.res-admin .navTop ul {
+  margin-right: 2rem;
+}
+.res-admin .navTop a {
+  color: #fff;
+}
+.res-admin .navbar-brand {
+  font-family: 'Niconne', cursive;
+  font-size: 28px;
+  width: 230px;
+  background: #1A237E;
+  text-align: center;
+  height: 56px;
+  z-index: 1;
+}
+.res-admin .brndHide {
+  font-family: 'Niconne', cursive;
+  font-size: 28px;
+  display: none;
+}
+.res-admin .brndHide:hover {
+  text-decoration: none;
+}
+.res-admin .navIcon i {
+  font-size: 19px;
+  margin-left: 12px;
+}
+.res-admin .navbar-toggler {
+  display: block !important;
+  margin-right: 1rem;
+}
+.res-admin .navbar-toggler i {color: #fff;}
+.res-admin .profileDrop {
+  top: 109%;
+  right: 0;
+  left: auto;
+  box-shadow: 0px 1px 5px 1px #c1c1c1;
+}
+.res-admin .profileDrop a {
+  color: #16181B;
+}
+.res-admin .dropdown-item:active {
+  background: #fff;
+  color: #000;
+}
+
+/* side nav */
+.sideMenu-res-adm {
+  width: 0px;
+  z-index: 1;
+  background: #F7F9F6;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  padding-top: 70px;
+  overflow: auto;
+  transition: left 0.3s ease,
+    width 0.3s ease;
+  box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
+}
+.sideMenu-res-adm::-webkit-scrollbar {
+  width: 0;
+}
+.sideMenu-res-adm .sideTop {
+  padding: 10px 10px 22px;
+  display: flex;
+}
+.sideMenu-res-adm .sideTop img {
+  flex: 0 0 auto;
+  margin-right: 15px;
+  border-radius: 50%;
+  height: fit-content;
+}
+.sideMenu-res-adm .sideTop p {
+  margin-bottom: 0;
+}
+.sideMenu-res-adm .sideBottom a {
+  color: #323431;
+}
+.sideMenu-res-adm .sideBottom ul {
+  list-style: none;
+  padding-left: 0;
+}
+.sideMenu-res-adm .sideBottom a {
+  text-decoration: none;
+  border-left: 3px solid #F7F9F6;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  font-size: 1.03em;
+}
+.sideMenu-res-adm .sideBottom .arrwRght {
+  width: 0;
+}
+.sideMenu-res-adm .sideTop .name {
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.5px;
+}
+.sideMenu-res-adm .sideTop .desg {
+  letter-spacing: -0.25px;
+  font-size: 15px;
+}
+.sideMenu-res-adm .sideBottom a i {
+  width: 25px;
+  flex: 0 0 auto;
+}
+.sideMenu-res-adm .sideBottom a:hover, .aActive {
+  background: #efecec;
+  border-color: #1A237E;
+}
+
+/* app content */
+.appContent-res-adm {
+  background: #E5E5E5;
+  min-height: calc(100vh - 50px);
+  margin: 50px 0 0 0px;
+  padding: 60px 40px;
+  transition: margin-left 0.3s ease;
+}
+.appContent-res-adm .formSubmit {
+  padding: 7px 30px;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #1A437B, #1D245C);
+  color: #fff;
+}
+
+@media (min-width: 767px) {
+  .res-admin .navbar-toggler {
+    display: none !important;
+  }
+  #sideMnu {
+    width: 230px ;
+    z-index: 1;
+  }
+  #appcontnt {
+    margin-left: 230px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .res-admin .navbar {
+    padding: 1rem 0rem !important;
+    z-index: 100;
+  }
+  .res-admin .navbar-brand {
+    display: none;
+  }
+  .res-admin .brndHide {
+    display: block;
+  }
+
+  /* login */
+  .login-res-admin .full-login {
+    width: 90%;
+  }
+}
+/* restaurant admin end */
