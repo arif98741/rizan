@@ -19,6 +19,7 @@ class CreateFoodsTable extends Migration
             $table->double('price',8,2);
             $table->unsignedBigInteger('company_id');
             $table->text('description');
+            $table->text('feature_photo')->nullable();
             $table->foreign('company_id')->references('id')
                 ->on('companies')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

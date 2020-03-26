@@ -3,13 +3,27 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+use App\Models\Food;
+use App\Models\Restaurant;
 
 class HomeController extends Controller
 {
 
-    public function index()
+    /**
+     * @param Request $request
+     * @return Factory|View
+     */
+    public function index(Request $request)
     {
-        return view('hoe')
+        $data = [
+            'foods'=> Food::all()
+        ];
+
+        return view('front.home')->with($data);
     }
+
+
 }

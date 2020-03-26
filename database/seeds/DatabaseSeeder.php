@@ -4,14 +4,16 @@ use App\Models\Admin;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Restaurant;
+use App\Models\RestaurantCategory;
+use App\Models\Food;
 
 class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        factory(\App\Models\CompanyCategory::class, 3)->create();
-        factory(\App\Models\Company::class, 5)->create();
-        factory(\App\Models\Food::class, 10)->create();
-
+        factory(RestaurantCategory::class, 3)->create();
+        factory(Restaurant::class, 5)->create();
+        factory(Food::class, 10)->create();
     }
 }

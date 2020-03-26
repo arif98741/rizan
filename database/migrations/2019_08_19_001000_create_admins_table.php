@@ -5,7 +5,11 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateAdminsTable extends Migration
 {
-    
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
@@ -13,15 +17,16 @@ class CreateAdminsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone')->nullable();
-            $table->string('image')->nullable();
-            $table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
     }
 
-   
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::drop('admins');

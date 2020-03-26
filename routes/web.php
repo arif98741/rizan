@@ -2,17 +2,39 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::namespace('Front')->group(function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/restaurants', 'RestaurantController@index');
+    Route::get('/restaurant/{slug}', 'RestaurantController@viewBySlug');
 
-Route::get('/', function () {
-    return view('welcome');
 });
+
+
+/*
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Admin\Auth\LoginController@login');
+    Route::post('/logout', 'Admin\Auth\LoginController@logout')->name('logout');
+
+    Route::get('/register', 'Admin\Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('/register', 'Admin\Auth\RegisterController@register');
+
+    Route::post('/password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+    Route::post('/password/reset', 'Admin\Auth\ResetPasswordController@reset')->name('password.email');
+    Route::get('/password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+    Route::get('/password/reset/{token}', 'Admin\Auth\ResetPasswordController@showResetForm');
+});
+
+Route::group(['prefix' => 'restaurant'], function () {
+    Route::get('/login', 'Restaurant\Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Restaurant\Auth\LoginController@login');
+    Route::post('/logout', 'Restaurant\Auth\LoginController@logout')->name('logout');
+
+    Route::get('/register', 'Restaurant\Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('/register', 'Restaurant\Auth\RegisterController@register');
+
+    Route::post('/password/email', 'Restaurant\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+    Route::post('/password/reset', 'Restaurant\Auth\ResetPasswordController@reset')->name('password.email');
+    Route::get('/password/reset', 'Restaurant\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+    Route::get('/password/reset/{token}', 'Restaurant\Auth\ResetPasswordController@showResetForm');
+});/*

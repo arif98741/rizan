@@ -9,16 +9,7 @@ $factory->define(Food::class, function (Faker $faker) {
     return [
         'name' => ucfirst($faker->text(50)),
         'price'=> $faker->numberBetween(100,299),
-        'company_id' => \App\Models\Company::all()->random(),
+        'company_id' => \App\Models\Restaurant::all()->random(),
         'description' => $faker->text(100)
     ];
 });
-
-
-/**
- *
- * $table->string('name');
-$table->double('price',8,2);
-$table->unsignedBigInteger('company_id');
-
- */
