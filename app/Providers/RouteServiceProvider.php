@@ -46,7 +46,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //$this->mapCompanyRoutes();
+        $this->mapRestaurantRoutes();
 
         $this->mapAdminRoutes();
 
@@ -79,7 +79,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapCompanyRoutes()
+    protected function mapRestaurantRoutes()
     {
         Route::group([
             'middleware' => ['web', 'restaurant', 'auth:restaurant'],

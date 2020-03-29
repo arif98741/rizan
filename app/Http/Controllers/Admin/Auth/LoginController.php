@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Auth;
+
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use AlAminFirdows\LaravelMultiAuth\Traits\LogsoutGuard;
 
@@ -22,21 +24,38 @@ class LoginController extends Controller
         LogsoutGuard::logout insteadof AuthenticatesUsers;
     }
 
-    public $redirectTo = '/admin/home';
+    /**
+     * Where to redirect users after login / registration.
+     *
+     * @var string
+     */
+    public $redirectTo = '/admin/dashboard';
 
-
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('admin.guest', ['except' => 'logout']);
     }
 
-
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function showLoginForm()
     {
         return view('admin.auth.login');
     }
 
-
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
     protected function guard()
     {
         return Auth::guard('admin');

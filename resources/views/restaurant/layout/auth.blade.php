@@ -35,7 +35,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/restaurant') }}">
-                    {{ config('app.name', 'Laravel Multi Auth Guard') }}: Company
+                    {{ config('app.name', 'Laravel Multi Auth Guard') }}: Restaurant
                 </a>
             </div>
 

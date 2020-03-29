@@ -5,7 +5,7 @@ namespace App\Notifications;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class CompanyResetPassword extends Notification
+class RestaurantResetPassword extends Notification
 {
     /**
      * The password reset token.

@@ -17,22 +17,19 @@ class CreateFoodsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->double('price',8,2);
-            $table->unsignedBigInteger('company_id');
+            $table->unsignedBigInteger('restaurant_id');
             $table->text('description');
             $table->text('feature_photo')->nullable();
-            $table->foreign('company_id')->references('id')
-                ->on('companies')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('restaurant_id')->references('id')
+                ->on('restaurants')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('foods');
+        Schema::dropForeign('restaurant_id');
     }
 }

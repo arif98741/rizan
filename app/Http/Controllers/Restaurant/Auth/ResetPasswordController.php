@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Company\Auth;
+namespace App\Http\Controllers\Restaurant\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -64,7 +64,7 @@ class ResetPasswordController extends Controller
      */
     public function broker()
     {
-        return Password::broker('companies');
+        return Password::broker('restaurants');
     }
 
     /**

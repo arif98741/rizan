@@ -1,12 +1,7 @@
 <?php
 
-Route::get('/home', function () {
-    $users[] = Auth::user();
-    $users[] = Auth::guard()->user();
-    $users[] = Auth::guard('admin')->user();
+Route::namespace('Admin')->group(function () {
+    Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
+    Route::get('setting', 'AdminController@setting')->name('setting');
 
-    //dd($users);
-
-    return view('admin.home');
-})->name('home');
-
+});

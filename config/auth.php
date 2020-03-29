@@ -38,7 +38,7 @@ return [
     'guards' => [
         'restaurant' => [
             'driver' => 'session',
-            'provider' => 'companies',
+            'provider' => 'restaurants',
         ],
 
         'admin' => [
@@ -76,7 +76,7 @@ return [
     */
 
     'providers' => [
-        'companies' => [
+        'restaurants' => [
             'driver' => 'eloquent',
             'model' => App\Models\Restaurant::class,
         ],
@@ -113,9 +113,9 @@ return [
     */
 
     'passwords' => [
-        'companies' => [
-            'provider' => 'companies',
-            'table' => 'company_password_resets',
+        'restaurants' => [
+            'provider' => 'restaurants',
+            'table' => 'restaurant_password_resets',
             'expire' => 60,
         ],
 
