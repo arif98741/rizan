@@ -20,13 +20,10 @@ class AdminController extends Controller
     {
 
         $data = [
-            'total_teacher' => Teacher::get()->count(),
-            'total_student' => Student::get()->count(),
-            'total_research' => Researchwork::get()->count(),
-            'total_notice' => Notice::get()->count(),
+
         ];
         //return $data;
-        return view('admin.dashboard')->with($data);
+        return view('layout.admin.admin')->with($data);
     }
 
     public function setting(Request $request)
