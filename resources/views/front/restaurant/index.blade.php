@@ -15,7 +15,7 @@
                 <div class="row">
                     @foreach($restaurants as  $restaurant)
                         <div class="col-sm-4 item-each">
-                            <a href="./single-restaurant.html">
+                            <a href="{{ url('restaurant/'.$restaurant->slug) }}">
                                 <img class="img-fluid" src="{{ asset('asset/front/img/food-img1.png')}}" alt="">
                                 <div class="title">
                                     <h5 class="name">{{ $restaurant->name }}</h5>
@@ -33,7 +33,6 @@
                                 </div>
                             </a>
                         </div>
-
                     @endforeach
 
                 </div>

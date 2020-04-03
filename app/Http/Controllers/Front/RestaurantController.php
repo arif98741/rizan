@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\Viewv;
 
 class RestaurantController extends Controller
 {
@@ -17,12 +19,17 @@ class RestaurantController extends Controller
         return view('front.restaurant.index')->with($data);
     }
 
-    public function viewBySlug()
+    /**
+     * view restaurant by slug
+     * @return Factory|Viewv
+     */
+    public function viewBySlug($slug)
     {
         $data = [
-            'restaurants'   => Restaurant::with(['restaurant_category'])->paginate(9)
+            'restaurant'   => Restaurant::with(['restaurant_category'])->where('slug',$slug)->firstOrFail()
         ];
-        return view('front.restaurant.index')->with($data);
+
+        return view('front.restaurant.single_restaurant')->with($data);
     }
 
 
