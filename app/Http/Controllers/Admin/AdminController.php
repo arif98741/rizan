@@ -3,26 +3,26 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Subscription;
-use App\Models\Setting;
-use App\Models\Subscriber;
-use App\Models\Student;
 use App\Models\Claim;
 use App\Models\Notice;
 use App\Models\Researchwork;
+use App\Models\Setting;
+use App\Models\Student;
+use App\Models\Subscriber;
+use App\Models\Subscription;
 use App\Models\Teacher;
+use Illuminate\Http\Request;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Session;
 
 class AdminController extends Controller
 {
     public function dashboard(Request $request)
     {
-
         $data = [
 
         ];
-        //return $data;
         return view('layout.admin.admin')->with($data);
     }
 
