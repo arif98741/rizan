@@ -1,5 +1,5 @@
 @extends('layout.front.front')
-@section('title','Restaurants')
+@section('title', $restaurant->name)
 @section('content')
     <!-- hero start -->
     <section class="hero-single-res">
@@ -16,11 +16,11 @@
     <!-- restaurant info. start -->
     <div class="res-info-container">
         <div class="res-info">
-            <h5 class="res-name">Grandiose Restaurant</h5>
-            <span class="res-type">Coffe Shop and Burger house</span>
+            <h5 class="res-name">{{ $restaurant->name }}</h5>
+            <span class="res-type">{{ $restaurant->restaurant_category->category_name }}</span>
             <div class="location">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>Dhanmondi</span>
+                <span>{{ $restaurant->location }}</span>
             </div>
             <div class="review-icon">
                 <i class="fas fa-star"></i>
@@ -33,19 +33,19 @@
             <div class="social-icon">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{ $restaurant->facebook }}">
                             <i class="fab fa-facebook-square"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ $restaurant->instagram }}">
                             <i class="fab fa-instagram"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ $restaurant->website }}">
                             <i class="fas fa-globe"></i>
                         </a>
                         </i>

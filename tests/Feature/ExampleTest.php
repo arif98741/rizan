@@ -8,11 +8,12 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
 
-
+    /**
+     * @unit test
+     */
     public function testBasicTest()
     {
         $response = $this->get('/');
-
         $response->assertStatus(200);
     }
 }

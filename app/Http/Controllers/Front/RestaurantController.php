@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\View\Viewv;
+use Illuminate\View\View;
 
 class RestaurantController extends Controller
 {
-    /*
+    /**
      * view restaurant list
      */
     public function index()
@@ -23,7 +23,7 @@ class RestaurantController extends Controller
 
     /**
      * view restaurant by slug
-     * @return Factory|Viewv
+     * @return Factory|View
      */
     public function viewBySlug($slug)
     {
