@@ -15,4 +15,5 @@ public/asset
 *.log
 .idea
 .phpintel
+template/admin
 

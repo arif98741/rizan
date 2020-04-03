@@ -23,7 +23,7 @@ class AdminController extends Controller
         $data = [
 
         ];
-        return view('layout.admin.admin')->with($data);
+        return view('admin.dashboard')->with($data);
     }
 
     public function setting(Request $request)

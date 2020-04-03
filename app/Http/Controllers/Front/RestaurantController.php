@@ -10,7 +10,9 @@ use Illuminate\View\Viewv;
 
 class RestaurantController extends Controller
 {
-
+    /*
+     * view restaurant list
+     */
     public function index()
     {
         $data = [
@@ -28,7 +30,6 @@ class RestaurantController extends Controller
         $data = [
             'restaurant'   => Restaurant::with(['restaurant_category'])->where('slug',$slug)->firstOrFail()
         ];
-
         return view('front.restaurant.single_restaurant')->with($data);
     }
 
