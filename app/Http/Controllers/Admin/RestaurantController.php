@@ -44,9 +44,11 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         $restaurantData = $this->validateRequest();
-        echo '<pre>';
-        print_r($restaurantData);
-        exit;
+        if (Restaurant::create($restaurantData)) {
+
+        } else {
+
+        }
     }
 
 

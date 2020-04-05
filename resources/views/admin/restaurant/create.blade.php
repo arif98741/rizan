@@ -1,6 +1,7 @@
 @extends('layout.admin.admin')
 @section('title','Add Restaurant')
 @section('content')
+
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">

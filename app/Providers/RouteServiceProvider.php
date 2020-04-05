@@ -62,8 +62,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAdminRoutes()
     {
+        //TODO:: this middleware security should be removed in future
         Route::group([
-            'middleware' => ['web', 'admin', 'auth:admin'],
+           // 'middleware' => ['web', 'admin', 'auth:admin'],
             'prefix' => 'admin',
             'as' => 'admin.',
             'namespace' => $this->namespace,

@@ -44,15 +44,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
+                                @foreach($restaurants as $key=> $restaurant)
+                                    <tr>
+                                        <td>{{ ++$key }}</td>
+                                        <td>{{ $restaurant->name }}</td>
+                                        <td>{{ $restaurant->restaurant_category->category_name }}</td>
+
+                                        <td>{{ $restaurant->location }}</td>
+                                        <td>{{ $restaurant->email }}</td>
+                                        <td>X</td>
+                                        <td>X</td>
+                                    </tr>
+                                @endforeach
 
                                 </tbody>
                                 <tfoot>
@@ -80,4 +83,26 @@
         </section>
         <!-- /.content -->
     </div>
+
+    @push('extra-css')
+        <link rel="stylesheet" href="{{ asset('asset/back/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
+    @endpush
+
+    @push('extra-js')
+        <script src="{{ asset('asset/back/plugins/datatables/jquery.dataTables.js')}}"></script>
+        <script src="{{ asset('asset/back/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+        <script>
+            $(function () {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                });
+            });
+        </script>
+    @endpush
 @endsection

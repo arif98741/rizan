@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('asset/back/plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    @stack('extra-css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -83,12 +84,12 @@
 @include('layout.admin.lib.sidebar')
 
 <!-- Content Wrapper. Contains page content -->
-    @yield('content')
-    <!-- /.content-wrapper -->
-    @include('layout.admin.lib.footer')
+@yield('content')
+<!-- /.content-wrapper -->
+@include('layout.admin.lib.footer')
 
 
-    <!-- /.control-sidebar -->
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -122,6 +123,7 @@
 <script src="{{ asset('asset/back/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('asset/back/dist/js/adminlte.js')}}"></script>
+@stack('extra-js')
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('asset/back/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
