@@ -16,6 +16,7 @@ $factory->define(Restaurant::class, function (Faker $faker) {
         'location' => $faker->city,
         'restaurant_category_id' => \App\Models\RestaurantCategory::all()->random(),
         'email'=> $faker->unique()->safeEmail,
+        'contact'=> $faker->numberBetween(111111111,9999999999),
         'password' => \Illuminate\Support\Facades\Hash::make('123'),
         'feature_photo' => $faker->text(50).$faker->randomElement(['.jpg','.jpeg']),
         'cover_photo' => $faker->text(50).$faker->randomElement(['.jpg','.jpeg']),

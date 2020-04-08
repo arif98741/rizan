@@ -18,7 +18,7 @@ class RedirectIfNotRestaurant
 	public function handle($request, Closure $next, $guard = 'restaurant')
 	{
 	    if (!Auth::guard($guard)->check()) {
-	        return redirect('restaurant/login');
+	        return redirect('/');
 	    }
 
 	    return $next($request);

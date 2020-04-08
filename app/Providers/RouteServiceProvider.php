@@ -64,7 +64,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         //TODO:: this middleware security should be removed in future
         Route::group([
-           // 'middleware' => ['web', 'admin', 'auth:admin'],
+            'middleware' => ['web', 'admin', 'auth:admin'],
             'prefix' => 'admin',
             'as' => 'admin.',
             'namespace' => $this->namespace,
@@ -102,8 +102,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
     /**
@@ -116,8 +116,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
     }
 }

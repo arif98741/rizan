@@ -12,7 +12,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Restaurant list</li>
                         </ol>
                     </div><!-- /.col -->
@@ -41,35 +41,26 @@
                                 <tr>
                                     <th>Serial</th>
                                     <th>Name</th>
-                                    <th>Category</th>
-                                    <th>Location</th>
-                                    <th>Email</th>
-                                    <th>Photo</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($restaurants as $key=> $restaurant)
+                                @foreach($restaurant_categories as $key=> $restaurant_category)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $restaurant->name }}</td>
-                                        <td>{{ $restaurant->restaurant_category->category_name }}</td>
-
-                                        <td>{{ $restaurant->location }}</td>
-                                        <td>{{ $restaurant->email }}</td>
-                                        <td>X</td>
+                                        <td>{{ $restaurant_category->category_name }}</td>
                                         <td>
-                                            <a href="{{ route('admin.restaurant.edit',$restaurant->id) }}"
+                                            <a href="{{ route('admin.restaurant_category.edit',$restaurant_category->id) }}"
                                                class="btn btn-sm btn-primary">Edit</a>
                                             <a class="btn btn-warning btn-sm"
-                                               href="{{ route('admin.restaurant.destroy',$restaurant->id) }}"
+                                               href="{{ route('admin.restaurant_category.destroy',$restaurant_category->id) }}"
                                                onclick="event.preventDefault();
-                                                   document.getElementById('vendor-delete-form{{ $restaurant->id }}').submit();">
+                                                   document.getElementById('vendor-delete-form{{ $restaurant_category->id }}').submit();">
                                                 Delete
                                             </a>
-                                            <form id="vendor-delete-form{{ $restaurant->id }}"
+                                            <form id="vendor-delete-form{{ $restaurant_category->id }}"
                                                   onclick="return(confirm('are you sure to delete?'))"
-                                                  action="{{ route('admin.restaurant.destroy',$restaurant->id) }}"
+                                                  action="{{ route('admin.restaurant_category.destroy',$restaurant_category->id) }}"
                                                   method="post" style="display: none;">
                                                 {{ csrf_field() }} @method('DELETE')
                                             </form>
@@ -82,10 +73,6 @@
                                 <tr>
                                     <th>Serial</th>
                                     <th>Name</th>
-                                    <th>Category</th>
-                                    <th>Location</th>
-                                    <th>Email</th>
-                                    <th>Photo</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>

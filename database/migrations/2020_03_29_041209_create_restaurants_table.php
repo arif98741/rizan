@@ -13,7 +13,8 @@ class CreateRestaurantsTable extends Migration
             $table->string('slug');
             $table->string('location');
             $table->unsignedBigInteger('restaurant_category_id')->nullable();
-            $table->string('email')->unique();
+            $table->string('email',100)->unique();
+            $table->string('contact',20)->unique();
             $table->string('password');
             $table->string('feature_photo');
             $table->string('cover_photo');

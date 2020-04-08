@@ -14,7 +14,7 @@
                     @foreach($restaurants as $restaurant)
                         <div class="col-sm-6 item-each">
                             <a href="{{ url('restaurant/'.$restaurant->slug) }}">
-                                <img class="img-fluid" src="{{ asset('asset/front/img/food-img1.png')}}" alt="">
+                                <img class="img-fluid" src="{{ asset('storage/uploads/restaurant/feature/'.$restaurant->feature_photo)}}" alt="">
                                 <div class="title">
                                     <div class="title-left">
                                         <h4>{{ $restaurant->name }}</h4>

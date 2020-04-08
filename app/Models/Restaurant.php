@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use App\Notifications\CompanyResetPassword;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Restaurant extends Authenticatable
 {
     use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'slug', 'location','restaurant_category_id',
+        'contact', 'feature_photo', 'cover_photo', 'website', 'facebook', 'instagram'
     ];
 
     protected $hidden = [

@@ -9,8 +9,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('asset/back/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
-    <!-- Tempusdominus Bbootstrap 4 -->
+{{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">--}}
+<!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet"
           href="{{ asset('asset/back/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
@@ -26,7 +26,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('asset/back/plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {{--    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">--}}
     @stack('extra-css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -102,20 +102,20 @@
     $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('asset/back/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('asset/back/plugins/chart.js/Chart.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('asset/back/plugins/sparklines/sparkline.js')}}"></script>
-<!-- JQVMap -->
-<script src="{{ asset('asset/back/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{ asset('asset/back/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-<!-- jQuery Knob Chart -->
+{{--<script src="{{ asset('asset/back/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>--}}
+
+{{--<script src="{{ asset('asset/back/plugins/chart.js/Chart.min.js')}}"></script>--}}
+
+{{--<script src="{{ asset('asset/back/plugins/sparklines/sparkline.js')}}"></script>--}}
+
+{{--<script src="{{ asset('asset/back/plugins/jqvmap/jquery.vmap.min.js')}}"></script>--}}
+{{--<script src="{{ asset('asset/back/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>--}}
+
 <script src="{{ asset('asset/back/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
-<!-- daterangepicker -->
+
 <script src="{{ asset('asset/back/plugins/moment/moment.min.js')}}"></script>
 <script src="{{ asset('asset/back/plugins/daterangepicker/daterangepicker.js')}}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
+
 <script src="{{ asset('asset/back/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->
 <script src="{{ asset('asset/back/plugins/summernote/summernote-bs4.min.js')}}"></script>
@@ -128,5 +128,13 @@
 <script src="{{ asset('asset/back/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('asset/back/dist/js/demo.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('#message').slideUp(500);
+            $('.message').slideUp(500);
+        }, 4000);
+    });
+</script>
 </body>
 </html>
