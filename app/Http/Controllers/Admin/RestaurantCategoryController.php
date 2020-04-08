@@ -21,6 +21,7 @@ class RestaurantCategoryController extends Controller
      */
     public function index()
     {
+        //TODO:: this should be removed and modified
         $data = [
             'restaurant_categories' => RestaurantCategory::orderBy('category_name')->get()
         ];
