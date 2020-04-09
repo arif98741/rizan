@@ -35,10 +35,36 @@
                     </a>
 
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-folder"></i>
+                        <p>
+                            Food
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.food.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Food List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.food.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Food</p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+                </li>
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-university"></i>
+                        <i class="nav-icon fas fa-folder"></i>
                         <p>
                             Restaurant
                             <i class="fas fa-angle-left right"></i>
@@ -65,7 +91,7 @@
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-university"></i>
+                        <i class="nav-icon fas fa-folder"></i>
                         <p>
                             Restaurant Category
                             <i class="fas fa-angle-left right"></i>

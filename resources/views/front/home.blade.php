@@ -14,7 +14,9 @@
                     @foreach($restaurants as $restaurant)
                         <div class="col-sm-6 item-each">
                             <a href="{{ url('restaurant/'.$restaurant->slug) }}">
-                                <img class="img-fluid" src="{{ asset('storage/uploads/restaurant/feature/'.$restaurant->feature_photo)}}" alt="">
+                                <img class="img-fluid"
+                                     src="{{ asset('storage/uploads/restaurant/feature/'.$restaurant->feature_photo)}}"
+                                     alt="">
                                 <div class="title">
                                     <div class="title-left">
                                         <h4>{{ $restaurant->name }}</h4>
@@ -52,112 +54,27 @@
             <h1 class="headline">Popular Foods</h1>
             <div class="popular-food-container">
 
-                <div class="row">
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img-3.jpg')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p class="res-avl">Available on <span>Grandiose restaurant</span></p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img-4.jpg')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p class="res-avl">Available on <span>Grandiose restaurant</span></p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img-3.jpg')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p class="res-avl">Available on <span>Grandiose restaurant</span></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
 
                 <div class="row">
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img-3.jpg')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
+                    @foreach($foods as $food)
+                        <div class="col-sm-4 item-each">
+                            <a href="./single-food.html">
+                                <img class="img-fluid" src="{{ asset('storage/uploads/food/feature/'.$food->feature_photo)}}" alt="">
+                                <div class="title">
+                                    <h5 class="name">{{ $food->name }}</h5>
+                                    <p class="price">BDT {{ $food->price }}</p>
+                                    <div class="review-icon">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <p class="res-avl">Available on <span>{{ $food->restaurant->name }}</span></p>
                                 </div>
-                                <p class="res-avl">Available on <span>Grandiose restaurant</span></p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img-4.jpg')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p class="res-avl">Available on <span>Grandiose restaurant</span></p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img-3.jpg')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <p class="res-avl">Available on <span>Grandiose restaurant</span></p>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

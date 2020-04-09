@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+//TODO:: redirect to admin login
 Route::get('/admin',function (){
     return redirect('admin/login');
 });
 
+
+//TODO:: redirect to restaurant login
 Route::get('/restaurant',function (){
     return redirect('restaurant/login');
 });

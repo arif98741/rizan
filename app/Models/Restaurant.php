@@ -29,4 +29,11 @@ class Restaurant extends Authenticatable
     {
         return $this->belongsTo(RestaurantCategory::class);
     }
+
+    public function foods()
+    {
+        return $this->hasMany(Food::class);
+    }
+
+
 }

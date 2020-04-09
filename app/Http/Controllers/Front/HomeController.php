@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $data = [
-            'foods' => Food::all(),
+            'foods' => Food::with('restaurant')->orderBy('id')->get(),
             'restaurants' => Restaurant::with(['restaurant_category'])->get()
         ];
 

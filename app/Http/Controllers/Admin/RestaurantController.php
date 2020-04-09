@@ -24,7 +24,7 @@ class RestaurantController extends Controller
     public function index()
     {
         $data = [
-            'restaurants' => Restaurant::with(['restaurant_category'])->paginate(9)
+            'restaurants' => Restaurant::with(['restaurant_category'])->get()
         ];
         return view('admin.restaurant.index')->with($data);
     }
