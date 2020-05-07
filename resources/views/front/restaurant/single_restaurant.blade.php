@@ -2,7 +2,8 @@
 @section('title', $restaurant->name)
 @section('content')
     <!-- hero start -->
-    <section class="hero-single-res">
+    <section class="hero-single-res"
+             style="background: url({{ asset('storage/uploads/restaurant/cover/'.$restaurant->cover_photo) }}) no-repeat center center; background-size: cover">
         <div class="map-img">
             <iframe width="100%" height="100%"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.9356293358255!2d91.17984521449684!3d23.46278630562037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37547f2f94cda307%3A0x3bc945b2223044a6!2sBangla%20Restora!5e0!3m2!1sen!2sbd!4v1584889355342!5m2!1sen!2sbd"
@@ -33,19 +34,19 @@
             <div class="social-icon">
                 <ul>
                     <li>
-                        <a href="{{ $restaurant->facebook }}">
+                        <a href="http://{{ $restaurant->facebook }}" target="_blank">
                             <i class="fab fa-facebook-square"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="{{ $restaurant->instagram }}">
+                        <a href="http://{{ $restaurant->instagram }}"  target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="{{ $restaurant->website }}">
+                        <a href="http://{{ $restaurant->website }}"  target="_blank">
                             <i class="fas fa-globe"></i>
                         </a>
                         </i>
@@ -62,90 +63,10 @@
             <h2 class="headline">Food Items</h2>
             <div class="menu-container">
 
-                <div class="row">
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img1.png')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img-2.jpg')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img1.png')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+
 
                 <div class="row">
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img-2.jpg')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-4 item-each">
-                        <a href="./single-food.html">
-                            <img class="img-fluid" src="{{ asset('asset/front/img/food-img1.png')}}" alt="">
-                            <div class="title">
-                                <h5 class="name">Sushi with salad</h5>
-                                <p class="price">BDT 290</p>
-                                <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+
                     <div class="col-sm-4 item-each">
                         <a href="./single-food.html">
                             <img class="img-fluid" src="{{ asset('asset/front/img/food-img-2.jpg')}}" alt="">

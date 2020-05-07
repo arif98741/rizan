@@ -11,7 +11,6 @@ use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-
     /**
      * home page for showing
      * @param Request $request
@@ -26,6 +25,4 @@ class HomeController extends Controller
 
         return view('front.home')->with($data);
     }
-
-
 }

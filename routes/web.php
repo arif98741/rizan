@@ -34,7 +34,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
     Route::get('/password/reset/{token}', 'Admin\Auth\ResetPasswordController@showResetForm');
 });
-
 Route::group(['prefix' => 'restaurant'], function () {
     Route::get('/login', 'Restaurant\Auth\LoginController@showLoginForm')->name('login');
     Route::post('/login', 'Restaurant\Auth\LoginController@login');

@@ -362,7 +362,7 @@ a {
  .input-group {
   margin: 8px 0;
 }
-.navigation-with-search .hidden-search-bar 
+.navigation-with-search .hidden-search-bar
   .srch-btn {
   padding: 10px 30px;
   cursor: pointer;
@@ -378,7 +378,7 @@ a {
 
 /* hero single-restaurant part*/
 .hero-single-res {
-  background: url('../img/restaurant-bg.png') center center;
+  /*background: url('../img/restaurant-bg.png') center center;*/
   height: 70vh;
   color: #fff;
   position: relative;
@@ -725,7 +725,7 @@ a {
 .single-place-desc .location i {
   margin-right: 2px;
 }
-.single-place-desc .what-see-heading, 
+.single-place-desc .what-see-heading,
 .single-place-desc .how-goto-heading {
   margin-top: 2rem;
   font-weight: 600;
@@ -1567,7 +1567,7 @@ a {
     font-size: 35px;
     margin-left: 1rem;
    }
-  .popular-res-home .headline, 
+  .popular-res-home .headline,
   .popular-food-home .headline {
   font-size: 30px;
   text-align: center;

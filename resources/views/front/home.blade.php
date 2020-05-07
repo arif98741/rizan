@@ -59,7 +59,7 @@
                     @foreach($foods as $food)
                         <div class="col-sm-4 item-each">
                             <a href="./single-food.html">
-                                <img class="img-fluid" src="{{ asset('storage/uploads/food/feature/'.$food->feature_photo)}}" alt="">
+                                <img style="width: 100%;" class="img-fluid" src="{{ asset('storage/uploads/food/feature/'.$food->feature_photo)}}" alt="">
                                 <div class="title">
                                     <h5 class="name">{{ $food->name }}</h5>
                                     <p class="price">BDT {{ $food->price }}</p>
