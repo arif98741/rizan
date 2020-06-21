@@ -55,13 +55,13 @@ class RestaurantController extends Controller
         $restaurantData['password'] = Hash::make($restaurantData['password']);
         $restaurantData['slug'] = Str::slug($restaurantData['name']);
         if (!empty($request->file('feature_photo'))) {
-            $image = HelperController::imageUpload($request,'feature_photo', 'restaurant/feature');
+            $image = HelperController::imageUpload($request, 'feature_photo', 'restaurant/', 480, 240);
             $restaurantData['feature_photo'] = $image['file_name'];
         }
 
         if (!empty($request->file('cover_photo'))) {
-            $image = HelperController::imageUpload($request,'cover_photo', 'restaurant/cover');
-            $restaurantData['cover_photo'] = $image['file_name'];
+           // $image = HelperController::imageUpload($request, 'cover_photo', 'restaurant/cover/');
+            //$restaurantData['cover_photo'] = $image['file_name'];
         }
 
         $restaurantData['slug'] = Str::slug($restaurantData['name']);

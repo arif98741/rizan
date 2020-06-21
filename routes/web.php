@@ -3,13 +3,13 @@
 use Illuminate\Support\Facades\Route;
 
 //TODO:: redirect to admin login
-Route::get('/admin',function (){
+Route::get('/admin', function () {
     return redirect('admin/login');
 });
 
 
 //TODO:: redirect to restaurant login
-Route::get('/restaurant',function (){
+Route::get('/restaurant', function () {
     return redirect('restaurant/login');
 });
 
@@ -18,6 +18,8 @@ Route::namespace('Front')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/restaurants', 'RestaurantController@index');
     Route::get('/restaurant/{slug}', 'RestaurantController@viewBySlug');
+    Route::get('/places/', 'PlaceController@index');
+    Route::get('/place/{slug}', 'PlaceController@viewBySlug');
 
 });
 

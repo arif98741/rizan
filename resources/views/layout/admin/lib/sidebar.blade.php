@@ -4,7 +4,7 @@
         <img src="{{ asset('asset/back/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 35</span>
+        <span class="brand-text font-weight-light">Admin Dashboard</span>
     </a>
 
     <!-- Sidebar -->
@@ -16,7 +16,7 @@
                      alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Administrator</a>
             </div>
         </div>
 
@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-folder"></i>
+                        <i class="nav-icon fas fa-clock"></i>
                         <p>
                             Food
                             <i class="fas fa-angle-left right"></i>
@@ -64,7 +64,7 @@
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-folder"></i>
+                        <i class="nav-icon fas fa-university"></i>
                         <p>
                             Restaurant
                             <i class="fas fa-angle-left right"></i>
@@ -111,6 +111,31 @@
                             </a>
                         </li>
 
+
+                    </ul>
+
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-place-of-worship"></i>
+                        <p>
+                            Place
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.place.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Place List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.place.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Place</p>
+                            </a>
+                        </li>
 
                     </ul>
 

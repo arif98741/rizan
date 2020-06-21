@@ -21,7 +21,7 @@
                         <a class="nav-link" href="./all-food.html">Foods</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./all-places.html">Blogs</a>
+                        <a class="nav-link" href="{{ url('/places') }}">Blogs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./about-us.html">About us</a>

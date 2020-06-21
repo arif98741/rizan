@@ -12,8 +12,6 @@ use App\Models\Subscriber;
 use App\Models\Subscription;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
 use Session;
 
 class AdminController extends Controller

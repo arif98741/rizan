@@ -35,7 +35,8 @@
                                 <h3 class="card-title">Add Restaurant</h3>
                             </div>
 
-                            <form role="form" action="{{ route('admin.restaurant.store') }}" method="post" enctype="multipart/form-data">
+                            <form role="form" action="{{ route('admin.restaurant.store') }}" method="post"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 @method('post')
                                 <div class="row">
@@ -43,7 +44,8 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Restaurant Name</label>
-                                                <input type="texxt" name="name" value="{{ old('name') }}" class="form-control"
+                                                <input type="texxt" name="name" value="{{ old('name') }}"
+                                                       class="form-control"
                                                        id="name"
                                                        placeholder="Enter restaurant name">
 
@@ -60,7 +62,8 @@
                                                     @foreach($restaurant_categories as $restaurant_category)
 
                                                         <option
-                                                            value="{{ $restaurant_category->id }}" @if(!empty(old('restaurant_category_id'))  && old('restaurant_category_id') == $restaurant_category->id) selected="" @endif>{{ $restaurant_category->category_name }}</option>
+                                                            value="{{ $restaurant_category->id }}"
+                                                            @if(!empty(old('restaurant_category_id'))  && old('restaurant_category_id') == $restaurant_category->id) selected="" @endif>{{ $restaurant_category->category_name }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('restaurant_category_id')
@@ -72,7 +75,8 @@
 
                                             <div class="form-group">
                                                 <label for="location">Location</label>
-                                                <input type="text" name="location" value="{{ old('location') }}" class="form-control" id="address"
+                                                <input type="text" name="location" value="{{ old('location') }}"
+                                                       class="form-control" id="address"
                                                        placeholder="Enter address ">
                                                 @error('location')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -81,7 +85,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="slug">Slug</label>
-                                                <input type="text" name="slug" value="{{ old('slug') }}" class="form-control" id="slug"
+                                                <input type="text" name="slug" value="{{ old('slug') }}"
+                                                       class="form-control" id="slug"
                                                        placeholder="Slug address" readonly>
                                                 @error('slug')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -90,7 +95,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="website">Facebook URL</label>
-                                                <input type="text" name="facebook" value="{{ old('facebook') }}" class="form-control" id="facebook"
+                                                <input type="text" name="facebook" value="{{ old('facebook') }}"
+                                                       class="form-control" id="facebook"
                                                        placeholder="Enter facebook here">
                                                 @error('facebook')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -99,7 +105,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="instagram">Instagram</label>
-                                                <input type="text" name="instagram" value="{{ old('instagram') }}" class="form-control" id="instagram"
+                                                <input type="text" name="instagram" value="{{ old('instagram') }}"
+                                                       class="form-control" id="instagram"
                                                        placeholder="Enter instagram address here">
                                                 @error('instagram')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -114,7 +121,8 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="text" name="email" value="{{ old('email') }}" class="form-control" id="email"
+                                                <input type="text" name="email" value="{{ old('email') }}"
+                                                       class="form-control" id="email"
                                                        placeholder="Enter email">
                                                 <p class="text-red mt-1" id="email-message"></p>
                                                 @error('email')
@@ -123,7 +131,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Contact Number</label>
-                                                <input type="text" name="contact" value="{{ old('contact') }}" class="form-control" id="contact"
+                                                <input type="text" name="contact" value="{{ old('contact') }}"
+                                                       class="form-control" id="contact"
                                                        placeholder="Enter contact number">
                                                 <p class="text-red mt-1" id="contact-message"></p>
                                                 @error('contact')
@@ -134,7 +143,7 @@
 
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" name="password"  class="form-control"
+                                                <input type="password" name="password" class="form-control"
                                                        id="password"
                                                        placeholder="Password">
                                                 @error('password')
@@ -143,7 +152,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="website">Website</label>
-                                                <input type="text" name="website" value="{{ old('website') }}" class="form-control" id="website"
+                                                <input type="text" name="website" value="{{ old('website') }}"
+                                                       class="form-control" id="website"
                                                        placeholder="Enter website address here">
                                                 @error('website')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -227,12 +237,11 @@
                                 'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
                             },
                             'success': function (response) {
-                               if(response.code == '200')
-                               {
-                                   $('#email-message').html('Email already exist. Please Use another');
-                               }else{
-                                   $('#email-message').html('');
-                               }
+                                if (response.code == '200') {
+                                    $('#email-message').html('Email already exist. Please Use another');
+                                } else {
+                                    $('#email-message').html('');
+                                }
                             }, error: function (e) {
                                 console.log(e);
                             }
@@ -258,10 +267,9 @@
                                 'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
                             },
                             'success': function (response) {
-                                if(response.code == '200')
-                                {
+                                if (response.code == '200') {
                                     $('#contact-message').html('Contact already exist. Please Use another');
-                                }else{
+                                } else {
                                     $('#contact-message').html('');
                                 }
                             }, error: function (e) {

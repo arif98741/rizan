@@ -1,12 +1,11 @@
 <?php
 
 use App\Models\Admin;
-
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Schema;
+use App\Models\Food;
+use App\Models\Place;
 use App\Models\Restaurant;
 use App\Models\RestaurantCategory;
-use App\Models\Food;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,5 +15,6 @@ class DatabaseSeeder extends Seeder
         factory(RestaurantCategory::class, 3)->create();
         factory(Restaurant::class, 5)->create();
         factory(Food::class, 3)->create();
+        factory(Place::class, 3)->create();
     }
 }

@@ -43,7 +43,6 @@ class FoodController extends Controller
         return view('admin.food.create')->with($data);
     }
 
-
     /**
      * save food data in database
      * @param Request $request
@@ -54,7 +53,7 @@ class FoodController extends Controller
         $foodData = $this->validateRequest();
         $foodData['slug'] = Str::slug($foodData['name']);
         if (!empty($request->file('feature_photo'))) {
-            $image = HelperController::imageUpload($request, 'feature_photo', 'food/feature');
+            $image = HelperController::imageUpload($request, 'feature_photo', 'food/');
             $foodData['feature_photo'] = $image['file_name'];
         }
 
