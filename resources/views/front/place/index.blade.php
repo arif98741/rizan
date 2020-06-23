@@ -1,5 +1,5 @@
 @extends('layout.front.front')
-@section('title','Restaurants')
+@section('title','Places')
 @section('content')
     <!-- hero start -->
     <section class="hero-all-place">

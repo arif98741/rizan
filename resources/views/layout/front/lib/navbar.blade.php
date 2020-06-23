@@ -18,7 +18,7 @@
                         <a class="nav-link" href="{{ url('/restaurants') }}">Restaurants</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./all-food.html">Foods</a>
+                        <a class="nav-link" href="{{ url('/foods') }}">Foods</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/places') }}">Blogs</a>

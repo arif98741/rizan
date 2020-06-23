@@ -2,27 +2,26 @@
 @section('title','Restaurants')
 @section('content')
     <!-- hero start -->
-    <section class="hero-all-restaurant">
-        <h2 class="all-restaurant-heading"><span>All Restaurants in Cumilla</span></h2>
+    <section class="hero-all-food">
+        <h2 class="all-food-heading"><span>All Available Foods</span></h2>
     </section>
+    <!-- hero end -->
 
-    <section class="menu-all-restaurant">
+    <!-- menu start -->
+    <section class="menu-all-food">
         <div class="menu-full">
             <div class="menu-container">
 
                 <div class="row">
-                    @foreach($restaurants as  $restaurant)
+                    @foreach($foods as $food)
                         <div class="col-sm-4 item-each">
-                            <a href="{{ url('restaurant/'.$restaurant->slug) }}">
-                                <img class="img-fluid"
-                                     src="{{ asset('storage/uploads/restaurant/thumbnail/'.$restaurant->feature_photo)}}"
-                                     alt="{{ $restaurant->name }} - {{ url('/') }}">
+                            <a href="{{ url('food/'.$food->restaurant->slug.'/'.$food->slug) }}">
+                                <img style="width: 100%;" class="img-fluid"
+                                     src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo)}}"
+                                     alt="{{ $food->name }} - {{ url('/') }}">
                                 <div class="title">
-                                    <h5 class="name">{{ $restaurant->name }}</h5>
-                                    <div class="location">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span>{{ $restaurant->location }}</span>
-                                    </div>
+                                    <h5 class="name">{{ $food->name }}</h5>
+                                    <p class="price">BDT {{ $food->price }}</p>
                                     <div class="review-icon">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star"></i>
@@ -30,6 +29,7 @@
                                         <i class="fas fa-star"></i>
                                         <i class="far fa-star"></i>
                                     </div>
+                                    <p class="res-avl">Available on <span>{{ $food->restaurant->name }}</span></p>
                                 </div>
                             </a>
                         </div>
@@ -40,17 +40,17 @@
 
             </div>
         </div>
+
         <div class="row">
             <div class="offset-md-5 ">
 
             </div>
             <div class="col-md-4">
                 <nav aria-label="Page navigation example pull-right">
-                    {{ $restaurants->links() }}
+                    {{ $foods->links() }}
                 </nav>
             </div>
         </div>
     </section>
-    <!-- menu end -->
 
 @endsection

@@ -13,6 +13,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Image;
 use Session;
 
 class RestaurantController extends Controller
@@ -50,7 +51,6 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-
         $restaurantData = $this->validateRequest();
         $restaurantData['password'] = Hash::make($restaurantData['password']);
         $restaurantData['slug'] = Str::slug($restaurantData['name']);
@@ -59,9 +59,18 @@ class RestaurantController extends Controller
             $restaurantData['feature_photo'] = $image['file_name'];
         }
 
-        if (!empty($request->file('cover_photo'))) {
-           // $image = HelperController::imageUpload($request, 'cover_photo', 'restaurant/cover/');
-            //$restaurantData['cover_photo'] = $image['file_name'];
+        /**
+         * upload cover photo
+         * dir HelperController::baseDir . 'restaurant/cover/';
+         */
+        if (!empty($file = $request->file('cover_photo'))) {
+            $extension = $file->getClientOriginalExtension();
+            $ImageUpload = Image::make($file);
+            $originalPath = HelperController::baseDir . 'restaurant/cover/';
+            $fileName = time() . rand(11111111, 99999999) . '.' . $extension;
+            $coverPath = $originalPath . $fileName;
+            $ImageUpload->save($coverPath);
+            $restaurantData['cover_photo'] = $fileName;
         }
 
         $restaurantData['slug'] = Str::slug($restaurantData['name']);

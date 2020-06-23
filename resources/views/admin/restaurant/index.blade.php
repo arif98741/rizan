@@ -57,7 +57,10 @@
 
                                         <td>{{ $restaurant->location }}</td>
                                         <td>{{ $restaurant->email }}</td>
-                                        <td>X</td>
+                                        <td><img style="width:80px; height: 60px;"
+                                                 src="{{ asset('storage/uploads/restaurant/thumbnail/'.$restaurant->feature_photo) }}
+                                                     ">
+                                        </td>
                                         <td>
                                             <a href="{{ route('admin.restaurant.edit',$restaurant->id) }}"
                                                class="btn btn-sm btn-primary">Edit</a>
@@ -73,6 +76,9 @@
                                                   method="post" style="display: none;">
                                                 {{ csrf_field() }} @method('DELETE')
                                             </form>
+                                            <a class="btn btn-success btn-sm" target="1"
+                                               href="{{ url('restaurant/'.$restaurant->slug) }}"> View
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

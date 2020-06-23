@@ -15,8 +15,8 @@
                         <div class="col-sm-6 item-each">
                             <a href="{{ url('restaurant/'.$restaurant->slug) }}">
                                 <img class="img-fluid"
-                                     src="{{ asset('storage/uploads/restaurant/feature/'.$restaurant->feature_photo)}}"
-                                     alt="">
+                                     src="{{ asset('storage/uploads/restaurant/thumbnail/'.$restaurant->feature_photo)}}"
+                                     alt="{{ $restaurant->name }} - {{ url('/') }}">
                                 <div class="title">
                                     <div class="title-left">
                                         <h4>{{ $restaurant->name }}</h4>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button class="see-more-btn">See more</button>
+            <button onclick="window.location='{{ url('/restaurants') }}'" class="see-more-btn">See more</button>
         </div>
     </section>
     <!-- popular restaurant end -->
@@ -60,7 +60,8 @@
                         <div class="col-sm-4 item-each">
                             <a href="./single-food.html">
                                 <img style="width: 100%;" class="img-fluid"
-                                     src="{{ asset('storage/uploads/food/feature/'.$food->feature_photo)}}" alt="">
+                                     src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo)}}"
+                                     alt="{{ $food->name }} - {{ url('/') }}">
                                 <div class="title">
                                     <h5 class="name">{{ $food->name }}</h5>
                                     <p class="price">BDT {{ $food->price }}</p>
@@ -80,16 +81,13 @@
             </div>
         </div>
         <div class="text-center">
-            <button class="see-more-btn">See more</button>
+            <button onclick="window.location='{{ url('/foods') }}'" class="see-more-btn">See more</button>
         </div>
     </section>
     <!-- popular food end -->
     <script
-        src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-        crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    The integrity and crossorigin attribute
     <script>
         var x = 5;
         var y = 9;

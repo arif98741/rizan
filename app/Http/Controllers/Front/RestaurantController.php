@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Food;
 use App\Models\Restaurant;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\View\View;
 
 class RestaurantController extends Controller
 {
@@ -16,8 +15,9 @@ class RestaurantController extends Controller
     public function index()
     {
         $data = [
-            'restaurants' => Restaurant::with(['restaurant_category'])->paginate(9)
+            'restaurants' => Restaurant::with(['restaurant_category'])->paginate(1)
         ];
+
         return view('front.restaurant.index')->with($data);
     }
 
@@ -30,7 +30,10 @@ class RestaurantController extends Controller
     {
         $data = [
             'foods' => Food::with('restaurant')
-            ->get(),
+                ->whereHas('restaurant', function ($query) use ($slug) {
+                    $query->where('slug', $slug);
+                })
+                ->paginate(9),
             'restaurant' => Restaurant::with(['restaurant_category'])->where('slug', $slug)->firstOrFail()
         ];
         return view('front.restaurant.single_restaurant')->with($data);
