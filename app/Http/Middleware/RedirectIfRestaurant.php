@@ -18,7 +18,7 @@ class RedirectIfRestaurant
 	public function handle($request, Closure $next, $guard = 'restaurant')
 	{
 	    if (Auth::guard($guard)->check()) {
-	        return redirect('restaurant/dashboard');
+	        return redirect('restaurant/home');
 	    }
 
 	    return $next($request);

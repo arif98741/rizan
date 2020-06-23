@@ -2,42 +2,40 @@
 
 namespace App\Models;
 
-use App\Notifications\CompanyResetPassword;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\RestaurantResetPassword;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Restaurant extends Authenticatable
 {
     use Notifiable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'name', 'email', 'password', 'slug', 'location','restaurant_category_id',
-        'contact', 'feature_photo', 'cover_photo', 'website', 'facebook', 'instagram'
+        'name', 'email', 'password',
     ];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $hidden = [
         'password', 'remember_token',
     ];
+
     /**
-     * @var mixed
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
      */
-    private $feature_photo;
-
-
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new CompanyResetPassword($token));
+        $this->notify(new RestaurantResetPassword($token));
     }
-
-    public function restaurant_category()
-    {
-        return $this->belongsTo(RestaurantCategory::class);
-    }
-
-    public function foods()
-    {
-        return $this->hasMany(Food::class);
-    }
-
-
 }
