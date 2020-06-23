@@ -9,7 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-public
+public/storage
 *.zip
 *.iml
 *.log
