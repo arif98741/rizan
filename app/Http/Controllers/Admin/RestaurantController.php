@@ -29,6 +29,7 @@ class RestaurantController extends Controller
         $data = [
             'restaurants' => Restaurant::with(['restaurant_category'])->get()
         ];
+
         return view('admin.restaurant.index')->with($data);
     }
 
@@ -54,6 +55,7 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         $restaurantData = $this->validateRequest();
+
         $restaurantData['password'] = Hash::make($restaurantData['password']);
         $restaurantData['slug'] = Str::slug($restaurantData['name']);
         if (!empty($request->file('feature_photo'))) {
@@ -117,13 +119,11 @@ class RestaurantController extends Controller
         if (!empty($request->file('feature_photo'))) {
 
             //TODO:: file delete problem
-            if (file_exists(public_path('/uploads/restaurant/feature/'.$restaurant->feature_photo))) {
+            if (file_exists(public_path('/uploads/restaurant/feature/' . $restaurant->feature_photo))) {
                 dd('file esxists');
             } else {
                 dd('no file found');
             }
-
-
 
             $image = HelperController::imageUpload($request, 'feature_photo', 'restaurant/');
             $restaurantData['feature_photo'] = $image['file_name'];

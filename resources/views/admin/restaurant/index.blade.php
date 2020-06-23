@@ -41,7 +41,6 @@
                                 <tr>
                                     <th>Serial</th>
                                     <th>Name</th>
-                                    <th>Category</th>
                                     <th>Location</th>
                                     <th>Email</th>
                                     <th>Photo</th>
@@ -53,8 +52,6 @@
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $restaurant->name }}</td>
-                                        <td>{{ $restaurant->restaurant_category->category_name }}</td>
-
                                         <td>{{ $restaurant->location }}</td>
                                         <td>{{ $restaurant->email }}</td>
                                         <td><img style="width:80px; height: 60px;"

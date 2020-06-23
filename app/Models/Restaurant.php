@@ -17,6 +17,8 @@ class Restaurant extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password',
+        'location','slug','contact',
+        'feature_photo','cover_photo'
     ];
 
     /**
@@ -37,5 +39,10 @@ class Restaurant extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new RestaurantResetPassword($token));
+    }
+
+    public function restaurant_category()
+    {
+        return $this->belongsTo(RestaurantCategory::class)->withDefault();
     }
 }
