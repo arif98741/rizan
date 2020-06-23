@@ -7,6 +7,7 @@ Route::namespace('Admin')->group(function () {
     Route::resource('food', 'FoodController')->except('show');
     Route::resource('place', 'PlaceController')->except('show');
     Route::resource('page', 'PageController')->except('show');
+    Route::resource('team_member', 'TeamMemberController')->except('show');
     Route::get('setting', 'AdminController@setting')->name('setting');
 
 });

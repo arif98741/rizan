@@ -16,9 +16,9 @@ class PageController extends Controller
     public function viewBySlug($slug)
     {
         $data = [
-            'place' => Page::where('slug', $slug)->firstOrFail()
+            'page' => Page::where('slug', $slug)->firstOrFail()
         ];
-        return view('front.place.single_page')->with($data);
+        return view('front.page.single_page')->with($data);
     }
 
 

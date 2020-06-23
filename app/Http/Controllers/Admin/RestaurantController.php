@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HelperController;
 use App\Models\Restaurant;
 use App\Models\RestaurantCategory;
+use File;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Image;
 use Session;
+
 
 class RestaurantController extends Controller
 {
@@ -111,6 +113,22 @@ class RestaurantController extends Controller
     public function update(Request $request, Restaurant $restaurant)
     {
         $updateValidationData = $this->updateValidateRequest($restaurant->id);
+
+        if (!empty($request->file('feature_photo'))) {
+
+            //TODO:: file delete problem
+            if (file_exists(public_path('/uploads/restaurant/feature/'.$restaurant->feature_photo))) {
+                dd('file esxists');
+            } else {
+                dd('no file found');
+            }
+
+
+
+            $image = HelperController::imageUpload($request, 'feature_photo', 'restaurant/');
+            $restaurantData['feature_photo'] = $image['file_name'];
+
+        }
         if (!empty($request->password)) //if pass is not blank
         {
             $updateValidationData['password'] = Hash::make($request->password);

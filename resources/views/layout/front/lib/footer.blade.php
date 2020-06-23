@@ -4,8 +4,8 @@
             <div class="col-sm-4 footer-each">
                 <h5>Know Us</h5>
                 <ul class="un-list">
-                    <li class=""><a href="./about-us.html">About Us</a></li>
-                    <li class=""><a href="./terms-condition.html">Terms & Conditions</a></li>
+                    <li class=""><a href="{{ url('page/about-us') }}">About Us</a></li>
+                    <li class=""><a href="{{ url('page/terms-and-conditions') }}">Terms & Conditions</a></li>
                     <li class=""><a href="./team-members.html">Team Members</a></li>
                 </ul>
             </div>

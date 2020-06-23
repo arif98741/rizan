@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('pages')->insert([
             ['page_title' => 'About Us', 'slug' => 'about-us', 'description' => 'test', 'object_description' => 'test'],
-            ['page_title' => 'Terms and Conditions', 'slug' => 'terms-and-conditions', 'description' => 'test']
+            ['page_title' => 'Terms and Conditions', 'slug' => 'terms-and-conditions', 'description' => 'test', 'object_description' => 'test']
         ]);
     }
 }

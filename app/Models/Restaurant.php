@@ -18,6 +18,10 @@ class Restaurant extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * @var mixed
+     */
+    private $feature_photo;
 
 
     public function sendPasswordResetNotification($token)

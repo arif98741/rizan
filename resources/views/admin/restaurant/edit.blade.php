@@ -35,7 +35,7 @@
                                 <h3 class="card-title">Edit Restaurant</h3>
                             </div>
 
-                            <form role="form" action="{{ route('admin.restaurant.update',$restaurant->id) }}" method="post">
+                            <form role="form" action="{{ route('admin.restaurant.update',$restaurant->id) }}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 @method('put')
                                 <div class="row">

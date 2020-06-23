@@ -22,6 +22,8 @@ Route::namespace('Front')->group(function () {
     Route::get('/place/{slug}', 'PlaceController@viewBySlug');
     Route::get('/foods', 'FoodController@index');
     Route::get('/food/{restaurant}/{slug}', 'FoodController@viewBySlug');
+    Route::get('/page/{slug}', 'PageController@viewBySlug');
+
 });
 
 

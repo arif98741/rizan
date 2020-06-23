@@ -27,6 +27,7 @@ class HelperController
         $ImageUpload = Image::make($file);
         $originalPath = self::baseDir . $path . 'feature/';
         $fileName = time() . rand(11111111, 99999999) . '.' . $extension;
+
         $featurePath = $originalPath . $fileName;
         $ImageUpload->save($featurePath);
 
