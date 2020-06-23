@@ -6,7 +6,7 @@
                 <ul class="un-list">
                     <li class=""><a href="{{ url('page/about-us') }}">About Us</a></li>
                     <li class=""><a href="{{ url('page/terms-and-conditions') }}">Terms & Conditions</a></li>
-                    <li class=""><a href="./team-members.html">Team Members</a></li>
+                    <li class=""><a href="{{ url('/team-members') }}">Team Members</a></li>
                 </ul>
             </div>
             <div class="col-sm-4 footer-each">
