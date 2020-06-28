@@ -1,12 +1,12 @@
 <section class="res-admin">
     <nav class="navbar navbar-expand navbar-fixed-top navTop">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{ url('restaurant/dashboard') }}">
             Foods-Khujun
         </a>
         <button class="navbar-toggler" onclick="toggleHide()">
             <i class="fas fa-bars"></i>
         </button>
-        <a class="brndHide" href="index.html">
+        <a class="brndHide" href="{{ url('restaurant/dashboard') }}">
             Foods-Khujun
         </a>
         <ul class="navbar-nav ml-auto">

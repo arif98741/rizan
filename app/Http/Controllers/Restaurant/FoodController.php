@@ -131,6 +131,8 @@ class FoodController extends Controller
      */
     public function destroy(Food $food)
     {
+
+
         if ($food->delete()) {
             Session::flash('success', 'Food deleted successfully!');
             return redirect(route('admin.food.index'));
