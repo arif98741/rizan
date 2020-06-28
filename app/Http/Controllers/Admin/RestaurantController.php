@@ -29,7 +29,6 @@ class RestaurantController extends Controller
         $data = [
             'restaurants' => Restaurant::with(['restaurant_category'])->get()
         ];
-
         return view('admin.restaurant.index')->with($data);
     }
 
@@ -159,6 +158,34 @@ class RestaurantController extends Controller
             return redirect(route('admin.restaurant.create'));
         }
     }
+
+    /**
+     * Feature restaurant list
+     * @return Factory|View
+     */
+    public function feature()
+    {
+        $data = [
+            'restaurants' => Restaurant::with(['restaurant_category', 'feature_restaurant'])->get()
+        ];
+
+        return view('admin.restaurant.feature.index')->with($data);
+    }
+
+    /**
+     * Add Feature restaurant
+     * @return Factory|View
+     */
+    public function featureAdd()
+    {
+        $data = [
+            'restaurants' => Restaurant::orderBy('name','asc')->get()
+        ];
+        ddd($data);
+
+        return view('admin.restaurant.feature.add')->with($data);
+    }
+
 
     /**
      * validation data

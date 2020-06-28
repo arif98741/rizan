@@ -12,10 +12,19 @@
         <ul class="navbar-nav ml-auto">
 
             <li class="nav-item navIcon dropdown">
-                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user-alt"></i>
+
+
+                <a href="{{ url('/restaurant/logout') }}" class="nav-link"  data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"
+                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                    Logout
                 </a>
+
+                <form id="logout-form" action="{{ url('/restaurant/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+
                 <div class="dropdown-menu profileDrop" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Logout</a>
                 </div>

@@ -23,14 +23,6 @@ class CreateRestaurantsTable extends Migration
                 ->on('restaurant_categories')->onDelete('set null')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
-            /**
-             * name`, `slug`, `location`,
-             * `restaurant_category_id`,
-             * `email`, `contact`,
-             * `password`,
-             * `feature_photo`,
-             * `cover_photo`
-             */
         });
     }
 

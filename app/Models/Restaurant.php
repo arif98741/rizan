@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Notifications\RestaurantResetPassword;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Restaurant extends Authenticatable
 {
@@ -17,8 +17,9 @@ class Restaurant extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password',
-        'location','slug','contact',
-        'feature_photo','cover_photo'
+        'location', 'slug', 'contact',
+        'feature_photo', 'cover_photo',
+        'created_at', 'updated_at'
     ];
 
     /**
@@ -33,7 +34,7 @@ class Restaurant extends Authenticatable
     /**
      * Send the password reset notification.
      *
-     * @param  string  $token
+     * @param string $token
      * @return void
      */
     public function sendPasswordResetNotification($token)
@@ -45,4 +46,11 @@ class Restaurant extends Authenticatable
     {
         return $this->belongsTo(RestaurantCategory::class)->withDefault();
     }
+
+    public function feature_restaurant()
+    {
+        return $this->hasOne(FeatureRestaurant::class)->withDefault();
+    }
+
+
 }

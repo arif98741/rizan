@@ -5,10 +5,10 @@
         </div>
     </div>
     <div class="sideBottom">
-{{--        cchnages here--}}
+
         <ul>
             <li>
-                <a class="aActive" href="./add-item-admin.html" style="border-color: #1A237E">
+                <a class="aActive" href="{{ route('restaurant.food.create') }}" style="border-color: #1A237E">
                     <i class="fas fa-palette"></i>
                     <span>Add Food Item</span>
                 </a>

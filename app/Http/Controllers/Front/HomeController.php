@@ -7,6 +7,7 @@ use App\Models\Food;
 use App\Models\Restaurant;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class HomeController extends Controller

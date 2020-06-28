@@ -88,6 +88,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('admin.feature') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Feature Restaurant</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('admin.restaurant.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Restaurant</p>
