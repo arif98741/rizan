@@ -80,12 +80,18 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
+        if ($food->restaurant_id != $this->user()->id) {
+            Session::flash('error', 'You are not permitted to view this page');
+            return redirect(route('restaurant.food.index'));
+        }
+
+
         $data = [
             'food' => $food,
             'restaurants' => Restaurant::orderBy('name')->get()
         ];
 
-        return view('admin.food.edit')->with($data);
+        return view('restaurant.food.edit')->with($data);
     }
 
 
@@ -97,6 +103,10 @@ class FoodController extends Controller
      */
     public function update(Request $request, Food $food)
     {
+        if ($food->restaurant_id != $this->user()->id) {
+            Session::flash('error', 'You are not permitted to view this page');
+            return redirect(route('restaurant.food.index'));
+        }
 
         if (!empty($request->file('feature_photo'))) {
             //TODO: update feature photo
@@ -116,10 +126,10 @@ class FoodController extends Controller
         unset($validatedData['feature_photo']);
         if ($food->update($validatedData)) {
             Session::flash('success', 'Food Updated successfully!');
-            return redirect(route('admin.food.index'));
+            return redirect(route('restaurant.food.index'));
         } else {
             Session::flash('error', 'Failed to update food!');
-            return redirect(route('admin.food.create'));
+            return redirect(route('restaurant.food.create'));
         }
     }
 
@@ -131,14 +141,17 @@ class FoodController extends Controller
      */
     public function destroy(Food $food)
     {
-
+        if ($food->restaurant_id != $this->user()->id) {
+            Session::flash('error', 'You are not permitted to view this page');
+            return redirect(route('restaurant.food.index'));
+        }
 
         if ($food->delete()) {
             Session::flash('success', 'Food deleted successfully!');
-            return redirect(route('admin.food.index'));
+            return redirect(route('restaurant.food.index'));
         } else {
             Session::flash('error', 'Failed to delete food!');
-            return redirect(route('admin.food.index'));
+            return redirect(route('restaurant.food.index'));
         }
     }
 

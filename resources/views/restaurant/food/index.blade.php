@@ -16,7 +16,6 @@
                             <div class="card-header">
                                 <h3 class="card-title">Food list</h3>
                             </div>
-                            <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
@@ -43,17 +42,17 @@
                                                      src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo) }}">
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.food.edit',$food->id) }}"
+                                                <a href="{{ route('restaurant.food.edit',$food->id) }}"
                                                    class="btn btn-sm btn-primary">Edit</a>
                                                 <a class="btn btn-warning btn-sm"
-                                                   href="{{ route('admin.food.destroy',$food->id) }}"
+                                                   href="{{ route('restaurant.food.destroy',$food->id) }}"
                                                    onclick="event.preventDefault();
                                                        document.getElementById('vendor-delete-form{{ $food->id }}').submit();">
                                                     Delete
                                                 </a>
                                                 <form id="vendor-delete-form{{ $food->id }}"
                                                       onclick="return(confirm('are you sure to delete?'))"
-                                                      action="{{ route('admin.food.destroy',$food->id) }}"
+                                                      action="{{ route('restaurant.food.destroy',$food->id) }}"
                                                       method="post" style="display: none;">
                                                     {{ csrf_field() }} @method('DELETE')
                                                 </form>
