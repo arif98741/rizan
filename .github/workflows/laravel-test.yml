@@ -27,4 +27,4 @@ jobs:
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
-        run: composer update && composer clear:cache
+        run: composer update
