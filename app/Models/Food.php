@@ -14,4 +14,11 @@ class Food extends Model
     {
         return $this->belongsTo(Restaurant::class)->withDefault();
     }
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
+
+
 }

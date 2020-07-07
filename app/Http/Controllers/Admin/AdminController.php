@@ -3,14 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Claim;
-use App\Models\Notice;
-use App\Models\Researchwork;
+use App\Models\Food;
+use App\Models\Restaurant;
 use App\Models\Setting;
-use App\Models\Student;
-use App\Models\Subscriber;
-use App\Models\Subscription;
-use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Session;
 
@@ -18,9 +13,11 @@ class AdminController extends Controller
 {
     public function dashboard(Request $request)
     {
-        $data = [
-
+       $data = [
+           'total_restaurant' => Restaurant::all()->count(),
+           'total_food' => Food::all()->count(),
         ];
+
         return view('admin.dashboard')->with($data);
     }
 

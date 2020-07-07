@@ -52,5 +52,15 @@ class Restaurant extends Authenticatable
         return $this->hasOne(FeatureRestaurant::class)->withDefault();
     }
 
+    public function foods()
+    {
+        return $this->hasMany(Food::class);
+    }
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
+
 
 }

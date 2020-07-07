@@ -13,7 +13,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active"> <a href="{{ url('admin/restaurant/feature/add') }}"> Add Feature Restaurant</a></li>
+                            <li class="breadcrumb-item active"><a href="{{ url('admin/restaurant/feature/add') }}"> Add
+                                    Feature Restaurant</a></li>
                             <li class="breadcrumb-item active">Feature Restaurant list</li>
                         </ol>
                     </div><!-- /.col -->
@@ -75,7 +76,7 @@
                                                 {{ csrf_field() }} @method('DELETE')
                                             </form>
                                             <a class="btn btn-success btn-sm" target="1"
-                                               href="{{ url('restaurant/'.$restaurant->slug) }}"> View
+                                               href="{{ url('restaurant/view/'.$restaurant->slug) }}"> View
                                             </a>
                                         </td>
                                     </tr>

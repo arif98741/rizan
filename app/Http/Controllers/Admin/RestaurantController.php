@@ -181,8 +181,8 @@ class RestaurantController extends Controller
         $data = [
             'restaurants' => Restaurant::orderBy('name','asc')->get()
         ];
-        ddd($data);
 
+      //  return $data['restaurants'];
         return view('admin.restaurant.feature.add')->with($data);
     }
 

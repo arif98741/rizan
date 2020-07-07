@@ -24,5 +24,6 @@
 
 
 @include('layout.restaurant.lib.footer')
+@stack('extra-js')
 </body>
 </html>

@@ -28,7 +28,8 @@
 
 
                 <li class="nav-item has-treeview menu-open">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link active">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link @if(url()->current() == route('admin.dashboard')): active
+                    @endif ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -46,7 +47,8 @@
                 </li>
 
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link @if(url()->current() == route('admin.food.index')): active
+                    @endif ">
                         <i class="nav-icon fas fa-clock"></i>
                         <p>
                             Food
@@ -73,7 +75,8 @@
                 </li>
 
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link @if(url()->current() == route('admin.restaurant.index')): active
+                    @endif ">
                         <i class="nav-icon fas fa-university"></i>
                         <p>
                             Restaurant
@@ -106,7 +109,8 @@
                 </li>
 
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link @if(url()->current() == route('admin.restaurant_category.index')): active
+                    @endif">
                         <i class="nav-icon fas fa-folder"></i>
                         <p>
                             Restaurant Category
@@ -132,7 +136,8 @@
 
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link @if(url()->current() == route('admin.place.index')): active
+                    @endif">
                         <i class="nav-icon fas fa-place-of-worship"></i>
                         <p>
                             Place
@@ -157,7 +162,8 @@
 
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link @if(url()->current() == route('admin.team_member.index')): active
+                    @endif ">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Team Member
@@ -182,7 +188,8 @@
 
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link  @if(url()->current() == route('admin.page.index')): active
+                    @endif >
                         <i class="nav-icon fas fa-folder"></i>
                         <p>
                             Page
@@ -193,13 +200,13 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.page.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Place List</p>
+                                <p>Page List</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.page.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add Place</p>
+                                <p>Add Page</p>
                             </a>
                         </li>
 
