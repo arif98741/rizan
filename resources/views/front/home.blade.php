@@ -58,8 +58,8 @@
                 <div class="row">
                     @foreach($foods as $food)
                         <div class="col-sm-4 item-each">
-                            <a href="./single-food.html">
-                                <img style="width: 100%;" class="img-fluid"
+                            <a href="{{ url('food/'.$food->restaurant->slug.'/'.$food->slug) }}">
+                                <img src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo) }}" style="width: 100%;" class="img-fluid"
                                      Get New Account
                                      alt="{{ $food->name }} - {{ url('/') }}">
                                 <div class="title">

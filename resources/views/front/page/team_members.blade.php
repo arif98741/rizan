@@ -18,7 +18,7 @@
                                     <h5 class="name">{{ $team_member->name }}</h5>
                                     <p class="desg">{{ $team_member->designation }}</p>
                                     <div class="social-icon">
-                                        <a href="{{ $team_member->facebook }}">
+                                        <a href="https://{{ $team_member->facebook }}?ref{{ url('/') }}">
                                             <i class="fab fa-facebook-square"></i>
                                         </a>
                                         <a href="{{ $team_member->instagram }}">
