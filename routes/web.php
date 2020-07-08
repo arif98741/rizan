@@ -59,6 +59,8 @@ Route::namespace('Front')->group(function () {
     Route::get('/food/{restaurant}/{slug}', 'FoodController@viewBySlug');
     Route::get('/page/{slug}', 'PageController@viewBySlug');
     Route::get('/team-members', 'PageController@teamMembers');
+    Route::get('/offers', 'OfferController@index');
+
 
 });
 

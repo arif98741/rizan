@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="./offer.html">Offers <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url('/offers') }}">Offers <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/restaurants') }}">Restaurants</a>

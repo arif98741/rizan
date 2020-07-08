@@ -14,7 +14,7 @@
             <li class="nav-item navIcon dropdown">
 
 
-                <a href="{{ url('/restaurant/logout') }}" class="nav-link"  data-toggle="dropdown"
+                <a href="{{ url('/restaurant/logout') }}" class="nav-link" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false"
                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

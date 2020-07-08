@@ -13,9 +13,9 @@ class AdminController extends Controller
 {
     public function dashboard(Request $request)
     {
-       $data = [
-           'total_restaurant' => Restaurant::all()->count(),
-           'total_food' => Food::all()->count(),
+        $data = [
+            'total_restaurant' => Restaurant::all()->count(),
+            'total_food' => Food::all()->count(),
         ];
 
         return view('admin.dashboard')->with($data);

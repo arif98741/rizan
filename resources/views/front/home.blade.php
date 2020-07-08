@@ -60,7 +60,7 @@
                         <div class="col-sm-4 item-each">
                             <a href="./single-food.html">
                                 <img style="width: 100%;" class="img-fluid"
-                                     src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo)}}"
+                                     Get New Account
                                      alt="{{ $food->name }} - {{ url('/') }}">
                                 <div class="title">
                                     <h5 class="name">{{ $food->name }}</h5>

@@ -19,7 +19,7 @@
             <div class="col-sm-4 footer-each">
                 <h5>For Restaurant Owner</h5>
                 <ul class="un-list">
-                    <li class=""><a href="./res-admin-login.html">My Account</a></li>
+                    <li class=""><a href="{{ url('restaurant') }}">My Account</a></li>
                     <li class=""><a href="./get-new-account.html">Get New Account</a></li>
                 </ul>
             </div>
