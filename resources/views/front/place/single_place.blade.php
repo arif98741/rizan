@@ -38,5 +38,12 @@
             </div>
         </div>
     </section>
-    <!-- place description end -->
+    @push('extra-js')
+        <script>
+            $(document).ready(function () {
+                alert('hello');
+            });
+        </script>
+    @endpush
+
 @endsection

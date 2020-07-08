@@ -16,7 +16,9 @@
                              src="{{ asset('storage/uploads/food/thumbnail/'.$offer->food->feature_photo)}}" alt="">
                     </div>
                     <div class="col-sm-8 desc-part">
-                        <h5 class="food-name">{{ $offer->food->name }}</h5>
+                        <h5 class="food-name"><a
+                                href="{{ url('food/'.$offer->restaurant->slug.'/'.$offer->food->slug) }}">{{ $offer->food->name }}</a>
+                        </h5>
                         <span class="prev-price">BDT {{ $offer->food->price }}</span>
                         <span class="offer-price">BDT {{ $offer->offer_price }}</span>
                         <p class="offer-start mt-2">Offer Start: {{ date('d M Y',strtotime($offer->start_date)) }}</p>

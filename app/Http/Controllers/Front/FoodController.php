@@ -15,7 +15,7 @@ class FoodController extends Controller
     public function index()
     {
         $data = [
-            'foods' => Food::with('restaurant')->orderBy('id')->paginate(1),
+            'foods' => Food::with('restaurant')->orderBy('id')->paginate(9),
         ];
 
         return view('front.food.index')->with($data);

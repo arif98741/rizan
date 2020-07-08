@@ -53,6 +53,7 @@ Route::namespace('Front')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/restaurants', 'RestaurantController@index');
     Route::get('/restaurant/view/{slug}', 'RestaurantController@viewBySlug');
+    Route::match(['get', 'post'], '/restaurant/comment', 'RestaurantController@restaurant_comment');
     Route::get('/places/', 'PlaceController@index');
     Route::get('/place/{slug}', 'PlaceController@viewBySlug');
     Route::get('/foods', 'FoodController@index');

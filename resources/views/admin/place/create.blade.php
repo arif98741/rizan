@@ -1,7 +1,9 @@
 @extends('layout.admin.admin')
 @section('title','Add Place')
 @section('content')
-
+    <link href="{{ asset('asset/front/froala/froala_editor.min.css') }}">
+    <link href="{{ asset('asset/front/froala/froala_editor.pkgd.min.css') }}">
+    <link href="{{ asset('asset/front/froala/froala_style.min.css') }}">
     {{--    {{ dd($errors) }}--}}
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -116,7 +118,7 @@
                                             <div class="form-group">
                                                 <label for="location">এই ট্যুরে যা যা দেখবেন:
                                                 </label>
-                                                <textarea cols="4" rows="3" name="tourist_attractions"
+                                                <textarea id cols="4" rows="3" name="tourist_attractions"
                                                           class="form-control"
                                                           id="description"
                                                           placeholder="Enter tourist attractions"> {{ old('tourist_attractions') }}</textarea>
@@ -157,69 +159,18 @@
         <!-- /.content -->
     </div>
     @push('extra-js')
+        <script src="{{ asset('asset/front/froala/froala_editor.min.js') }}"></script>
+        <script src="{{ asset('asset/front/froala/plugins.pkgd.min.js') }}"></script>
+        <script src="{{ asset('asset/front/froala/froala_editor.pkgd.min.js') }}"></script>
+
 
         <script>
-            $(document).ready(function () {
-                /**
-                 * email check ins database
-                 */
-                $('#email').blur(function () {
-                    let email = $(this).val();
-                    if (email == '') {
-                        $('#email-message').html('Field must not be empty');
-                    } else {
-                        $.ajax({
-                            'url': '{{ url('api/restaurant/check_email') }}',
-                            'dataType': 'json',
-                            'method': 'post',
-                            'data': {
-                                'email': email,
-                                'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
-                            },
-                            'success': function (response) {
-                                if (response.code == '200') {
-                                    $('#email-message').html('Email already exist. Please Use another');
-                                } else {
-                                    $('#email-message').html('');
-                                }
-                            }, error: function (e) {
-                                console.log(e);
-                            }
-                        })
-                    }
+            /*(function () {
+                new FroalaEditor("#description")
+            })()
+            */
+            */
 
-                });
-
-                /**
-                 * contact check ins database
-                 */
-                $('#contact').blur(function () {
-                    let contact = $(this).val();
-                    if (contact == '') {
-                        $('#contact-message').html('Field must not be empty');
-                    } else {
-                        $.ajax({
-                            'url': '{{ url('api/restaurant/check_contact') }}',
-                            'dataType': 'json',
-                            'method': 'post',
-                            'data': {
-                                'contact': contact,
-                                'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
-                            },
-                            'success': function (response) {
-                                if (response.code == '200') {
-                                    $('#contact-message').html('Contact already exist. Please Use another');
-                                } else {
-                                    $('#contact-message').html('');
-                                }
-                            }, error: function (e) {
-                                console.log(e);
-                            }
-                        })
-                    }
-
-                });
-            });
         </script>
     @endpush
 @endsection

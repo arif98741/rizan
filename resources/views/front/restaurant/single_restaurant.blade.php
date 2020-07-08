@@ -107,19 +107,31 @@
     <section class="submit-review-single-res">
         <h2 class="headline">Submit a review</h2>
         <div class="review-container">
-            <form action="">
+            <form action="{{ url('restaurant/comment') }}" method="post">
+                @csrf
+                @method('post')
                 <div class="row">
                     <div class="col-sm-6">
-                        <input class="form-control" type="text" placeholder="Your name">
+                        <input name="name" class="form-control" type="text" placeholder="Your name">
+                        @error('name')
+                        <p class="text-red mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div class="col-sm-6">
-                        <input class="form-control" type="email" placeholder="Your Email">
+                        <input name="email" class="form-control" type="email" placeholder="Your Email">
+                        @error('email')
+                        <p class="text-red mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <textarea class="form-control" rows="5"
+                        <textarea name="comment" class="form-control" rows="5"
                                   placeholder="Your comment about this restaurant"></textarea>
+                        @error('comment')
+                        <p class="text-red mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="col-sm-6">
                         <div class="review-icon">
@@ -131,11 +143,14 @@
                         </div>
                     </div>
                 </div>
-            </form>
 
-            <div class="text-center">
-                <button class="review-btn">Submit</button>
-            </div>
+
+                <div class="text-center">
+                    <input name="restaurant_id" class="form-control" type="hidden" value="{{ $restaurant->id }}" placeholder="Restaurant id">
+
+                    <button type="submit" class="review-btn">Submit</button>
+                </div>
+            </form>
         </div>
     </section>
     <!-- submit review end -->

@@ -49,6 +49,7 @@
 
 <!-- custom js -->
 <script src="{{ asset('asset/front/js/script.js') }}"></script>
+@stack('extra-js')
 
 </body>
 </html>

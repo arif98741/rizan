@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
         $data = [
             'foods' => Food::with('restaurant')->orderBy('id')->get(),
-            'restaurants' => Restaurant::with(['restaurant_category'])->get()
+            'restaurants' => Restaurant::with(['restaurant_category'])->paginate(9)
         ];
 
         return view('front.home')->with($data);
