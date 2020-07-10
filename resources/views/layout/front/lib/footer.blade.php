@@ -1,3 +1,7 @@
+<?php
+$site = \Illuminate\Support\Facades\Cache::get('site_details');
+
+?>
 <section class="footer">
     <div class="footer-container">
         <div class="row">
@@ -12,15 +16,15 @@
             <div class="col-sm-4 footer-each">
                 <h5>Contact Us</h5>
                 <ul class="un-list">
-                    <li class=""> Phone: 01804001100</li>
-                    <li class=""> Email: mailname@gmail.com</li>
+                    <li class=""> Phone: {{ $site->contact }}</li>
+                    <li class=""> Email: {{ $site->email }}</li>
                 </ul>
             </div>
             <div class="col-sm-4 footer-each">
                 <h5>For Restaurant Owner</h5>
                 <ul class="un-list">
                     <li class=""><a href="{{ url('restaurant') }}">My Account</a></li>
-                    <li class=""><a href="./get-new-account.html">Get New Account</a></li>
+                    <li class=""><a href="#">Get New Account</a></li>
                 </ul>
             </div>
         </div>
@@ -34,7 +38,7 @@
                 </div>
             </div>
             <div class="col-sm-6 text-center">
-                <p>&copy; 2020 Foods-Khujun, All rights Reserved</p>
+                <p>&copy; {{ date('Y') }} Foods-Khujun, All rights Reserved</p>
             </div>
         </div>
 

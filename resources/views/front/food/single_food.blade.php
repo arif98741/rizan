@@ -30,21 +30,40 @@
     <!-- hero end -->
 
     <!-- submit review start -->
-    <section class="submit-review-single-food">
+    <section class="submit-review-single-res" id="review-message">
         <h2 class="headline">Submit a review</h2>
+
         <div class="review-container">
-            <form action="">
+            @if(Session::has('success'))
+                <p class="alert alert-success" id="message">{{ Session::get('success') }}</p>
+            @endif @if(Session::has('error'))
+                <p class="alert alert-warning" id="message">{{ Session::get('error') }}</p>
+            @endif
+            <form action="{{ url('food/comment') }}" method="post">
+                @csrf
+                @method('post')
                 <div class="row">
                     <div class="col-sm-6">
-                        <input class="form-control" type="text" placeholder="Your name">
+                        <input name="name" class="form-control" type="text" placeholder="Your name">
+                        @error('name')
+                        <p class="text-red mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div class="col-sm-6">
-                        <input class="form-control" type="email" placeholder="Your Email">
+                        <input name="email" class="form-control" type="email" placeholder="Your Email">
+                        @error('email')
+                        <p class="text-red mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <textarea class="form-control" rows="5" placeholder="Your comment about this food"></textarea>
+                        <textarea name="comment" class="form-control" rows="5"
+                                  placeholder="Your comment about this restaurant"></textarea>
+                        @error('comment')
+                        <p class="text-red mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="col-sm-6">
                         <div class="review-icon">
@@ -56,66 +75,63 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="text-center">
+                    <input name="food_id" class="form-control" type="hidden" value="{{ $food->id }}"
+                           placeholder="Food id">
+                    <input name="restaurant_id" class="form-control" type="hidden" value="{{ $food->restaurant_id }}"
+                           placeholder="Restaurant id">
+
+
+                    <button type="submit" class="review-btn">Submit</button>
+                </div>
             </form>
 
-            <div class="text-center">
-                <button class="review-btn">Submit</button>
-            </div>
         </div>
     </section>
     <!-- submit review end -->
 
     <!-- review & comments start -->
-    <section class="review-rating-read-sin-food">
+    <section class="review-rating-read">
         <h2 class="headline">Review and Rating</h2>
         <div class="review-rating-container">
-            <div class="single-comment">
-                <div class="row">
-                    <div class="col">
-                        <h5 class="person-name">Pronab Bissas</h5>
-                    </div>
-                    <div class="col">
-                        <div class="review-icon">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="date">
-                    <span class="review-date">18 Feb 2020</span>
-                    <hr>
-                </div>
-                <p class="black-clr-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus velit
-                    tenetur modi distinctio, eligendi earum eveniet quasi consequatur porro est dolorum dolor cum
-                    aliquid laborum nihil sequi quod adipisci quis?</p>
-            </div>
 
-            <div class="single-comment">
-                <div class="row">
-                    <div class="col">
-                        <h5 class="person-name">Imran Khan</h5>
-                    </div>
-                    <div class="col">
-                        <div class="review-icon">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+
+            @foreach($reviews as $review)
+                <div class="single-comment">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="person-name">{{ $review->name }}</h5>
+                        </div>
+                        <div class="col">
+                            <div class="review-icon">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
                         </div>
                     </div>
+                    <div class="date">
+                        <span class="review-date">{{ date('d M Y',strtotime($review->created_at)) }}</span>
+                        <hr>
+                    </div>
+                    <p class="black-clr-txt">{{ $review->comment }}</p>
                 </div>
-                <div class="date">
-                    <span class="review-date">18 Feb 2020</span>
-                    <hr>
-                </div>
-                <p class="black-clr-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus velit
-                    tenetur modi distinctio, eligendi earum eveniet quasi consequatur porro est dolorum dolor cum
-                    aliquid laborum nihil sequi quod adipisci quis?</p>
-            </div>
+            @endforeach
         </div>
     </section>
+    <div class="row">
+        <div class="offset-md-5 ">
+
+        </div>
+        <div class="col-md-4">
+            <nav aria-label="Page navigation example pull-right">
+                {{ $reviews->links() }}
+            </nav>
+        </div>
+    </div>
+
 @endsection

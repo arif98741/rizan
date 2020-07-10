@@ -18,11 +18,16 @@ class CreateFoodReviewsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->unsignedBigInteger('food_id');
+            $table->unsignedBigInteger('restaurant_id');
             $table->text('comment')->nullable();
             $table->string('ip')->nullable();
+            $table->timestamp('next_comment');
             $table->tinyInteger('status')->default(0);
             $table->foreign('food_id')->references('id')
                 ->on('foods')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('restaurant_id')->references('id')
+                ->on('restaurants')->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

@@ -41,7 +41,7 @@
     @push('extra-js')
         <script>
             $(document).ready(function () {
-                alert('hello');
+                //alert('hello');
             });
         </script>
     @endpush

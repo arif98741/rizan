@@ -104,9 +104,15 @@
     <!-- menu end -->
 
     <!-- submit review start -->
-    <section class="submit-review-single-res">
+    <section class="submit-review-single-res" id="review-message">
         <h2 class="headline">Submit a review</h2>
+
         <div class="review-container">
+            @if(Session::has('success'))
+                <p class="alert alert-success" id="message">{{ Session::get('success') }}</p>
+            @endif @if(Session::has('error'))
+                <p class="alert alert-warning" id="message">{{ Session::get('error') }}</p>
+            @endif
             <form action="{{ url('restaurant/comment') }}" method="post">
                 @csrf
                 @method('post')
@@ -146,11 +152,13 @@
 
 
                 <div class="text-center">
-                    <input name="restaurant_id" class="form-control" type="hidden" value="{{ $restaurant->id }}" placeholder="Restaurant id">
+                    <input name="restaurant_id" class="form-control" type="hidden" value="{{ $restaurant->id }}"
+                           placeholder="Restaurant id">
 
                     <button type="submit" class="review-btn">Submit</button>
                 </div>
             </form>
+
         </div>
     </section>
     <!-- submit review end -->
@@ -159,54 +167,42 @@
     <section class="review-rating-read">
         <h2 class="headline">Review and Rating</h2>
         <div class="review-rating-container">
-            <div class="single-comment">
-                <div class="row">
-                    <div class="col">
-                        <h5 class="person-name">Pronab Bissas</h5>
-                    </div>
-                    <div class="col">
-                        <div class="review-icon">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="date">
-                    <span class="review-date">18 Feb 2020</span>
-                    <hr>
-                </div>
-                <p class="black-clr-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus velit
-                    tenetur modi distinctio, eligendi earum eveniet quasi consequatur porro est dolorum dolor cum
-                    aliquid laborum nihil sequi quod adipisci quis?</p>
-            </div>
 
-            <div class="single-comment">
-                <div class="row">
-                    <div class="col">
-                        <h5 class="person-name">Imran Khan</h5>
-                    </div>
-                    <div class="col">
-                        <div class="review-icon">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+
+            @foreach($reviews as $review)
+                <div class="single-comment">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="person-name">{{ $review->name }}</h5>
+                        </div>
+                        <div class="col">
+                            <div class="review-icon">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
                         </div>
                     </div>
+                    <div class="date">
+                        <span class="review-date">{{ date('d M Y',strtotime($review->created_at)) }}</span>
+                        <hr>
+                    </div>
+                    <p class="black-clr-txt">{{ $review->comment }}</p>
                 </div>
-                <div class="date">
-                    <span class="review-date">18 Feb 2020</span>
-                    <hr>
-                </div>
-                <p class="black-clr-txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus velit
-                    tenetur modi distinctio, eligendi earum eveniet quasi consequatur porro est dolorum dolor cum
-                    aliquid laborum nihil sequi quod adipisci quis?</p>
-            </div>
+            @endforeach
         </div>
     </section>
+    <div class="row">
+        <div class="offset-md-5 ">
+
+        </div>
+        <div class="col-md-4">
+            <nav aria-label="Page navigation example pull-right">
+                {{ $reviews->links() }}
+            </nav>
+        </div>
+    </div>
 
 @endsection

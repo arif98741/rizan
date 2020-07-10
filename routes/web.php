@@ -54,6 +54,7 @@ Route::namespace('Front')->group(function () {
     Route::get('/restaurants', 'RestaurantController@index');
     Route::get('/restaurant/view/{slug}', 'RestaurantController@viewBySlug');
     Route::match(['get', 'post'], '/restaurant/comment', 'RestaurantController@restaurant_comment');
+    Route::match(['get', 'post'], '/food/comment', 'FoodController@food_comment');
     Route::get('/places/', 'PlaceController@index');
     Route::get('/place/{slug}', 'PlaceController@viewBySlug');
     Route::get('/foods', 'FoodController@index');
@@ -61,7 +62,7 @@ Route::namespace('Front')->group(function () {
     Route::get('/page/{slug}', 'PageController@viewBySlug');
     Route::get('/team-members', 'PageController@teamMembers');
     Route::get('/offers', 'OfferController@index');
-
+    Route::get('/search', 'SearchController@searchAction')->name('search');
 
 });
 

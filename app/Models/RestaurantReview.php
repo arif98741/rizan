@@ -15,4 +15,9 @@ class RestaurantReview extends Model
         'next_comment'
     ];
 
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
+
 }

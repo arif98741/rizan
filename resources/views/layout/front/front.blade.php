@@ -50,6 +50,13 @@
 <!-- custom js -->
 <script src="{{ asset('asset/front/js/script.js') }}"></script>
 @stack('extra-js')
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('#message').slideUp(600);
+        }, 4000);
+    });
+</script>
 
 </body>
 </html>

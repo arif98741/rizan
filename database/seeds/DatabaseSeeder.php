@@ -92,5 +92,34 @@ class DatabaseSeeder extends Seeder
                 'object_description' => 'test'
             ]
         ]);
+
+        //Settings Table
+        DB::table('settings')->insert([
+            [
+                'contact' => '017XXXXXX',
+                'email' => 'admin@gmail.com',
+                'slogan' => 'test',
+                'address' => 'Dhaka, bangladesh',
+                'facebook' => 'test',
+                'twitter' => 'twitter.com/',
+                'piterest' => 'test',
+                'instagram' => 'instagram.com/food',
+                'analytics' => 'a-7a97987test',
+            ],
+
+        ]);
+
+        /**
+         * $table->bigIncrements('id');
+        $table->string('contact');
+        $table->string('email');
+        $table->string('slogan');
+        $table->string('address');
+        $table->string('facebook');
+        $table->string('twitter');
+        $table->string('pinterest');
+        $table->string('instagram');
+        $table->string('analytics');
+         */
     }
 }

@@ -6,7 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Food;
 use App\Models\Restaurant;
 use App\Models\Setting;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 use Session;
 
 class AdminController extends Controller
@@ -21,6 +26,10 @@ class AdminController extends Controller
         return view('admin.dashboard')->with($data);
     }
 
+    /**
+     * @param Request $request
+     * @return Application|Factory|RedirectResponse|Redirector|View
+     */
     public function setting(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -32,15 +41,16 @@ class AdminController extends Controller
             $setting->twitter = $request->twitter;
             $setting->pinterest = $request->pinterest;
             $setting->instagram = $request->instagram;
+            $setting->analytics = $request->analytics;
             if ($setting->save()) {
                 Session::flash('success', 'Setting updated successful');
-                return redirect(route('admin.dashboard'));
+                return redirect(route('admin.setting'));
             } else {
-                Session::flash('error', 'Update successful');
+                Session::flash('error', 'Update failed. Unexpected error.');
                 return redirect(route('admin.setting'));
             }
         }
         $setting = Setting::first();
-        return view('admin.setting')->with(compact('setting'));
+        return view('admin.settings')->with(compact('setting'));
     }
 }

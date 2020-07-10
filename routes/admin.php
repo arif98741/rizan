@@ -10,6 +10,10 @@ Route::namespace('Admin')->group(function () {
     Route::resource('place', 'PlaceController')->except('show');
     Route::resource('page', 'PageController')->except('show');
     Route::resource('team_member', 'TeamMemberController')->except('show');
-    Route::get('setting', 'AdminController@setting')->name('setting');
+    Route::resource('restaurant_review', 'RestaurantReviewController')->only('index', 'destroy');
+    Route::get('restaurant_review/change-status/{id}/{status}', 'RestaurantReviewController@changeStatus');
+    Route::resource('food_review', 'FoodReviewController')->only('index', 'destroy');
+    Route::get('food_review/change-status/{id}/{status}', 'FoodReviewController@changeStatus');
+    Route::match(['get', 'post'], 'setting', 'AdminController@setting')->name('setting');
 
 });

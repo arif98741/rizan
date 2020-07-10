@@ -24,7 +24,6 @@ class RestaurantController extends Controller
             'restaurants' => Restaurant::with(['restaurant_category'])->paginate(9)
         ];
 
-        //return $data;
         return view('front.restaurant.index')->with($data);
     }
 
@@ -33,19 +32,27 @@ class RestaurantController extends Controller
      * @param $slug
      * @return Factory|View
      */
-    public function viewBySlug(Request $request, $slug)
+    public function viewBySlug($slug)
     {
-        return $this->commentAbility(4);
 
+        $restaurant = Restaurant::with(['restaurant_category'])
+            ->where('slug', $slug)
+            ->firstOrFail();
 
         $data = [
             'foods' => Food::with('restaurant')
                 ->whereHas('restaurant', function ($query) use ($slug) {
                     $query->where('slug', $slug);
-                })
-                ->paginate(9),
-            'restaurant' => Restaurant::with(['restaurant_category'])->where('slug', $slug)->firstOrFail()
+                })->paginate(9),
+            'restaurant' => $restaurant,
+            'reviews' => RestaurantReview::where(
+                [
+                    'restaurant_id' => $restaurant->id,
+                    'status' => 1
+                ])->orderBy('id', 'desc')
+                ->paginate(7)
         ];
+
         return view('front.restaurant.single_restaurant')->with($data);
     }
 
@@ -60,15 +67,30 @@ class RestaurantController extends Controller
             $commentData = $this->commentValidation();
             $commentData['ip'] = $_SERVER['REMOTE_ADDR'];
             $commentData['next_comment'] = $this->nextComment();
+
+            $commentData['restaurant_id'] = $request->restaurant_id;
             $restaurant = Restaurant::find($commentData['restaurant_id'])->first();
 
+            if ($data = $this->commentAbility($commentData['restaurant_id'])) {
+                $databaseNextDay = $data->next_comment;
+
+                if (Carbon::now() < $databaseNextDay) {
+
+                    $start = Carbon::now();
+                    $end = $databaseNextDay;
+                    $minutesDifference = $start->diffInMinutes($end);
+
+                    Session::flash('error', 'Failed to comment. Please try again after ' . $minutesDifference . ' minutesl');
+                    return redirect('restaurant/view/' . $restaurant->slug . '#review-message');
+                }
+            }
 
             if (RestaurantReview::create($commentData)) {
-                Session::flash('success', 'Comment Added successfully!');
-                return redirect('restaurant/view/' . $restaurant->slug);
+                Session::flash('success', 'Comment added successfully, it will be published soon!');
+                return redirect('restaurant/view/' . $restaurant->slug . '#review-message');
             } else {
-                Session::flash('error', 'Failed to save place!');
-                return redirect(route('admin.place.create'));
+                Session::flash('error', 'Failed to save comment!');
+                return redirect('restaurant/view/' . $restaurant->slug);
             }
         }
     }
@@ -90,11 +112,13 @@ class RestaurantController extends Controller
 
     /**
      * next comment generate time
+     * @param int $minute
+     * @return string
      */
-    private function nextComment()
+    private function nextComment($minute = 5)
     {
         $carbon_date = Carbon::parse(date('Y-m-d H:i:s'));
-        $carbon_date->addMinute(10);
+        $carbon_date->addMinute($minute);
         return $carbon_date->format('Y-m-d H:i:s');
     }
 
@@ -102,12 +126,21 @@ class RestaurantController extends Controller
     /**
      * comment ability
      * @param $restaurant_id
-     * @return
+     * @return void
      */
     private function commentAbility($restaurant_id)
     {
-        return RestaurantReview::where('ip', $_SERVER['REMOTE_ADDR'])
-            ->where('next_comment', '<', date('Y-m-d H:i:s'))
-            ->get();
+        $restaurant = RestaurantReview::where(
+            [
+                'ip' => $_SERVER['REMOTE_ADDR'],
+                'restaurant_id' => $restaurant_id
+            ])->orderBy('id', 'desc')
+            ->first();
+
+        if ($restaurant) {
+            return $restaurant;
+        } else {
+            return false;
+        }
     }
 }

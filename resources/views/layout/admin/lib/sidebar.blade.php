@@ -28,7 +28,8 @@
 
 
                 <li class="nav-item has-treeview menu-open">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link @if(url()->current() == route('admin.dashboard')): active
+                    <a href="{{ route('admin.dashboard') }}"
+                       class="nav-link @if(url()->current() == route('admin.dashboard')): active
                     @endif ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -100,6 +101,34 @@
                             <a href="{{ route('admin.restaurant.create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Restaurant</p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="#"
+                       class="nav-link @if(url()->current() == route('admin.restaurant_review.index') || url()->current() == route('admin.food_review.index')): active
+                    @endif ">
+                        <i class="nav-icon fas fa-comment"></i>
+                        <p>
+                            Review
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.restaurant_review.index') }}" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Restaurant Review</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.food_review.index') }}" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Food Review</p>
                             </a>
                         </li>
 
@@ -188,13 +217,12 @@
 
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link  @if(url()->current() == route('admin.page.index')): active
-                    @endif >
-                        <i class="nav-icon fas fa-folder"></i>
-                        <p>
-                            Page
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                    <a href="#" class="nav-link  @if(url()->current() == route('admin.page.index')): active @endif ">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                    <p>
+                        Page
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -213,7 +241,16 @@
                     </ul>
 
                 </li>
-
+                <li class="nav-item has-treeview menu-open">
+                    <a href="{{ route('admin.setting') }}"
+                       class="nav-link @if(url()->current() == route('admin.setting')): active
+                    @endif ">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Settings
+                        </p>
+                    </a>
+                </li>
 
             </ul>
         </nav>
