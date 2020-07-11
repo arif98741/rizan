@@ -5,6 +5,8 @@ Route::namespace('Admin')->group(function () {
     Route::resource('restaurant', 'RestaurantController')->except('show');
     Route::get('restaurant/feature', 'RestaurantController@feature')->name('feature');
     Route::get('restaurant/feature/add', 'RestaurantController@featureAdd');
+    Route::post('restaurant/feature/store', 'RestaurantController@featureStore');
+    Route::delete('restaurant/feature/delete/{id}', 'RestaurantController@featureDelete');
     Route::resource('restaurant_category', 'RestaurantCategoryController')->except('show');
     Route::resource('food', 'FoodController')->except('show');
     Route::resource('place', 'PlaceController')->except('show');

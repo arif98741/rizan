@@ -34,7 +34,7 @@
                                 <h3 class="card-title">Feature Restaurant</h3>
                             </div>
 
-                            <form role="form" action="{{ route('admin.restaurant.store') }}" method="post"
+                            <form role="form" action="{{ url('admin/restaurant/feature/store') }}" method="post"
                                   enctype="multipart/form-data">
                                 @csrf
                                 @method('post')
@@ -50,9 +50,19 @@
                                                     @foreach($restaurants as $restaurant)
 
                                                         <option
-                                                            value="{{ $restaurant->id }}"
-                                                        ></option>dfd</option>
+                                                            value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
                                                     @endforeach
+                                                </select>
+                                                @error('restaurant_id')
+                                                <p class="text-red mt-1">{{ $message }}</p>
+                                                @enderror
+
+                                                <label for="exampleInputEmail1">Select order</label>
+                                                <select name="order" class="form-control">
+                                                    <option value="" disabled selected>---</option>
+                                                    @for($i=1; $i<=9; $i++)
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                    @endfor
                                                 </select>
                                                 @error('restaurant_id')
                                                 <p class="text-red mt-1">{{ $message }}</p>

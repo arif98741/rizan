@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HelperController;
+use App\Models\FeatureRestaurant;
 use App\Models\Restaurant;
 use App\Models\RestaurantCategory;
 use File;
@@ -95,7 +96,6 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-
         $data = [
             'restaurant' => $restaurant,
             'restaurant_categories' => RestaurantCategory::orderBy('category_name')->get()
@@ -166,7 +166,7 @@ class RestaurantController extends Controller
     public function feature()
     {
         $data = [
-            'restaurants' => Restaurant::with(['restaurant_category', 'feature_restaurant'])->get()
+            'feature_restaurants' => FeatureRestaurant::with(['restaurant'])->get()
         ];
 
         return view('admin.restaurant.feature.index')->with($data);
@@ -179,11 +179,64 @@ class RestaurantController extends Controller
     public function featureAdd()
     {
         $data = [
-            'restaurants' => Restaurant::orderBy('name','asc')->get()
+            'restaurants' => Restaurant::orderBy('name', 'asc')->get()
         ];
 
-      //  return $data['restaurants'];
         return view('admin.restaurant.feature.add')->with($data);
+    }
+
+    /**
+     * Add Feature restaurant
+     * @return Factory|View
+     */
+    public function featureStore(Request $request)
+    {
+        $data = $request->all();
+
+        $status = FeatureRestaurant::where('restaurant_id', $data['restaurant_id'])->first();
+        $order_status = FeatureRestaurant::where(
+            [
+                'order' => $data['order']
+            ]
+        )->first();
+
+        if ($status) {
+            Session::flash('error', 'Already added in feature restaurant list!');
+            return redirect('admin/restaurant/feature');
+        }
+
+        if ($order_status) {
+            Session::flash('error', 'Select different different order or delete pre assigned order ');
+            return redirect('admin/restaurant/feature');
+        }
+
+        if (FeatureRestaurant::create($data)) {
+            Session::flash('success', 'Feature restaurant added successfully!');
+            return redirect('admin/restaurant/feature');
+        } else {
+            Session::flash('error', 'Failed to add feature restaurant!');
+            return redirect('admin/restaurant/feature');
+        }
+
+    }
+
+    /**
+     * Add Feature restaurant
+     * @param Request $request
+     * @param $id
+     * @return Factory|View
+     */
+    public function featureDelete(Request $request, $id)
+    {
+        $feature = FeatureRestaurant::find($id);
+        if ($feature->delete()) {
+            Session::flash('success', 'Restaurant Deleted from feature list!');
+            return redirect('admin/restaurant/feature');
+        } else {
+            Session::flash('error', 'Failed to remove from feature restaurant list!');
+            return redirect('admin/restaurant/feature');
+        }
+
     }
 
 

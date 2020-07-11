@@ -9,13 +9,14 @@ class FeatureRestaurant extends Authenticatable
 {
     use Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-
+        'restaurant_id', 'order'
     ];
 
 

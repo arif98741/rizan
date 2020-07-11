@@ -43,40 +43,38 @@
                                 <tr>
                                     <th>Serial</th>
                                     <th>Name</th>
-                                    <th>Location</th>
+                                    <th>Order</th>
                                     <th>Email</th>
                                     <th>Photo</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($restaurants as $key=> $restaurant)
+                                @foreach($feature_restaurants as $key=> $feature_restaurant)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $restaurant->name }}</td>
-                                        <td>{{ $restaurant->location }}</td>
-                                        <td>{{ $restaurant->email }}</td>
+                                        <td>{{ $feature_restaurant->restaurant->name }}</td>
+                                        <td>{{ $feature_restaurant->order }}</td>
+                                        <td>{{ $feature_restaurant->restaurant->email }}</td>
                                         <td><img style="width:80px; height: 60px;"
-                                                 src="{{ asset('storage/uploads/restaurant/thumbnail/'.$restaurant->feature_photo) }}
+                                                 src="{{ asset('storage/uploads/restaurant/thumbnail/'.$feature_restaurant->restaurant->feature_photo) }}
                                                      ">
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.restaurant.edit',$restaurant->id) }}"
-                                               class="btn btn-sm btn-primary">Edit</a>
                                             <a class="btn btn-warning btn-sm"
-                                               href="{{ route('admin.restaurant.destroy',$restaurant->id) }}"
+                                               href="{{ url('admin/restaurant/feature/delete',$feature_restaurant->id) }}"
                                                onclick="event.preventDefault();
-                                                   document.getElementById('vendor-delete-form{{ $restaurant->id }}').submit();">
+                                                   document.getElementById('vendor-delete-form{{ $feature_restaurant->id }}').submit();">
                                                 Delete
                                             </a>
-                                            <form id="vendor-delete-form{{ $restaurant->id }}"
+                                            <form id="vendor-delete-form{{ $feature_restaurant->id }}"
                                                   onclick="return(confirm('are you sure to delete?'))"
-                                                  action="{{ route('admin.restaurant.destroy',$restaurant->id) }}"
+                                                  action="{{ url('admin/restaurant/feature/delete',$feature_restaurant->id) }}"
                                                   method="post" style="display: none;">
                                                 {{ csrf_field() }} @method('DELETE')
                                             </form>
                                             <a class="btn btn-success btn-sm" target="1"
-                                               href="{{ url('restaurant/view/'.$restaurant->slug) }}"> View
+                                               href="{{ url('restaurant/view/'.$feature_restaurant->slug) }}"> View
                                             </a>
                                         </td>
                                     </tr>

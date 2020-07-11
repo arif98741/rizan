@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\FeatureRestaurant;
 use App\Models\Food;
-use App\Models\Restaurant;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -21,9 +20,10 @@ class HomeController extends Controller
     {
         $data = [
             'foods' => Food::with('restaurant')->orderBy('id')->get(),
-            'restaurants' => Restaurant::with(['restaurant_category'])->paginate(9)
+            'feature_restaurants' => FeatureRestaurant::with(['restaurant'])
+                ->orderBy('order', 'asc')
+                ->get()
         ];
-
         return view('front.home')->with($data);
     }
 }

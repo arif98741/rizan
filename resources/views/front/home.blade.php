@@ -11,15 +11,15 @@
 
                 <div class="row">
 
-                    @foreach($restaurants as $restaurant)
+                    @foreach($feature_restaurants as $feature_restaurant)
                         <div class="col-sm-6 item-each">
-                            <a href="{{ url('restaurant/view/'.$restaurant->slug) }}">
+                            <a href="{{ url('restaurant/view/'.$feature_restaurant->restaurant->slug) }}">
                                 <img class="img-fluid"
-                                     src="{{ asset('storage/uploads/restaurant/thumbnail/'.$restaurant->feature_photo)}}"
-                                     alt="{{ $restaurant->name }} - {{ url('/') }}">
+                                     src="{{ asset('storage/uploads/restaurant/thumbnail/'.$feature_restaurant->restaurant->feature_photo)}}"
+                                     alt="{{ $feature_restaurant->restaurant->name }} - {{ url('/') }}">
                                 <div class="title">
                                     <div class="title-left">
-                                        <h4>{{ $restaurant->name }}</h4>
+                                        <h4>{{ $feature_restaurant->restaurant->name }}</h4>
                                     </div>
                                     <div class="title-right">
                                         <i class="fas fa-star"></i>
@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="location">
                                         <i class="fas fa-map-marker-alt"></i>
-                                        <span>{{ $restaurant->location }}</span>
+                                        <span>{{ $feature_restaurant->restaurant->location }}</span>
                                     </div>
                                 </div>
                             </a>
