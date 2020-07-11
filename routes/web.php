@@ -64,6 +64,9 @@ Route::namespace('Front')->group(function () {
     Route::get('/offers', 'OfferController@index');
     Route::get('/search', 'SearchController@searchAction')->name('search');
 
+    //SiteMap Generate
+    Route::get('sitemap', 'HomeController@siteMap');
+
 });
 
 
