@@ -49,6 +49,11 @@
 
 <!-- custom js -->
 <script src="{{ asset('asset/front/js/script.js') }}"></script>
+<?php
+$site = \Illuminate\Support\Facades\Cache::get('site_details');
+?>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $site->analytics }}"></script>
+
 @stack('extra-js')
 <script>
     $(document).ready(function () {
