@@ -59,23 +59,22 @@ class RestaurantController extends Controller
         $restaurantData['password'] = Hash::make($restaurantData['password']);
         $restaurantData['slug'] = Str::slug($restaurantData['name']);
         if (!empty($request->file('feature_photo'))) {
-            $image = HelperController::imageUpload($request, 'feature_photo', 'restaurant/', 480, 240);
+            $image = HelperController::imageUpload($request, 'feature_photo', 'restaurant/');
             $restaurantData['feature_photo'] = $image['file_name'];
         }
 
-        /**
-         * upload cover photo
-         * dir HelperController::baseDir . 'restaurant/cover/';
-         */
-        if (!empty($file = $request->file('cover_photo'))) {
+        if (!empty($request->file('cover_photo'))) {
+            $file = $request->file('cover_photo');
             $extension = $file->getClientOriginalExtension();
+
             $ImageUpload = Image::make($file);
-            $originalPath = HelperController::baseDir . 'restaurant/cover/';
+            $originalPath = public_path('uploads/restaurant/cover/');
             $fileName = time() . rand(11111111, 99999999) . '.' . $extension;
-            $coverPath = $originalPath . $fileName;
-            $ImageUpload->save($coverPath);
+            $featurePath = $originalPath . $fileName;
+            $ImageUpload->save($featurePath);
             $restaurantData['cover_photo'] = $fileName;
         }
+
 
         $restaurantData['slug'] = Str::slug($restaurantData['name']);
         if (Restaurant::create($restaurantData)) {
@@ -117,17 +116,30 @@ class RestaurantController extends Controller
 
         if (!empty($request->file('feature_photo'))) {
 
-            //TODO:: file delete problem
-            if (file_exists(public_path('/uploads/restaurant/feature/' . $restaurant->feature_photo))) {
-                dd('file esxists');
-            } else {
-                dd('no file found');
+            if (file_exists(public_path('uploads/restaurant/feature/' . $restaurant->feature_photo))) {
+                File::delete(public_path('uploads/restaurant/feature/' . $restaurant->feature_photo));
             }
-
+            if (file_exists(public_path('uploads/restaurant/thumbnail/' . $restaurant->feature_photo))) {
+                File::delete(public_path('uploads/restaurant/thumbnail/' . $restaurant->feature_photo));
+            }
             $image = HelperController::imageUpload($request, 'feature_photo', 'restaurant/');
-            $restaurantData['feature_photo'] = $image['file_name'];
-
+            $updateValidationData['feature_photo'] = $image['file_name'];
+        } else {
+            unset($updateValidationData['feature_photo']);
         }
+
+        if (!empty($request->file('cover_photo'))) {
+
+            if (file_exists(public_path('uploads/restaurant/cover/' . $restaurant->cover_photo))) {
+                File::delete(public_path('uploads/restaurant/cover/' . $restaurant->cover_photo));
+            }
+            $image = HelperController::imageUpload($request, 'cover_photo', 'restaurant/');
+            $updateValidationData['cover_photo'] = $image['file_name'];
+        } else {
+            unset($updateValidationData['cover_photo']);
+        }
+
+
         if (!empty($request->password)) //if pass is not blank
         {
             $updateValidationData['password'] = Hash::make($request->password);
@@ -151,6 +163,17 @@ class RestaurantController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         if ($restaurant->delete($restaurant)) {
+            if (file_exists(public_path('uploads/restaurant/feature/' . $restaurant->feature_photo))) {
+                File::delete(public_path('uploads/restaurant/feature/' . $restaurant->feature_photo));
+            }
+            if (file_exists(public_path('uploads/restaurant/thumbnail/' . $restaurant->feature_photo))) {
+                File::delete(public_path('uploads/restaurant/thumbnail/' . $restaurant->feature_photo));
+            }
+            if (file_exists(public_path('uploads/restaurant/cover/' . $restaurant->cover_photo))) {
+                File::delete(public_path('uploads/restaurant/cover/' . $restaurant->cover_photo));
+            }
+
+
             Session::flash('success', 'Restaurant deleted successfully!');
             return redirect(route('admin.restaurant.index'));
         } else {

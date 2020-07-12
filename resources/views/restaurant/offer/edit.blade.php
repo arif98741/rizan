@@ -35,7 +35,7 @@
                 <label class="col-sm-2 col-form-label">Image</label>
                 <div class="col-sm-9">
                     <img style="height: 80%; width: 40%"
-                         src="{{ asset('storage/uploads/food/thumbnail/'.$offer->food->feature_photo)}}" id="thumbnail">
+                         src="{{ asset('uploads/food/thumbnail/'.$offer->food->feature_photo)}}" id="thumbnail">
                 </div>
             </div>
 
@@ -119,7 +119,7 @@
                                     $('#price').val(response.data.price + 'tk');
                                     $('#thumbnail').removeAttr('src');
                                     $('#thumbnail').delay(2000).attr(
-                                        "src", "{{  asset('storage/uploads/food/thumbnail/')}}/" + response.data.feature_photo
+                                        "src", "{{  asset('uploads/food/thumbnail/')}}/" + response.data.feature_photo
                                     );
                                 } else {
                                     $('#price').val('');

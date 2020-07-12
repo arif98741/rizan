@@ -55,7 +55,7 @@
                                         <td>{{ $place->location }}</td>
                                         <td>{{  substr($place->tourist_attractions   ,0,30) }}</td>
                                         <td><img style="width:80px; height: 60px;"
-                                                 src="{{ asset('storage/uploads/place/thumbnail/'.$place->feature_photo) }}">
+                                                 src="{{ asset('uploads/place/thumbnail/'.$place->feature_photo) }}">
                                         </td>
                                         <td>
                                             <a href="{{ route('admin.place.edit',$place->id) }}"

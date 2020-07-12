@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <img class="img-fluid place-img"
-                         src="{{ asset('storage/uploads/place/feature/'.$place->feature_photo) }}"
+                         src="{{ asset('uploads/place/feature/'.$place->feature_photo) }}"
                          alt="{{ $place->place_name }} - {{ url('/') }}">
                 </div>
             </div>

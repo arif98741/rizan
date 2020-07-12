@@ -98,7 +98,7 @@
                                                 @enderror
                                                 <br>
                                                 <img style="width:80px; height: 60px;"
-                                                     src="{{ asset('storage/uploads/place/thumbnail/'.$place->feature_photo) }}">
+                                                     src="{{ asset('uploads/place/thumbnail/'.$place->feature_photo) }}">
 
 
                                             </div>

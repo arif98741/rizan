@@ -111,7 +111,7 @@
                                     $('#price').val(response.data.price + 'tk');
                                     $('#thumbnail').removeAttr('src');
                                     $('#thumbnail').delay(2000).attr(
-                                        "src", "{{  asset('storage/uploads/food/thumbnail/')}}/" + response.data.feature_photo
+                                        "src", "{{  asset('uploads/food/thumbnail/')}}/" + response.data.feature_photo
                                     );
                                 } else {
                                     $('#price').val('');

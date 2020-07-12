@@ -17,7 +17,7 @@
                         <div class="col-sm-4 item-each">
                             <a href="{{ url('place/'.$place->slug) }}">
                                 <img class="img-fluid"
-                                     src="{{ asset('storage/uploads/place/thumbnail/'.$place->feature_photo) }}"
+                                     src="{{ asset('uploads/place/thumbnail/'.$place->feature_photo) }}"
                                      alt="{{ $place->place_name }} - {{ url('/') }}">
                                 <div class="title">
                                     <h5 class="name">{{ $place->place_name }}</h5>

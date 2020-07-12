@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use Storage;
 
 class HomeController extends Controller
 {
@@ -38,8 +39,19 @@ class HomeController extends Controller
      */
     public function siteMap()
     {
+
         $sitemap = Sitemap::create()
-            ->add(Url::create('/food'));
+            ->add(Url::create('/'))
+            ->add(Url::create('/food'))
+            ->add(Url::create('/search'))
+            ->add(Url::create("/about-us"))
+            ->add(Url::create("/places"))
+            ->add(Url::create("/privacy-policy"))
+            ->add(Url::create("/site-map"))
+            ->add(Url::create("/restaurants"))
+            ->add(Url::create("/places"))
+            ->add(Url::create("/site-map"))
+            ->add(Url::create("/offers"));
 
         Food::all()->each(function (Food $object) use ($sitemap) {
             $sitemap->add(Url::create("/food/{$object->slug}"));
@@ -57,11 +69,13 @@ class HomeController extends Controller
             $sitemap->add(Url::create("/page/{$object->slug}"));
         });
 
-        $sitemap->add(Url::create("/about-us"));
-        $sitemap->add(Url::create("/places"));
-        $sitemap->add(Url::create("/privacy-policy"));
-        $sitemap->add(Url::create("/site-map"));
-        $sitemap->add(Url::create("/offers"));
-        $sitemap->writeToFile(public_path('sitemap.xml'));
+        $sitemap->writeToFile(storage_path('app/public/uploads/' . 'sitemap.xml'));
+        $file = storage_path('app/public/uploads/' . 'sitemap.xml');
+        $headers = array(
+            'Content-Type: application/xml',
+        );
+
+
+        return Storage::download(asset('uploads/sitemap.xml'), 'sitemaps.xml', $headers);
     }
 }

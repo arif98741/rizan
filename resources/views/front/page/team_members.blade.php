@@ -12,7 +12,7 @@
                         <div class="col-sm-4">
                             <div class="item-each">
                                 <img class="img-fluid"
-                                     src="{{ asset('storage/uploads/team_member/feature/'.$team_member->feature_photo) }}"
+                                     src="{{ asset('uploads/team_member/feature/'.$team_member->feature_photo) }}"
                                      alt="{{ $team_member->name.' - '.url('/') }}">
                                 <div class="title">
                                     <h5 class="name">{{ $team_member->name }}</h5>

@@ -15,6 +15,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Session;
+use Storage;
 
 class FoodController extends Controller
 {
@@ -92,31 +93,33 @@ class FoodController extends Controller
      */
     public function update(Request $request, Food $food)
     {
-
-        if (!empty($request->file('feature_photo'))) {
-            //TODO: update feature photo
-            /*  if (File::exists('/uploads/food/feature/'.$food->feature_photo )) {
-                  echo 'yes exist';
-                  File::delete('/uploads/food/feature/'.$food->feature_photo );
-              }else{
-                  echo 'yes not exist';
-              }
-
-
-              $image = HelperController::imageUpload($request, 'feature_photo', 'food/feature');
-              $foodData['feature_photo'] = $image['file_name'];
-            */
-        }
         $validatedData = $this->updateValidateRequest();
-        unset($validatedData['feature_photo']);
+        if (!empty($request->file('feature_photo'))) {
+            //$status = Storage::disk('public')->exists(public_path('uploads/food/feature/' . $food->feature_photo));
+            if (file_exists(public_path('uploads/food/feature/' . $food->feature_photo))) {
+                File::delete(public_path('uploads/food/feature/' . $food->feature_photo));
+            }
+            if (file_exists(public_path('uploads/food/thumbnail/' . $food->feature_photo))) {
+                File::delete(public_path('uploads/food/thumbnail/' . $food->feature_photo));
+            }
+
+            $image = HelperController::imageUpload($request, 'feature_photo', 'food/');
+            $validatedData['feature_photo'] = $image['file_name'];
+        } else {
+
+            unset($validatedData['feature_photo']);
+        }
+
         if ($food->update($validatedData)) {
             Session::flash('success', 'Food Updated successfully!');
             return redirect(route('admin.food.index'));
         } else {
             Session::flash('error', 'Failed to update food!');
             return redirect(route('admin.food.create'));
+
         }
     }
+
 
     /**
      * delete restaurant individually
@@ -127,6 +130,14 @@ class FoodController extends Controller
     public function destroy(Food $food)
     {
         if ($food->delete()) {
+
+            if (file_exists(public_path('uploads/food/feature/' . $food->feature_photo))) {
+                File::delete(public_path('uploads/food/feature/' . $food->feature_photo));
+            }
+            if (file_exists(public_path('uploads/food/thumbnail/' . $food->feature_photo))) {
+                File::delete(public_path('uploads/food/thumbnail/' . $food->feature_photo));
+            }
+
             Session::flash('success', 'Food deleted successfully!');
             return redirect(route('admin.food.index'));
         } else {

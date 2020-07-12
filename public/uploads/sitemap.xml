@@ -1,176 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
+        <loc>http://127.0.0.1:8000</loc>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>http://127.0.0.1:8000/about-us</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/9879878sdfsldfsdf</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/987987sdfsdlkfsdf</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/a</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/a987</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/chicken-roulades</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/chicken-with-olives</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/ljsdlfksd54544564</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/margarita-chicken</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/quinoa-crusted-chicken</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/sdfljsdkfsd89f7</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/sdlfjsdfdsf</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/sdlfkjsdkf9876</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/food/yutds09f7898dsfd</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/offers</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/page/about-us</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/page/terms-and-conditions</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/place/cinamatic-aware-garden</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/place/dhaka-garden</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/places</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/privacy-policy</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/restaurant/view/kamsori-restaurant</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/restaurant/view/samsam-restaurant</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/restaurant/view/sanja-restaurant</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/restaurant/view/sanja-restaurant25</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/restaurant/view/sonargaon-restaurant</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/restaurants</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://127.0.0.1:8000/search</loc>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://127.0.0.1:8000/site-map</loc>
-        <lastmod>2020-07-12T03:32:14+06:00</lastmod>
+        <lastmod>2020-07-12T04:07:39+06:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

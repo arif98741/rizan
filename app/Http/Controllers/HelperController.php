@@ -8,7 +8,7 @@ use Image;
 
 class HelperController
 {
-    const baseDir = 'storage/uploads/';
+    //const baseDir = public_path('uploads');
 
     /**
      * image upload Method
@@ -21,22 +21,24 @@ class HelperController
      */
     public static function imageUpload($request, $image, $path, $width = 320, $height = 240)
     {
+        $baseDir = public_path('uploads/' . $path);
+
         $file = $request->file($image);
         $extension = $file->getClientOriginalExtension();
 
         $ImageUpload = Image::make($file);
-        $originalPath = self::baseDir . $path . 'feature/';
+        $originalPath = $baseDir . 'feature/';
         $fileName = time() . rand(11111111, 99999999) . '.' . $extension;
 
         $featurePath = $originalPath . $fileName;
         $ImageUpload->save($featurePath);
 
-        $thumbnailPath = self::baseDir . $path . 'thumbnail/' . $fileName;
+        $thumbnailPath = $baseDir . 'thumbnail/' . $fileName;
         $ImageUpload->resize($width, $height);
         $ImageUpload->save($thumbnailPath);
         return [
             'file_name' => $fileName,
-            'base_dir' => self::baseDir,
+            'base_dir' => $baseDir,
             'save_path' => $path,
             'feature_path' => $featurePath,
             'thumbnail_path' => $thumbnailPath,

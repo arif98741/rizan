@@ -17,7 +17,7 @@
                         <div class="col-sm-4 item-each">
                             <a href="{{ url('food/'.$food->restaurant->slug.'/'.$food->slug) }}">
                                 <img style="width: 100%;" class="img-fluid"
-                                     src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo)}}"
+                                     src="{{ asset('uploads/food/thumbnail/'.$food->feature_photo)}}"
                                      alt="{{ $food->name }} - {{ url('/') }}">
                                 <div class="title">
                                     <h5 class="name">{{ $food->name }}</h5>

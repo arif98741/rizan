@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.feature') }}" class="nav-link">
+                            <a href="{{ url('admin/restaurant/feature') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Feature Restaurant</p>
                             </a>
@@ -219,10 +219,10 @@
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link  @if(url()->current() == route('admin.page.index')): active @endif ">
                         <i class="nav-icon fas fa-clipboard-list"></i>
-                    <p>
-                        Page
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
+                        <p>
+                            Page
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">

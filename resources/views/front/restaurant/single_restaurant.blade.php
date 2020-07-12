@@ -4,7 +4,7 @@
 
     <!-- hero start -->
     <section class="hero-single-res"
-             style="background: url({{ asset('storage/uploads/restaurant/cover/'.$restaurant->cover_photo) }}) no-repeat center center; background-size: cover">
+             style="background: url({{ asset('uploads/restaurant/cover/'.$restaurant->cover_photo) }}) no-repeat center center; background-size: cover">
         <div class="map-img">
             <iframe width="100%" height="100%"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14540.96353152015!2d89.91391352164221!3d24.338100355210525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdf0ab1f8701c3%3A0x6b2bb0826051b98f!2sElenga%20Resort%20Ltd!5e0!3m2!1sen!2sbd!4v1592770308610!5m2!1sen!2sbd"
@@ -70,7 +70,7 @@
                         <div class="col-sm-4 item-each">
                             <a href="{{ url('food/'.$food->restaurant->slug.'/'.$food->slug) }}">
                                 <img style="width: 100%;" class="img-fluid"
-                                     src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo)}}"
+                                     src="{{ asset('uploads/food/thumbnail/'.$food->feature_photo)}}"
                                      alt="{{ $food->name }} - {{ url('/') }}">
                                 <div class="title">
                                     <h5 class="name">{{ $food->name }}</h5>

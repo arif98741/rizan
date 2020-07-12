@@ -41,7 +41,7 @@
                                             <td>{{ date('d-m-Y',strtotime($offer->start_date)) }}</td>
                                             <td>{{ date('d-m-Y',strtotime($offer->end_date)) }}</td>
                                             <td><img style="width:80px; height: 60px;"
-                                                     src="{{ asset('storage/uploads/food/thumbnail/'.$offer->food->feature_photo) }}">
+                                                     src="{{ asset('uploads/food/thumbnail/'.$offer->food->feature_photo) }}">
                                             </td>
                                             <td>
                                                 <a href="{{ route('restaurant.offer.edit',$offer->id) }}"

@@ -57,7 +57,7 @@
                                         <td>{{ $feature_restaurant->order }}</td>
                                         <td>{{ $feature_restaurant->restaurant->email }}</td>
                                         <td><img style="width:80px; height: 60px;"
-                                                 src="{{ asset('storage/uploads/restaurant/thumbnail/'.$feature_restaurant->restaurant->feature_photo) }}
+                                                 src="{{ asset('uploads/restaurant/thumbnail/'.$feature_restaurant->restaurant->feature_photo) }}
                                                      ">
                                         </td>
                                         <td>

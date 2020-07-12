@@ -58,7 +58,7 @@
                                         <td>{{ $food->price }}TK</td>
                                         <td>{{ $food->description }}</td>
                                         <td><img style="width:80px; height: 60px;"
-                                                 src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo) }}">
+                                                 src="{{ asset('uploads/food/thumbnail/'.$food->feature_photo) }}">
                                         </td>
                                         <td>
                                             <a href="{{ route('admin.food.edit',$food->id) }}"

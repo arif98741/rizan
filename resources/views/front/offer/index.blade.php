@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-sm-4 img-part">
                         <img class="img-fluid"
-                             src="{{ asset('storage/uploads/food/thumbnail/'.$offer->food->feature_photo)}}" alt="">
+                             src="{{ asset('uploads/food/thumbnail/'.$offer->food->feature_photo)}}" alt="">
                     </div>
                     <div class="col-sm-8 desc-part">
                         <h5 class="food-name"><a

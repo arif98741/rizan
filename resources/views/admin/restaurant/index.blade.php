@@ -55,7 +55,7 @@
                                         <td>{{ $restaurant->location }}</td>
                                         <td>{{ $restaurant->email }}</td>
                                         <td><img style="width:80px; height: 60px;"
-                                                 src="{{ asset('storage/uploads/restaurant/thumbnail/'.$restaurant->feature_photo) }}
+                                                 src="{{ asset('uploads/restaurant/thumbnail/'.$restaurant->feature_photo) }}
                                                      ">
                                         </td>
                                         <td>

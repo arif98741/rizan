@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 order-first order-md-2 food-img">
-                    <img src="{{ asset('storage/uploads/food/feature/'.$food->feature_photo)}}"
+                    <img src="{{ asset('uploads/food/feature/'.$food->feature_photo)}}"
                          alt="{{ $food->name }} - {{ url('/') }}" class="img-fluid">
                 </div>
             </div>

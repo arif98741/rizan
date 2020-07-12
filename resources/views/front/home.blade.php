@@ -15,7 +15,7 @@
                         <div class="col-sm-6 item-each">
                             <a href="{{ url('restaurant/view/'.$feature_restaurant->restaurant->slug) }}">
                                 <img class="img-fluid"
-                                     src="{{ asset('storage/uploads/restaurant/thumbnail/'.$feature_restaurant->restaurant->feature_photo)}}"
+                                     src="{{ asset('uploads/restaurant/thumbnail/'.$feature_restaurant->restaurant->feature_photo)}}"
                                      alt="{{ $feature_restaurant->restaurant->name }} - {{ url('/') }}">
                                 <div class="title">
                                     <div class="title-left">
@@ -59,7 +59,7 @@
                     @foreach($foods as $food)
                         <div class="col-sm-4 item-each">
                             <a href="{{ url('food/'.$food->restaurant->slug.'/'.$food->slug) }}">
-                                <img src="{{ asset('storage/uploads/food/thumbnail/'.$food->feature_photo) }}"
+                                <img src="{{ asset('uploads/food/thumbnail/'.$food->feature_photo) }}"
                                      style="width: 100%;" class="img-fluid"
                                      Get New Account
                                      alt="{{ $food->name }} - {{ url('/') }}">

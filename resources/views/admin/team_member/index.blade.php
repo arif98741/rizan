@@ -59,7 +59,7 @@
                                         <td>{{ $team_member->twitter }}</td>
                                         <td>{{ $team_member->instagram }}</td>
                                         <td><img style="width:80px; height: 60px;"
-                                                 src="{{ asset('storage/uploads/team_member/thumbnail/'.$team_member->feature_photo) }}">
+                                                 src="{{ asset('uploads/team_member/thumbnail/'.$team_member->feature_photo) }}">
                                         </td>
                                         <td>
                                             <a href="{{ route('admin.team_member.edit',$team_member->id) }}"
