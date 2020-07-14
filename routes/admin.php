@@ -16,7 +16,7 @@ Route::namespace('Admin')->group(function () {
     Route::delete('food/feature/delete/{id}', 'FoodController@featureDelete');
 
     Route::resource('place', 'PlaceController')->except('show');
-    Route::resource('page', 'PageController')->except('show');
+    Route::resource('page', 'PageController')->except('show','create');
     Route::resource('team_member', 'TeamMemberController')->except('show');
     Route::resource('restaurant_review', 'RestaurantReviewController')->only('index', 'destroy');
     Route::get('restaurant_review/change-status/{id}/{status}', 'RestaurantReviewController@changeStatus');

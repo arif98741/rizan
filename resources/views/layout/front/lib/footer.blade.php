@@ -24,7 +24,7 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
                 <h5>For Restaurant Owner</h5>
                 <ul class="un-list">
                     <li class=""><a href="{{ url('restaurant') }}">My Account</a></li>
-                    <li class=""><a href="#">Get New Account</a></li>
+                    <li class=""><a href="{{ url('page/new-account') }}">Get New Account</a></li>
                 </ul>
             </div>
         </div>
