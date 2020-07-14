@@ -7,6 +7,7 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
         <nav class="navbar navbar-expand-md">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('asset/front/img/logo.png')}}" alt="logo">
+                <span style="position: absolute; color: #000">Beta</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
