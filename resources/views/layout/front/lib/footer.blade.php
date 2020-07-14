@@ -41,6 +41,6 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
                 <p>&copy; {{ date('Y') }} Foods-Khujun, All rights Reserved</p>
             </div>
         </div>
-
+log
     </div>
 </section>
