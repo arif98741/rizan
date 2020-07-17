@@ -1,7 +1,6 @@
 @extends('layout.front.front')
 @section('title','Home')
 @section('content')
-    {{ dd($foods) }}
     {{--Restaurant Result--}}
 
     <section class="res-list-search">
