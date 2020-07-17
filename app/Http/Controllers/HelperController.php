@@ -47,27 +47,13 @@ class HelperController
         ];
     }
 
-    /**
-     * image update Method
-     * @param Request $request
-     * @param $image
-     * @param $path
-     * @return array
+
+    /*
+     * Base Path for using in entire project
      */
-    public static function imageUpdate($request, $image, $path)
+    public static function baseBath()
     {
-        $file = $request->file($image);
-        $extension = $file->getClientOriginalExtension();
-        $filename = $image . '-' . time() . '.' . $extension;
-        $path = $file->storeAs('public/uploads/' . $path, $filename);
-        return [
-            'file_name' => $filename,
-            'save_path' => $path,
-            'extension' => $extension,
-            'saved_on' => date('Y-m-d H:i:s')
-        ];
-
+        return public_path('/uploads/');
     }
-
 
 }

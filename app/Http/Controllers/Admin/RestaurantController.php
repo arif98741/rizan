@@ -279,9 +279,9 @@ class RestaurantController extends Controller
             'password' => 'required|min:6',
             'feature_photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'cover_photo' => 'sometimes',
-            'facebook' => 'required',
-            'instagram' => 'required',
-            'website' => 'required'
+            'facebook' => 'sometimes',
+            'instagram' => 'sometimes',
+            'website' => 'sometimes'
         ]);
     }
 
@@ -299,10 +299,10 @@ class RestaurantController extends Controller
             'location' => 'required',
             'slug' => 'sometimes',
             'email' => 'required|unique:restaurants,email,' . $id,
-            'contact' => 'required',
-            'facebook' => 'required',
-            'instagram' => 'required',
-            'website' => 'required'
+            'contact' => 'sometimes',
+            'facebook' => 'sometimes',
+            'instagram' => 'sometimes',
+            'website' => 'sometimes'
         ]);
     }
 

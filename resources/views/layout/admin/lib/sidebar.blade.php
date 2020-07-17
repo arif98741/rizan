@@ -236,15 +236,33 @@
                     </ul>
 
                 </li>
-                <li class="nav-item has-treeview menu-open">
-                    <a href="{{ route('admin.setting') }}"
-                       class="nav-link @if(url()->current() == route('admin.setting')): active
-                    @endif ">
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link  @if(url()->current() == route('admin.setting')): active @endif ">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
-                            Settings
+                            Setting
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.setting') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Setting</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.xml.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>XML</p>
+                            </a>
+                        </li>
+
+                    </ul>
                 </li>
 
             </ul>

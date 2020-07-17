@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Admin;
-use App\Models\Food;
 use App\Models\Place;
+use App\Models\Food;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Creme de la Creme Coffee',
                 'location' => 'South City Dhaka',
                 'restaurant_category_id' => 3,
-                'slug' => \Illuminate\Support\Str::slug('Sanja Restaurant'),
+                'slug' => \Illuminate\Support\Str::slug('Abc Restaurant'),
                 'email' => 'user3@gmail.com',
                 'password' => \Illuminate\Support\Facades\Hash::make('123'),
                 'contact' => '09-867-58',
@@ -73,7 +73,6 @@ class DatabaseSeeder extends Seeder
 
         factory(Food::class, 3)->create();
         factory(Place::class, 3)->create();
-
 
         /**
          * Page Insertion
@@ -102,24 +101,12 @@ class DatabaseSeeder extends Seeder
                 'address' => 'Dhaka, bangladesh',
                 'facebook' => 'test',
                 'twitter' => 'twitter.com/',
-                'piterest' => 'test',
+                'pinterest' => 'test',
                 'instagram' => 'instagram.com/food',
                 'analytics' => 'a-7a97987test',
-            ],
+            ]
 
         ]);
 
-        /**
-         * $table->bigIncrements('id');
-        $table->string('contact');
-        $table->string('email');
-        $table->string('slogan');
-        $table->string('address');
-        $table->string('facebook');
-        $table->string('twitter');
-        $table->string('pinterest');
-        $table->string('instagram');
-        $table->string('analytics');
-         */
     }
 }

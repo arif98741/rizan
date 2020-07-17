@@ -23,6 +23,8 @@ class AdminController extends Controller
             'total_food' => Food::all()->count(),
         ];
 
+
+
         return view('admin.dashboard')->with($data);
     }
 

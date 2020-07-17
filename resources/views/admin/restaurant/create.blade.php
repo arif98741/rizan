@@ -95,9 +95,10 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="website">Facebook URL</label>
-                                                <input type="text" name="facebook" value="{{ old('facebook') }}"
+                                                <input type="text" name="facebook"
+                                                       value="{{ (!empty(old('facebook')))? old('facebook'): '' }}"
                                                        class="form-control" id="facebook"
-                                                       placeholder="Enter facebook here">
+                                                       placeholder="www.facebook.com/username">
                                                 @error('facebook')
                                                 <p class="text-red mt-1">{{ $message }}</p>
                                                 @enderror
@@ -105,9 +106,10 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="instagram">Instagram</label>
-                                                <input type="text" name="instagram" value="{{ old('instagram') }}"
+                                                <input type="text" name="instagram"
+                                                       value="{{ (!empty(old('instagram')))? old('instagram'): '' }}"
                                                        class="form-control" id="instagram"
-                                                       placeholder="Enter instagram address here">
+                                                       placeholder="www.instagram.com/username">
                                                 @error('instagram')
                                                 <p class="text-red mt-1">{{ $message }}</p>
                                                 @enderror

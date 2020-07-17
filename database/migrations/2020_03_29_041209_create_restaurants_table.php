@@ -17,6 +17,9 @@ class CreateRestaurantsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('contact');
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('website')->nullable();
             $table->string('feature_photo');
             $table->string('cover_photo');
             $table->foreign('restaurant_category_id')->references('id')

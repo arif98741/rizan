@@ -16,9 +16,10 @@ class Restaurant extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'restaurant_category_id', 'password',
         'location', 'slug', 'contact',
         'feature_photo', 'cover_photo',
+        'facebook', 'instagram', 'website',
         'created_at', 'updated_at'
     ];
 
@@ -66,8 +67,6 @@ class Restaurant extends Authenticatable
     {
         return $this->hasMany(FoodReview::class);
     }
-
-
 
 
 }

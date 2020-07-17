@@ -35,19 +35,21 @@
             <div class="social-icon">
                 <ul>
                     <li>
-                        <a href="http://{{ $restaurant->facebook }}" target="_blank">
+                        <a href="@if(!empty($restaurant->facebook)) http://{{ $restaurant->facebook }} @else#@endif">
                             <i class="fab fa-facebook-square"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="http://{{ $restaurant->instagram }}" target="_blank">
+                        <a href="@if(!empty($restaurant->instagram)) http://{{ $restaurant->instagram }} @else#@endif"
+                        >
                             <i class="fab fa-instagram"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="http://{{ $restaurant->website }}" target="_blank">
+                        <a href="@if(!empty($restaurant->website)) http://{{ $restaurant->website }} @else#@endif"
+                        >
                             <i class="fas fa-globe"></i>
                         </a>
                         </i>
