@@ -52,7 +52,7 @@
                 <div class="row">
                     @foreach($foods as $food)
                         <div class="col-sm-4 item-each">
-                            <a href="#">
+                            <a href="{{ url('food/'.$food->restaurant->slug.'/'.$food->slug) }}">
                                 <img class="img-fluid" src="{{ asset('uploads/food/thumbnail/'.$food->feature_photo) }}"
                                      alt="{{ asset('uploads/food/thumbnail/'.$food->feature_photo) }}">
                                 <div class="title">
