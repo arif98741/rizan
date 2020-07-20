@@ -79,8 +79,8 @@
     {{--FOOD RESULT END--}}
 
     {{--Place RESULT Start--}}
-
-    <section class="food-list-search">
+{{--TODO:: need to work here--}}
+    <section style="display: none" class="food-list-search">
         <div class="">
             <h2 class="headline">Matched Food</h2>
             <div class="menu-container">
