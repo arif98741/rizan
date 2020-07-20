@@ -81,15 +81,30 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
         <div class="hidden-search-bar" id="hidden-search-bar">
             <div class="nav-container">
                 <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" autofocus="">
+                    <input type="text" id="key" name="key" placeholder="Search foods, restaurants or places" autofocus
+                           class="form-control" aria-label="Amount (to the nearest dollar)" autofocus="">
+                    <input type="hidden" id="sort_by" name="sort" value="asc">
                     <div class="input-group-append">
                         <span class="input-group-text cross-btn" onclick="hideSearch()"> <i
                                 class="far fa-times-circle"></i> </span>
-                        <span class="input-group-text srch-btn"> <i class="fas fa-search"></i> </span>
+                        <span class="input-group-text srch-btn" onclick="searchFunction()"> <i
+                                class="fas fa-search"></i> </span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+        function searchFunction() {
+            var key = document.getElementById('key');
+            if (key.value == '') {
+                alert('You should type something before search');
+                return false;
+            }
+            var sort_by = document.getElementById('sort_by');
+            var direction = "{{ url('/') }}" + "/search?key=" + key.value + "&sort=" + sort_by.value;
+            window.location = direction;
+        }
+    </script>
 @endif
 
