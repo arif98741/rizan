@@ -1,7 +1,6 @@
 <section class="hero-home">
 <?php
 $site = \Illuminate\Support\Facades\Cache::get('site_details');
-
 ?>
 <!-- Search Section start -->
 
@@ -12,7 +11,7 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
             <form action="{{ url('search') }}">
 
                 <input id="placeholder-text-change" type="text" name="key" id=""
-                       placeholder="Search foods11, restaurants or places" autofocus>
+                       placeholder="Search foods, restaurants or places" autofocus>
                 <input type="hidden" name="sort" value="asc">
                 <button type="submit">Search here</button>
             </form>

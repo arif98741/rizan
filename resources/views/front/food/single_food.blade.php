@@ -16,7 +16,9 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <h6 class="res-name"><a href="#">{{ $food->restaurant->name }}</a></h6>
+                        <h6 class="res-name"><a
+                                href="{{ url('restaurant/view/'.$food->restaurant->slug) }}">{{ $food->restaurant->name }}</a>
+                        </h6>
                         <p class="description black-clr-txt">{{ $food->description }}</p>
                     </div>
                 </div>
@@ -96,7 +98,6 @@
     <section class="review-rating-read">
         <h2 class="headline">Review and Rating</h2>
         <div class="review-rating-container">
-
 
             @foreach($reviews as $review)
                 <div class="single-comment">

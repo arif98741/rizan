@@ -65,11 +65,12 @@ class RestaurantController extends Controller
     {
         if ($request->isMethod('post')) {
             $commentData = $this->commentValidation();
+
             $commentData['ip'] = $_SERVER['REMOTE_ADDR'];
             $commentData['next_comment'] = $this->nextComment();
 
             $commentData['restaurant_id'] = $request->restaurant_id;
-            $restaurant = Restaurant::find($commentData['restaurant_id'])->first();
+            $restaurant = Restaurant::where('id', $commentData['restaurant_id'])->first();
 
             if ($data = $this->commentAbility($commentData['restaurant_id'])) {
                 $databaseNextDay = $data->next_comment;
@@ -115,7 +116,7 @@ class RestaurantController extends Controller
      * @param int $minute
      * @return string
      */
-    private function nextComment($minute = 5)
+    private function nextComment($minute = 120)
     {
         $carbon_date = Carbon::parse(date('Y-m-d H:i:s'));
         $carbon_date->addMinute($minute);

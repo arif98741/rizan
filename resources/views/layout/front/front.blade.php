@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title') - Kikothay.com</title>
+    <title>@yield('title') - {{ ucfirst('Treatlover.com') }}</title>
     <link rel="shortcut icon" href="{{ asset('asset/front/img/logo - favicon.png')}}" type="image/x-icon">
     <!-- bootstrap css -->
     <link rel="stylesheet" href="{{ asset('asset/front/css/bootstrap.min.css') }}">
