@@ -31,16 +31,17 @@ class SearchController extends Controller
             'restaurants' => Restaurant::where('name', 'like', '%' . $key . '%')
                 ->orWhere('location', 'like', '%' . $key . '%')
                 ->orderBy('id', $sort)
-                ->paginate(9),
+                ->paginate(env('PAGINATE_PER_PAGE')),
             'foods' => Food::with('restaurant')
                 ->where('name', 'like', '%' . $key . '%')
                 ->orderBy('id', $sort)
-                ->paginate(9),
+                ->paginate(env('PAGINATE_PER_PAGE')),
             'places' => Place::where('place_name', 'like', '%' . $key . '%')
                 ->orWhere('location', 'like', '%' . $key . '%')
                 ->orderBy('id', $sort)
-                ->paginate(9)
+                ->paginate(env('PAGINATE_PER_PAGE'))
         ];
+
 
         return view('front.search.search_result')->with($data);
 

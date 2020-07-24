@@ -169,7 +169,7 @@
         <h2 class="headline">Review and Rating</h2>
         <div class="review-rating-container">
 
-            @if($reviews)
+            @if($reviews->count()>0)
                 @foreach($reviews as $review)
                     <div class="single-comment">
                         <div class="row">
@@ -193,6 +193,10 @@
                         <p class="black-clr-txt">{{ $review->comment }}</p>
                     </div>
                 @endforeach
+            @else
+                <hr>
+                <span class="text-bold text-center">No reviews yet</span>
+                <hr>
             @endif
         </div>
     </section>

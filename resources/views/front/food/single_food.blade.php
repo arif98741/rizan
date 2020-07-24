@@ -99,29 +99,35 @@
         <h2 class="headline">Review and Rating</h2>
         <div class="review-rating-container">
 
-            @foreach($reviews as $review)
-                <div class="single-comment">
-                    <div class="row">
-                        <div class="col">
-                            <h5 class="person-name">{{ $review->name }}</h5>
-                        </div>
-                        <div class="col">
-                            <div class="review-icon">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+            @if($reviews->count()>0)
+                @foreach($reviews as $review)
+                    <div class="single-comment">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="person-name">{{ $review->name }}</h5>
+                            </div>
+                            <div class="col">
+                                <div class="review-icon">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
                             </div>
                         </div>
+                        <div class="date">
+                            <span class="review-date">{{ date('d M Y',strtotime($review->created_at)) }}</span>
+                            <hr>
+                        </div>
+                        <p class="black-clr-txt">{{ $review->comment }}</p>
                     </div>
-                    <div class="date">
-                        <span class="review-date">{{ date('d M Y',strtotime($review->created_at)) }}</span>
-                        <hr>
-                    </div>
-                    <p class="black-clr-txt">{{ $review->comment }}</p>
-                </div>
-            @endforeach
+                @endforeach
+            @else
+                <hr>
+                <span class="text-bold text-center">No reviews yet</span>
+                <hr>
+            @endif
         </div>
     </section>
     <div class="row">
