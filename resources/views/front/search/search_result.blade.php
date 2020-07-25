@@ -58,7 +58,7 @@
 
 
     {{--FOOD RESULT Start--}}
-    @if($restaurants->count() > 0)
+    @if($foods->count() > 0)
         <section class="food-list-search">
             <div class="">
                 <h2 class="headline">Matched Food</h2>
