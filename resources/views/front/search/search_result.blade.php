@@ -110,7 +110,7 @@
         {{--TODO:: need to work here--}}
         <section class="food-list-search">
             <div class="">
-                <h2 class="headline">Matched Food</h2>
+                <h2 class="headline">Matched Place</h2>
                 <div class="menu-container">
 
                     <div class="row">

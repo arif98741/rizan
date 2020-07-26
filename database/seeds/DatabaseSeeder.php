@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Admin;
-use App\Models\Place;
 use App\Models\Food;
+use App\Models\Place;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 

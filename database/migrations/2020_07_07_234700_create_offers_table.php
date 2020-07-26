@@ -17,6 +17,7 @@ class CreateOffersTable extends Migration
             $table->date('start_date')->nullable();
             $table->date('end_date');
             $table->text('offer_description')->nullable();
+            $table->string('status')->default(1);
             $table->foreign('food_id')->references('id')
                 ->on('foods')->onDelete('set null')->onUpdate('cascade');
             $table->foreign('restaurant_id')->references('id')

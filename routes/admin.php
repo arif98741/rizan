@@ -15,6 +15,10 @@ Route::namespace('Admin')->group(function () {
     Route::post('food/feature/store', 'FoodController@featureStore');
     Route::delete('food/feature/delete/{id}', 'FoodController@featureDelete');
 
+    //offer
+    Route::resource('offer', 'OfferController')->except('show','create');
+
+
     Route::resource('place', 'PlaceController')->except('show');
     Route::resource('page', 'PageController')->except('show', 'create');
     Route::resource('team_member', 'TeamMemberController')->except('show');

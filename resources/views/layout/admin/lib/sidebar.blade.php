@@ -136,6 +136,27 @@
                     </ul>
 
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="#"
+                       class="nav-link @if(url()->current() == route('admin.offer.index')): active
+                    @endif ">
+                        <i class="nav-icon fas fa-microchip"></i>
+                        <p>
+                            Offer
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.offer.index') }}" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Offer List</p>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
 
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link @if(url()->current() == route('admin.restaurant_category.index')): active
