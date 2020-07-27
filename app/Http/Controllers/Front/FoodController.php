@@ -39,7 +39,7 @@ class FoodController extends Controller
                 ->where('slug', $slug)
                 ->firstOrFail(),
             'reviews' => FoodReview::with('food')
-                ->where('status', 0)
+                ->where('status', 1)
                 ->whereHas('food', function ($query) use ($slug) {
                     $query->where('slug', $slug);
                 })->paginate(env('PAGINATE_PER_PAGE'))
@@ -65,7 +65,7 @@ class FoodController extends Controller
 
             $commentData['food_id'] = $request->food_id;
             $restaurant = Restaurant::find($commentData['restaurant_id'])->first();
-            $food = Food::find($commentData['food_id'])->first();
+            $food = Food::where('id',$request->food_id)->first();
 
             if ($data = $this->commentAbility($commentData['food_id'])) {
                 $databaseNextDay = $data->next_comment;
