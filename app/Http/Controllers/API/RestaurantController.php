@@ -149,7 +149,7 @@ class RestaurantController extends Controller
             $restaurant_id = $request->restaurant_id;
             $food = Food::with(['restaurant'])
                 ->where([
-                    'restaurant_id' => $restaurant_id,
+                 //   'restaurant_id' => $restaurant_id,
                     'id' => $food_id
                 ])->first();
             if ($food) {

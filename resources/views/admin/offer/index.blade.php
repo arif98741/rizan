@@ -61,9 +61,6 @@
                                                     {{ csrf_field() }} @method('DELETE')
                                                 </form>
 
-                                                <a href="{{ url('food/offer/'.$offer->id) }}"
-                                                   target="2"
-                                                   class="btn btn-sm btn-success">View</a>
 
                                             </td>
                                         </tr>

@@ -26,13 +26,13 @@
             <div class="container-fluid">
 
 
-                <form action="{{ route('restaurant.offer.update',$offer->id) }}" method="post">
+                <form action="{{ route('admin.offer.update',$offer->id) }}" method="post">
                     @method('put')
                     @csrf
                     <div class="form-group row">
                         <label for="itemName" class="col-sm-2 col-form-label">Enter food name :</label>
                         <div class="col-sm-9">
-                            <select name="food_id" id="food_items" required class="form-control">
+                            <select name="food_id" id="food_items" required class="form-control select2">
                                 <option>Select Food</option>
                                 @foreach($foods as $food)
 
@@ -121,7 +121,19 @@
         <!-- /.content -->
     </div>
 
+
+    @push('extra-css')
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+        <style>
+            .select2-container--default .select2-selection--single .select2-selection__rendered {
+                color: #444;
+                line-height: 22px;
+            }
+        </style>
+
+    @endpush
     @push('extra-js')
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
         <script>
             $(document).ready(function () {
@@ -143,7 +155,7 @@
                                 'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
                             },
                             'success': function (response) {
-                               //TODO:: change here
+                                //TODO:: change here
                                 if (response.code == '200') {
                                     $('#price').val(response.data.price + 'tk');
                                     $('#thumbnail').removeAttr('src');
@@ -160,6 +172,9 @@
                     }
 
                 });
+
+                //select 2
+                $('.select2').select2();
             });
         </script>
     @endpush

@@ -94,13 +94,7 @@ class OfferController extends Controller
      */
     public function update(Request $request, Offer $offer)
     {
-        if ($offer->restaurant_id != $this->user()->id) {
-            Session::flash('error', 'You are not permitted to view this page');
-            return redirect(route('admin.offer.index'));
-        }
-
         $validatedData = $this->updateValidateRequest();
-
 
         if ($offer->update($validatedData)) {
             Session::flash('success', 'Offer Updated successfully!');
@@ -119,10 +113,6 @@ class OfferController extends Controller
      */
     public function destroy(Offer $offer)
     {
-        if ($offer->restaurant_id != $this->user()->id) {
-            Session::flash('error', 'You are not permitted to view this page');
-            return redirect(route('admin.offer.index'));
-        }
 
         if ($offer->delete()) {
             Session::flash('success', 'Offer deleted successfully!');
@@ -131,15 +121,6 @@ class OfferController extends Controller
             Session::flash('error', 'Failed to delete food!');
             return redirect(route('admin.offer.index'));
         }
-    }
-
-    /**
-     * Get Logged In Restaurant
-     * @return mixed
-     */
-    private function user()
-    {
-        return Auth::guard('restaurant')->user();
     }
 
     /**
@@ -171,7 +152,7 @@ class OfferController extends Controller
             'offer_price' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'description' => 'sometimes',
+            'offer_description' => 'sometimes',
         ]);
     }
 
