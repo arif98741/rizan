@@ -13,7 +13,6 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Session;
-use Illuminate\Support\Facades\Storage;
 
 
 class TeamMemberController extends Controller
@@ -92,13 +91,11 @@ class TeamMemberController extends Controller
         $validatedData = $this->updateValidateRequest();
 
         if (!empty($request->file('feature_photo'))) {
-            //TODO: update feature photo
-            if (File::exists('/uploads/team_member/feature/' . $teamMember->feature_photo)) {
-                File::delete('/uploads/team_member/feature/' . $teamMember->feature_photo);
+            if (file_exists(public_path('uploads/team_member/feature/' . $teamMember->feature_photo))) {
+                File::delete(public_path('uploads/team_member/feature/' . $teamMember->feature_photo));
             }
-
-            if (File::exists('/uploads/team_member/thumbnail/' . $teamMember->feature_photo)) {
-                File::delete('/uploads/team_member/thumbnail/' . $teamMember->feature_photo);
+            if (file_exists(public_path('uploads/team_member/thumbnail/' . $teamMember->feature_photo))) {
+                File::delete(public_path('uploads/team_member/thumbnail/' . $teamMember->feature_photo));
             }
 
             $image = HelperController::imageUpload($request, 'feature_photo', 'team_member/feature');
@@ -126,12 +123,11 @@ class TeamMemberController extends Controller
     {
         if ($teamMember->delete()) {
 
-            if (File::exists('uploads/team_member/feature/' . $teamMember->feature_photo)) {
-                File::delete('uploads/team_member/feature/' . $teamMember->feature_photo);
+            if (file_exists(public_path('uploads/food/feature/' . $teamMember->feature_photo))) {
+                File::delete(public_path('uploads/food/feature/' . $teamMember->feature_photo));
             }
-
-            if (File::exists('uploads/team_member/thumbnail/' . $teamMember->feature_photo)) {
-                File::delete('uploads/team_member/thumbnail/' . $teamMember->feature_photo);
+            if (file_exists(public_path('uploads/food/thumbnail/' . $teamMember->feature_photo))) {
+                File::delete(public_path('uploads/food/thumbnail/' . $teamMember->feature_photo));
             }
 
             Session::flash('success', 'TeamMember deleted successfully!');
