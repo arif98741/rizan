@@ -18,13 +18,15 @@
                                     <h5 class="name">{{ $team_member->name }}</h5>
                                     <p class="desg">{{ $team_member->designation }}</p>
                                     <div class="social-icon">
-                                        <a href="https://{{ $team_member->facebook }}?ref{{ url('/') }}">
+                                        <a title="facebook"
+                                           href="https://{{ $team_member->facebook }}?ref{{ url('/') }}">
                                             <i class="fab fa-facebook-square"></i>
                                         </a>
-                                        <a href="{{ $team_member->instagram }}">
+                                        <a title="instagram"
+                                           href="https://{{ $team_member->instagram }}?ref{{ url('/') }}">
                                             <i class="fab fa-instagram"></i>
                                         </a>
-                                        <a href="{{ $team_member->twitter }}">
+                                        <a title="twitter" href="https://{{ $team_member->twitter }}?ref{{ url('/') }}">
                                             <i class="fab fa-twitter-square"></i>
                                         </a>
                                     </div>
