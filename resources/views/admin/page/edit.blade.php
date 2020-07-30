@@ -9,11 +9,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Page Updating Form</h1>
+                        <h1>Page Updating Form ({{ $page->page_title }})</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item active">Edit Page</li>
                         </ol>
                     </div>
@@ -80,7 +80,7 @@
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Description</label>
-                                                <textarea name="description" class="form-control"
+                                                <textarea name="description" id="description" class="form-control"
                                                           placeholder="Enter price" cols="3"
                                                           rows="3">{{$page->description}}</textarea>
 
@@ -98,7 +98,8 @@
                                             <div class="card-body">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Object Description</label>
-                                                    <textarea name="object_description" class="form-control"
+                                                    <textarea name="object_description" id="object_description"
+                                                              class="form-control"
                                                               placeholder="Enter price" cols="3"
                                                               rows="3">{{$page->object_description}}</textarea>
 
@@ -125,6 +126,18 @@
         <!-- /.content -->
     </div>
     @push('extra-js')
+        <script src='{{ asset('asset/back/dist/js/tinymce.js') }}'></script>
+        <script>
+            tinymce.init({
+                selector: '#description'
+            });
+            tinymce.init({
+                selector: '#object_description'
+            });
+
+        </script>
+
+
     @endpush
 @endsection
 

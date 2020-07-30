@@ -52,14 +52,18 @@ Route::group(['prefix' => 'admin'], function () {
 Route::namespace('Front')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/restaurants', 'RestaurantController@index');
-    Route::get('/restaurant/view/{slug}', 'RestaurantController@viewBySlug');
+   // Route::get('/restaurant/view/{slug}', 'RestaurantController@viewBySlug');
+    Route::get('/restaurant/{slug}', 'RestaurantController@viewBySlug');
     Route::match(['get', 'post'], '/restaurant/comment', 'RestaurantController@restaurant_comment');
     Route::match(['get', 'post'], '/food/comment', 'FoodController@food_comment');
     Route::get('/places/', 'PlaceController@index');
     Route::get('/place/{slug}', 'PlaceController@viewBySlug');
     Route::get('/foods', 'FoodController@index');
     Route::get('/food/{restaurant}/{slug}', 'FoodController@viewBySlug');
-    Route::get('/page/{slug}', 'PageController@viewBySlug');
+    Route::get('/about-us', 'PageController@viewPage');
+    Route::get('/privacy-policy', 'PageController@viewPage');
+    Route::get('/terms-and-conditions', 'PageController@viewPage');
+    Route::get('/new-account', 'PageController@viewPage');
     Route::get('/team-members', 'PageController@teamMembers');
     Route::get('/offers', 'OfferController@index');
     Route::get('/search', 'SearchController@index')->name('search');

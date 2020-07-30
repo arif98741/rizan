@@ -8,8 +8,8 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
             <div class="col-sm-4 footer-each">
                 <h5>Know Us</h5>
                 <ul class="un-list">
-                    <li class=""><a href="{{ url('page/about-us') }}">About Us</a></li>
-                    <li class=""><a href="{{ url('page/terms-and-conditions') }}">Terms & Conditions</a></li>
+                    <li class=""><a href="{{ url('about-us') }}">About Us</a></li>
+                    <li class=""><a href="{{ url('terms-and-conditions') }}">Terms & Conditions</a></li>
                     <li class=""><a href="{{ url('/team-members') }}">Team Members</a></li>
                 </ul>
             </div>
@@ -24,7 +24,7 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
                 <h5>For Restaurant Owner</h5>
                 <ul class="un-list">
                     <li class=""><a href="{{ url('restaurant') }}">My Account</a></li>
-                    <li class=""><a href="{{ url('page/new-account') }}">Get New Account</a></li>
+                    <li class=""><a href="{{ url('new-account') }}">Get New Account</a></li>
                 </ul>
             </div>
         </div>

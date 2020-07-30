@@ -13,7 +13,7 @@
 
                     @foreach($feature_restaurants as $feature_restaurant)
                         <div class="col-sm-6 item-each">
-                            <a href="{{ url('restaurant/view/'.$feature_restaurant->restaurant->slug) }}">
+                            <a href="{{ url('restaurant/'.$feature_restaurant->restaurant->slug) }}">
                                 <img class="img-fluid" style="width: 100%"
                                      src="{{ asset('uploads/restaurant/thumbnail/'.$feature_restaurant->restaurant->feature_photo)}}"
                                      alt="{{ $feature_restaurant->restaurant->name }} - {{ url('/') }}">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Offer;
+use Carbon\Carbon;
 
 
 class OfferController extends Controller
@@ -15,6 +16,7 @@ class OfferController extends Controller
     {
         $data = [
             'offers' => Offer::with(['food','restaurant'])
+                ->where('end_date','>',date('Y-m-d'))
                 ->orderBy('id', 'desc')
                 ->get()
         ];

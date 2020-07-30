@@ -123,7 +123,7 @@ class XmlController extends Controller
         });
 
         Restaurant::all()->each(function (Restaurant $object) use ($sitemap) {
-            $sitemap->add(Url::create("/restaurant/view/{$object->slug}"));
+            $sitemap->add(Url::create("/restaurant/{$object->slug}"));
         });
 
         Place::all()->each(function (Place $object) use ($sitemap) {
