@@ -276,6 +276,7 @@ class RestaurantController extends Controller
             'slug' => 'sometimes',
             'email' => 'required|unique:restaurants,email',
             'contact' => 'required|min:6|max:20|unique:restaurants',
+            'map_code' => 'sometimes',
             'password' => 'required|min:6',
             'feature_photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'cover_photo' => 'sometimes',
@@ -300,6 +301,7 @@ class RestaurantController extends Controller
             'slug' => 'sometimes',
             'email' => 'required|unique:restaurants,email,' . $id,
             'contact' => 'sometimes',
+            'map_code' => 'sometimes',
             'facebook' => 'sometimes',
             'instagram' => 'sometimes',
             'website' => 'sometimes'

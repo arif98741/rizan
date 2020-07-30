@@ -83,16 +83,7 @@
                                                 @enderror
 
                                             </div>
-                                            <div class="form-group">
-                                                <label for="slug">Slug</label>
-                                                <input type="text" name="slug" value="{{ old('slug') }}"
-                                                       class="form-control" id="slug"
-                                                       placeholder="Slug address" readonly>
-                                                @error('slug')
-                                                <p class="text-red mt-1">{{ $message }}</p>
-                                                @enderror
 
-                                            </div>
                                             <div class="form-group">
                                                 <label for="website">Facebook URL</label>
                                                 <input type="text" name="facebook"
@@ -201,6 +192,15 @@
 
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="slug">Map Code</label>
+                                                <textarea id="map_code" class="form-control"></textarea>
+                                                <input type="hidden" name="map_code" id="map_code_value">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
 
@@ -281,6 +281,19 @@
                     }
 
                 });
+
+                /**
+                 * get src url from map code
+                 */
+                $('#map_code').change(function () {
+                    var map_code = $(this).val();
+                    var src = map_code.split('src=')[1].split(/[ >]/)[0];
+                    console.log(src);
+                    src = src.replace('"', '');
+                    src = src.replace('"', '');
+                    $('#map_code_value').val(src);
+                });
+
             });
         </script>
     @endpush
