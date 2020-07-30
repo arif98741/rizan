@@ -278,8 +278,8 @@ class RestaurantController extends Controller
             'contact' => 'required|min:6|max:20|unique:restaurants',
             'map_code' => 'sometimes',
             'password' => 'required|min:6',
-            'feature_photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'cover_photo' => 'sometimes',
+            'feature_photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
+            'cover_photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
             'facebook' => 'sometimes',
             'instagram' => 'sometimes',
             'website' => 'sometimes'
@@ -302,6 +302,8 @@ class RestaurantController extends Controller
             'email' => 'required|unique:restaurants,email,' . $id,
             'contact' => 'sometimes',
             'map_code' => 'sometimes',
+            'feature_photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
+            'cover_photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:3072',
             'facebook' => 'sometimes',
             'instagram' => 'sometimes',
             'website' => 'sometimes'
