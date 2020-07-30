@@ -62,10 +62,10 @@ class FoodController extends Controller
             $commentData['next_comment'] = $this->nextComment();
             $commentData['food_id'] = $request->food_id;
             $commentData['restaurant_id'] = $request->restaurant_id;
-
             $commentData['food_id'] = $request->food_id;
+            $commentData['status'] = 1;
             $restaurant = Restaurant::find($commentData['restaurant_id'])->first();
-            $food = Food::where('id',$request->food_id)->first();
+            $food = Food::where('id', $request->food_id)->first();
 
             if ($data = $this->commentAbility($commentData['food_id'])) {
                 $databaseNextDay = $data->next_comment;
@@ -82,7 +82,7 @@ class FoodController extends Controller
             }
 
             if (FoodReview::create($commentData)) {
-                Session::flash('success', 'Comment added successfully, it will be published soon!');
+                Session::flash('success', 'Comment added successfully!');
                 return redirect('food/' . $restaurant->slug . '/' . $food->slug . '/' . '#review-message');
             } else {
                 Session::flash('error', 'Failed to save comment!');

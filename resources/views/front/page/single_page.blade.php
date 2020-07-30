@@ -1,12 +1,14 @@
 @extends('layout.front.front')
-@section('title','Restaurants')
+@section('title',$page->page_title)
 @section('content')
     <!-- about us start -->
     <section class="about-us">
         <div class="about-us-container">
             <h2 class="heading">{{ $page->page_title }}</h2>
             <p>
-                {{ $page->description }}
+                {!! $page->description !!}
+
+
             </p>
         </div>
     </section>
@@ -19,7 +21,8 @@
             <div class="objective-container">
                 <h2 class="heading">Objective</h2>
                 <ul>
-                    {{ $page->object_description }}
+                    {!! $page->object_description !!}
+                  
                 </ul>
             </div>
         </section>

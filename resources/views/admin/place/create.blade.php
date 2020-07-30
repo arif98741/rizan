@@ -47,7 +47,7 @@
                                                 <label for="exampleInputEmail1">Place Name</label>
                                                 <input type="text" name="place_name" value="{{ old('place_name') }}"
                                                        class="form-control"
-                                                       id="name"
+
                                                        placeholder="Enter place name">
                                                 @error('place_name')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -58,7 +58,7 @@
                                                 <label for="exampleInputEmail1">Location</label>
                                                 <input type="text" name="location" value="{{ old('location') }}"
                                                        class="form-control"
-                                                       id="name"
+
                                                        placeholder="Enter location">
 
                                                 @error('location')
@@ -85,13 +85,12 @@
                                                 <div class="input-group">
                                                     <div class="custom-file">
                                                         <input type="file" name="feature_photo"
-                                                               class="custom-file-input"
-                                                               id="exampleInputFile">
+                                                               class="custom-file-input">
                                                         <label class="custom-file-label" for="exampleInputFile">Choose
                                                             file</label>
                                                     </div>
                                                     <div class="input-group-append">
-                                                        <span class="input-group-text" id="">Upload</span>
+                                                        <span class="input-group-text">Upload</span>
                                                     </div>
                                                 </div>
                                                 @error('feature_photo')
@@ -107,7 +106,7 @@
                                             <div class="form-group">
                                                 <label for="location">Initial Details(প্রাথমিক বর্ণনা)</label>
                                                 <textarea cols="4" rows="3" name="initial_details" class="form-control"
-                                                          id="description"
+                                                          id="initial_details"
                                                           placeholder="Enter initial_details"> {{ old('initial_details') }}</textarea>
                                                 @error('initial_details')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -118,10 +117,10 @@
                                             <div class="form-group">
                                                 <label for="location">এই ট্যুরে যা যা দেখবেন:
                                                 </label>
-                                                <textarea id cols="4" rows="3" name="tourist_attractions"
+                                                <textarea cols="4" rows="3" name="tourist_attractions"
                                                           class="form-control"
-                                                          id="description"
-                                                          placeholder="Enter tourist attractions"> {{ old('tourist_attractions') }}</textarea>
+                                                          id="tourist_attractions"
+                                                          placeholder="Enter how_to_go"></textarea>
                                                 @error('tourist_attractions')
                                                 <p class="text-red mt-1">{{ $message }}</p>
                                                 @enderror
@@ -132,7 +131,7 @@
                                                 <label for="location">যেভাবে যাবেন:
                                                 </label>
                                                 <textarea cols="4" rows="3" name="how_to_go" class="form-control"
-                                                          tourist_attractions id="description"
+                                                          id="how_to_go"
                                                           placeholder="Enter how_to_go"> {{ old('how_to_go') }}</textarea>
                                                 @error('how_to_go')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -159,19 +158,21 @@
         <!-- /.content -->
     </div>
     @push('extra-js')
-        <script src="{{ asset('asset/front/froala/froala_editor.min.js') }}"></script>
-        <script src="{{ asset('asset/front/froala/plugins.pkgd.min.js') }}"></script>
-        <script src="{{ asset('asset/front/froala/froala_editor.pkgd.min.js') }}"></script>
-
-
+        <script src='{{ asset('asset/back/dist/js/tinymce.js') }}'></script>
         <script>
-            /*(function () {
-                new FroalaEditor("#description")
-            })()
-            */
-            */
+            tinymce.init({
+                selector: '#initial_details'
+            });
+            tinymce.init({
+                selector: '#tourist_attractions'
+            });
+            tinymce.init({
+                selector: '#how_to_go'
+            });
 
         </script>
+
+
     @endpush
 @endsection
 

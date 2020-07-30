@@ -83,7 +83,7 @@
                                                 {{ csrf_field() }} @method('DELETE')
                                             </form>
                                             <a class="btn btn-primary btn-sm" target="1"
-                                               href="{{ url('restaurant/view/'.$review->restaurant->slug) }}"> View
+                                               href="{{ url('restaurant/'.$review->restaurant->slug) }}"> View
                                             </a>
                                         </td>
                                     </tr>

@@ -11,18 +11,22 @@ class PageController extends Controller
 {
     /**
      * view place by slug
-     * @param $slug
      * @return Factory|View
      */
-    public function viewBySlug($slug)
+    public function viewPage()
     {
+        //get slug from url
+        $explode_url = explode('/', url()->current());
         $data = [
-            'page' => Page::where('slug', $slug)->firstOrFail()
+            'page' => Page::where('slug', end($explode_url))->firstOrFail()
         ];
         return view('front.page.single_page')->with($data);
     }
 
-    public function teamMembers ()
+    /*
+     *Show Team Members
+     */
+    public function teamMembers()
     {
         $data = [
             'team_members' => TeamMember::orderBy('name')->get()

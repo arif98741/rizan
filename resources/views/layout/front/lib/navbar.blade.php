@@ -30,7 +30,7 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
                             <a class="nav-link" href="{{ url('/places') }}">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('page/about-us') }}">About us</a>
+                            <a class="nav-link" href="{{ url('about-us') }}">About us</a>
                         </li>
                     </ul>
                 </div>
@@ -68,7 +68,7 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
                             <a class="nav-link" href="{{ url('/places') }}">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('page/about-us') }}">About us</a>
+                            <a class="nav-link" href="{{ url('about-us') }}">About us</a>
                         </li>
                         <li class="nav-item hide-on-sml">
                             <a class="nav-link" onclick="showSearch()"> <i class="fas fa-search"></i> </a>

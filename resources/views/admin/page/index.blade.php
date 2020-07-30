@@ -58,7 +58,7 @@
                                             <a href="{{ route('admin.page.edit',$page->id) }}"
                                                class="btn btn-sm btn-primary">Edit</a>
 
-                                            <a href="{{ url('page/'.$page->slug) }}"
+                                            <a href="{{ url($page->slug) }}"
                                                target="2"
                                                class="btn btn-sm btn-success">View</a>
 

@@ -13,7 +13,8 @@ class FoodReview extends Model
         'restaurant_id',
         'comment',
         'ip',
-        'next_comment'
+        'next_comment',
+        'status'
     ];
 
     public function food()

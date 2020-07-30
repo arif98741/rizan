@@ -25,14 +25,14 @@
                         <span>{{ $place->location }}</span>
                     </div>
                     <p class="description black-clr-txt">
-                        {{ $place->initial_details }}
+                        {!! $place->initial_details !!}
                     </p>
                     <h5 class="what-see-heading">এই ট্যুরে যা যা দেখবেন:</h5>
                     <p class="what-see black-clr-txt">
-                        {{ $place->tourist_attractions }}
+                        {!! $place->tourist_attractions !!}
                     </p>
                     <h5 class="how-goto-heading">যেভাবে যাবেন:</h5>
-                    <p class="how-goto black-clr-txt">{{ $place->how_to_go }}
+                    <p class="how-goto black-clr-txt">{!! $place->how_to_go !!}
                     </p>
                 </div>
             </div>

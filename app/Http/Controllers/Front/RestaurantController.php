@@ -70,6 +70,7 @@ class RestaurantController extends Controller
             $commentData['next_comment'] = $this->nextComment();
 
             $commentData['restaurant_id'] = $request->restaurant_id;
+            $commentData['status'] = 1;
             $restaurant = Restaurant::where('id', $commentData['restaurant_id'])->first();
 
             if ($data = $this->commentAbility($commentData['restaurant_id'])) {
@@ -82,16 +83,16 @@ class RestaurantController extends Controller
                     $minutesDifference = $start->diffInMinutes($end);
 
                     Session::flash('error', 'Failed to comment. Please try again after ' . $minutesDifference . ' minutesl');
-                    return redirect('restaurant/view/' . $restaurant->slug . '#review-message');
+                    return redirect('restaurant/' . $restaurant->slug . '#review-message');
                 }
             }
 
             if (RestaurantReview::create($commentData)) {
-                Session::flash('success', 'Comment added successfully, it will be published soon!');
-                return redirect('restaurant/view/' . $restaurant->slug . '#review-message');
+                Session::flash('success', 'Comment added successfully!');
+                return redirect('restaurant/' . $restaurant->slug . '#review-message');
             } else {
                 Session::flash('error', 'Failed to save comment!');
-                return redirect('restaurant/view/' . $restaurant->slug);
+                return redirect('restaurant/' . $restaurant->slug);
             }
         }
     }

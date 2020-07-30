@@ -111,7 +111,7 @@
                                             <div class="form-group">
                                                 <label for="location">Initial Details(প্রাথমিক বর্ণনা)</label>
                                                 <textarea cols="4" rows="3" name="initial_details" class="form-control"
-                                                          id="description"
+                                                          id="initial_details"
                                                           placeholder="Enter initial_details"> {{ $place->initial_details }}</textarea>
                                                 @error('initial_details')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -124,7 +124,7 @@
                                                 </label>
                                                 <textarea cols="4" rows="3" name="tourist_attractions"
                                                           class="form-control"
-                                                          id="description"
+                                                          id="tourist_attractions"
                                                           placeholder="Enter tourist attractions"> {{ $place->tourist_attractions }}</textarea>
                                                 @error('tourist_attractions')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -136,7 +136,7 @@
                                                 <label for="location">যেভাবে যাবেন:
                                                 </label>
                                                 <textarea cols="4" rows="3" name="how_to_go" class="form-control"
-                                                          tourist_attractions id="description"
+                                                          id="how_to_go"
                                                           placeholder="Enter how_to_go"> {{ $place->how_to_go }}</textarea>
                                                 @error('how_to_go')
                                                 <p class="text-red mt-1">{{ $message }}</p>
@@ -163,70 +163,21 @@
         <!-- /.content -->
     </div>
     @push('extra-js')
-
+        <script src='{{ asset('asset/back/dist/js/tinymce.js') }}'></script>
         <script>
-            $(document).ready(function () {
-                /**
-                 * email check ins database
-                 */
-                $('#email').blur(function () {
-                    let email = $(this).val();
-                    if (email == '') {
-                        $('#email-message').html('Field must not be empty');
-                    } else {
-                        $.ajax({
-                            'url': '{{ url('api/restaurant/check_email') }}',
-                            'dataType': 'json',
-                            'method': 'post',
-                            'data': {
-                                'email': email,
-                                'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
-                            },
-                            'success': function (response) {
-                                if (response.code == '200') {
-                                    $('#email-message').html('Email already exist. Please Use another');
-                                } else {
-                                    $('#email-message').html('');
-                                }
-                            }, error: function (e) {
-                                console.log(e);
-                            }
-                        })
-                    }
-
-                });
-
-                /**
-                 * contact check ins database
-                 */
-                $('#contact').blur(function () {
-                    let contact = $(this).val();
-                    if (contact == '') {
-                        $('#contact-message').html('Field must not be empty');
-                    } else {
-                        $.ajax({
-                            'url': '{{ url('api/restaurant/check_contact') }}',
-                            'dataType': 'json',
-                            'method': 'post',
-                            'data': {
-                                'contact': contact,
-                                'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
-                            },
-                            'success': function (response) {
-                                if (response.code == '200') {
-                                    $('#contact-message').html('Contact already exist. Please Use another');
-                                } else {
-                                    $('#contact-message').html('');
-                                }
-                            }, error: function (e) {
-                                console.log(e);
-                            }
-                        })
-                    }
-
-                });
+            tinymce.init({
+                selector: '#initial_details'
             });
+            tinymce.init({
+                selector: '#tourist_attractions'
+            });
+            tinymce.init({
+                selector: '#how_to_go'
+            });
+
         </script>
+
+
     @endpush
 @endsection
 

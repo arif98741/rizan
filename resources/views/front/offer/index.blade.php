@@ -27,7 +27,7 @@
                             {{ $offer->offer_description }}
                         </p>
                         <h6 class="res-name"><span>On</span> <a
-                                href="{{ url('restaurant/view/'.$offer->restaurant->slug) }}">{{ $offer->restaurant->name }}</a>
+                                href="{{ url('restaurant/'.$offer->restaurant->slug) }}">{{ $offer->restaurant->name }}</a>
                         </h6>
                     </div>
                 </div>
