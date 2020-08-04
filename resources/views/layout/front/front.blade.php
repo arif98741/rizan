@@ -33,6 +33,23 @@
     <!-- google-font css -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,800|Roboto:400,500,700&display=swap"
           rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <?php
+    $site = \Illuminate\Support\Facades\Cache::get('site_details');
+    ?>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $site->analytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', '{{  $site->analytics }}');
+    </script>
 </head>
 <body>
 
@@ -67,10 +84,6 @@
 
 <!-- custom js -->
 <script src="{{ asset('asset/front/js/script.js') }}"></script>
-<?php
-$site = \Illuminate\Support\Facades\Cache::get('site_details');
-?>
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ $site->analytics }}"></script>
 
 @stack('extra-js')
 <script>
