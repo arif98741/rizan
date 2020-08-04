@@ -45,6 +45,10 @@ class FoodController extends Controller
                 })->paginate(env('PAGINATE_PER_PAGE'))
         ];
 
+        $data['og']['og_title'] = $data['food']->name;
+        $data['og']['og_description'] = $data['food']->description;
+        $data['og']['og_image'] = $data['food']->feature_photo;
+        $data['og']['og_image_src'] = asset('uploads/food/feature/' . $data['food']->feature_photo);
         return view('front.food.single_food')->with($data);
     }
 

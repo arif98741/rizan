@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title') - {{ ucfirst('Treatlover.com') }}</title>
+
+
+    <!-- facebook og meta start-->
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title"
+          content="{{ (isset($og) && array_key_exists('og_title',$og)) ? $og['og_title'] : ucfirst('Treatlover.com') }}"/>
+    <meta property="og:description"
+          content="{{ (isset($og) && array_key_exists('og_description',$og)) ? $og['og_description'] : ''}}"/>
+    <meta property="og:url" content="{{ url()->current() }}"/>
+    <meta property="og:site_name" content="Phpdark"/>
+    <meta property="og:image"
+          content="{{ (isset($og) && array_key_exists('og_image_src',$og)) ? $og['og_image_src'] : '' }}"/>
+    <meta property="og:image:secure_url"
+          content="{{ (isset($og) && array_key_exists('og_image_src',$og)) ? $og['og_image_src'] : '' }}"/>
+
+    <!-- facebook og meta end-->
+
     <link rel="shortcut icon" href="{{ asset('asset/front/img/logo - favicon.png')}}" type="image/x-icon">
     <!-- bootstrap css -->
     <link rel="stylesheet" href="{{ asset('asset/front/css/bootstrap.min.css') }}">

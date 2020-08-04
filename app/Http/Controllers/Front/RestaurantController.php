@@ -52,7 +52,10 @@ class RestaurantController extends Controller
                 ])->orderBy('id', 'desc')
                 ->paginate(7)
         ];
-
+        $data['og']['og_title'] = $data['restaurant']->name;
+        $data['og']['og_image'] = $data['restaurant']->cover_photo;
+        $data['og']['og_image_src'] = asset('uploads/restaurant/cover/' . $data['restaurant']->cover_photo);
+        
         return view('front.restaurant.single_restaurant')->with($data);
     }
 
