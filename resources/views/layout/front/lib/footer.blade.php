@@ -39,7 +39,9 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
                 </div>
             </div>
             <div class="col-sm-6 text-center">
-                <p>&copy; {{ date('Y') }} TreatLover, All rights Reserved | v1.2.0</p>
+                <p>&copy; {{ date('Y') }} TreatLover, All rights Reserved | v1.2.0 | <span><i>Developed & Maintained by: <a
+                                href="https://facebook.com/arifulislammmc007"
+                                target="_blank">Ariful Islam</a> </i></span></p>
             </div>
         </div>
     </div>
