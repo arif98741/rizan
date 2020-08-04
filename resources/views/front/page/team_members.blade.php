@@ -1,5 +1,5 @@
 @extends('layout.front.front')
-@section('title','Restaurants')
+@section('title','Team Members')
 @section('content')
     <!-- person start -->
     <section class="person-team">

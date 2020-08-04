@@ -1,5 +1,5 @@
 @extends('layout.front.front')
-@section('title','Home')
+@section('title','Offers')
 @section('content')
     <section class="hero-current-offer">
         <h2 class="current-offer-heading"><span>Current Offers</span></h2>
