@@ -40,17 +40,18 @@
 
             </div>
         </div>
-        <div class="row">
-            <div class="offset-md-5 ">
 
-            </div>
-            <div class="col-md-4">
-                <nav aria-label="Page navigation example pull-right">
-                    {{ $restaurants->links() }}
-                </nav>
-            </div>
-        </div>
+        {{ $restaurants->links() }}
+
+
     </section>
     <!-- menu end -->
+    @push('extra-js')
+        <script>
+            $(document).ready(function () {
+                $('.menu-all-restaurant nav').addClass('pagination justify-content-center');
+            });
+        </script>
+    @endpush
 
 @endsection

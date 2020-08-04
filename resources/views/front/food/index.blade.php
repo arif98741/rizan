@@ -41,16 +41,17 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="offset-md-5 ">
+        {{ $foods->links() }}
 
-            </div>
-            <div class="col-md-4">
-                <nav aria-label="Page navigation example pull-right">
-                    {{ $foods->links() }}
-                </nav>
-            </div>
-        </div>
     </section>
+
+    <!-- menu end -->
+    @push('extra-js')
+        <script>
+            $(document).ready(function () {
+                $('.menu-all-food nav').addClass('pagination justify-content-center');
+            });
+        </script>
+    @endpush
 
 @endsection
