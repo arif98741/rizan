@@ -21,7 +21,9 @@ class FoodController extends Controller
     public function index()
     {
         $data = [
-            'foods' => Food::with('restaurant')->orderBy('id')->paginate(env('PAGINATE_PER_PAGE')),
+            'foods' => Food::with('restaurant')
+                ->orderBy('id', 'asc')
+                ->paginate(env('PAGINATE_PER_PAGE')),
         ];
 
         return view('front.food.index')->with($data);
@@ -42,7 +44,7 @@ class FoodController extends Controller
                 ->where('status', 1)
                 ->whereHas('food', function ($query) use ($slug) {
                     $query->where('slug', $slug);
-                })->paginate(env('PAGINATE_PER_PAGE'))
+                })->paginate(env('COMMENT_PER_PAGE'))
         ];
 
         $data['og']['og_title'] = $data['food']->name;

@@ -21,7 +21,9 @@ class RestaurantController extends Controller
     public function index()
     {
         $data = [
-            'restaurants' => Restaurant::with(['restaurant_category'])->paginate(env('PAGINATE_PER_PAGE'))
+            'restaurants' => Restaurant::with(['restaurant_category'])
+                ->orderBy('id' 'asc')
+                ->paginate(env('PAGINATE_PER_PAGE'))
         ];
 
         return view('front.restaurant.index')->with($data);
@@ -50,12 +52,12 @@ class RestaurantController extends Controller
                     'restaurant_id' => $restaurant->id,
                     'status' => 1
                 ])->orderBy('id', 'desc')
-                ->paginate(7)
+                ->paginate(env('COMMENT_PER_PAGE'))
         ];
         $data['og']['og_title'] = $data['restaurant']->name;
         $data['og']['og_image'] = $data['restaurant']->cover_photo;
         $data['og']['og_image_src'] = asset('uploads/restaurant/cover/' . $data['restaurant']->cover_photo);
-        
+
         return view('front.restaurant.single_restaurant')->with($data);
     }
 
