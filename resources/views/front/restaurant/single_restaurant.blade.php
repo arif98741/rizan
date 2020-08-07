@@ -4,7 +4,7 @@
 
     <!-- hero start -->
     <section class="hero-single-res"
-             style="background: url({{ asset('uploads/restaurant/cover/'.$restaurant->cover_photo) }}) no-repeat center center; background-size: cover">
+             style="background: url({{ asset('uploads/restaurant/cover/'.$restaurant->cover_photo) }})">
         <div class="map-img">
             <iframe width="100%" height="100%"
                     src="{{ $restaurant->map_code }}"
@@ -35,20 +35,20 @@
             <div class="social-icon">
                 <ul>
                     <li>
-                        <a href="@if(!empty($restaurant->facebook)) http://{{ $restaurant->facebook }} @else#@endif">
+                        <a href="@if(!empty($restaurant->facebook)) http://{{ $restaurant->facebook }} @else#@endif" target="_blank">
                             <i class="fab fa-facebook-square"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="@if(!empty($restaurant->instagram)) http://{{ $restaurant->instagram }} @else#@endif"
+                        <a href="@if(!empty($restaurant->instagram)) http://{{ $restaurant->instagram }} @else#@endif" target="_blank"
                         >
                             <i class="fab fa-instagram"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="@if(!empty($restaurant->website)) http://{{ $restaurant->website }} @else#@endif"
+                        <a href="@if(!empty($restaurant->website)) http://{{ $restaurant->website }} @else#@endif" target="_blank"
                         >
                             <i class="fas fa-globe"></i>
                         </a>
@@ -195,7 +195,7 @@
                 @endforeach
             @else
                 <hr>
-                <span class="text-bold text-center">No reviews yet</span>
+                <p class="text-bold text-center no-review">No reviews yet</p>
                 <hr>
             @endif
         </div>

@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <textarea name="comment" class="form-control" rows="5"
-                                  placeholder="Your comment about this restaurant"></textarea>
+                                  placeholder="Your comment about this food"></textarea>
                         @error('comment')
                         <p class="text-red mt-1">{{ $message }}</p>
                         @enderror
@@ -125,7 +125,7 @@
                 @endforeach
             @else
                 <hr>
-                <span class="text-bold text-center">No reviews yet</span>
+                    <p class="text-bold text-center no-review">No reviews yet</p>
                 <hr>
             @endif
         </div>

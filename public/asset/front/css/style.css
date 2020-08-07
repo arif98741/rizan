@@ -56,9 +56,13 @@ a {
 .navigation-home .navbar {
   padding: 0;
 }
+.navigation-home .navbar-brand {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
 .navigation-home .navbar-brand img {
   width: 80px;
-  height: auto;
+  height: 60px;
 }
 .navigation-home .nav-link {
   color: #1A237E;
@@ -70,7 +74,10 @@ a {
 
 /* hero part*/
 .hero-home {
-  background: url('../img/hero-bg-min.jpg') right center;
+  background: url('../img/hero-bg-min.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 100vh;
   color: #fff;
   position: relative;
@@ -379,6 +386,9 @@ a {
 /* hero single-restaurant part*/
 .hero-single-res {
   /*background: url('../img/restaurant-bg.png') center center;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 70vh;
   color: #fff;
   position: relative;
@@ -537,6 +547,9 @@ a {
 }
 
 /* review & comments single-res */
+.no-review {
+  color: ;
+}
 .review-rating-read {
   padding: 3rem 0;
   font-family: 'Roboto', sans-serif;
@@ -739,7 +752,10 @@ a {
 /* all-food start */
 /* hero all-food part*/
 .hero-all-food {
-  background: url('../img/all-food-bg.jpg') center center;
+  background: url('../img/all-food-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-all-food .all-food-heading {
@@ -827,7 +843,10 @@ a {
 /* all-restaurant start */
 /* hero all-restaurant part*/
 .hero-all-restaurant {
-  background: url('../img/all-restaurant-bg.jpg') center center;
+  background: url('../img/all-restaurant-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-all-restaurant .all-restaurant-heading {
@@ -1035,7 +1054,10 @@ a {
 /* all-place start */
 /* hero all-place part*/
 .hero-all-place {
-  background: url('../img/all-place-bg.jpg') center center;
+  background: url('../img/all-place-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .hero-all-place .all-place-heading {
   text-align: center;
@@ -1119,7 +1141,10 @@ a {
 /* current offer start */
 /* hero current offer */
 .hero-current-offer {
-  background: url('../img/burger.png') center center;
+  background: url('../img/burger.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-current-offer .current-offer-heading {

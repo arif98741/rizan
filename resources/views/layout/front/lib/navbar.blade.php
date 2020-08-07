@@ -6,7 +6,7 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
         <div class="nav-container">
             <nav class="navbar navbar-expand-md">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img style="height: 50px;" src="{{ asset('asset/front/img/logo.png')}}" alt="logo - {{ url('/') }}">
+                    <img src="{{ asset('asset/front/img/logo.png')}}" alt="logo - {{ url('/') }}">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent"
