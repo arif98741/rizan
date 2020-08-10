@@ -57,10 +57,6 @@
 @include('layout.front.lib.navbar')
 <!-- navbar end -->
 
-<!-- hero start -->
-
-<!-- hero end -->
-
 {{-- content --}}
 
 @yield('content')
