@@ -33,9 +33,9 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
         <div class="row mt-3">
             <div class="col-sm-6">
                 <div class="social-icon">
-                    <a href="{{ $site->facebook }}" target="_blank"> <i class="fab fa-facebook-square"></i> </a>
-                    <a href="{{ $site->twitter }}" target="_blank"> <i class="fab fa-twitter"></i> </a>
-                    <a href="{{ $site->instagram }}" target="_blank"> <i class="fab fa-instagram"></i> </a>
+                    <a href="https://{{ $site->facebook }}" target="_blank"> <i class="fab fa-facebook-square"></i> </a>
+                    <a href="https://{{ $site->twitter }}" target="_blank"> <i class="fab fa-twitter"></i> </a>
+                    <a href="https://{{ $site->instagram }}" target="_blank"> <i class="fab fa-instagram"></i> </a>
                 </div>
             </div>
             <div class="col-sm-6 text-center">
