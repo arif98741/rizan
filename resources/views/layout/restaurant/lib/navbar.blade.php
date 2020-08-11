@@ -25,9 +25,6 @@
                     {{ csrf_field() }}
                 </form>
 
-                <div class="dropdown-menu profileDrop" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Logout</a>
-                </div>
             </li>
         </ul>
     </nav>
