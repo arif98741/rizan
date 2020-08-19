@@ -26,7 +26,4 @@ class Food extends Model
         return $this->hasOne(FeatureFood::class);
     }
 
-
-
-
 }
