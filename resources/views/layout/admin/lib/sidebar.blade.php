@@ -69,8 +69,13 @@
                                 <p>Add Food</p>
                             </a>
                         </li>
-
-
+                        <li class="nav-item">
+                            <a href="{{ url('admin/food/feature') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Feature Food</p>
+                            </a>
+                        </li>
+                      
                     </ul>
 
                 </li>

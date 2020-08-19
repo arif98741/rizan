@@ -1,5 +1,5 @@
 @extends('layout.admin.admin')
-@section('title','Add Feature Restaurant')
+@section('title','Add Feature Food')
 @section('content')
 
     {{--    {{ dd($errors) }}--}}
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Restaurant Saving Form</h1>
+                        <h1>Food Saving Form</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -31,10 +31,10 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Feature Restaurant</h3>
+                                <h3 class="card-title">Feature Food</h3>
                             </div>
 
-                            <form role="form" action="{{ url('admin/restaurant/feature/store') }}" method="post"
+                            <form role="form" action="{{ url('admin/food/feature/store') }}" method="post"
                                   enctype="multipart/form-data">
                                 @csrf
                                 @method('post')
@@ -44,13 +44,15 @@
 
 
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Select Restaurant</label>
-                                                <select name="restaurant_id" class="form-control">
+                                                <label for="exampleInputEmail1">Select Food</label>
+                                                <select name="food_id" class="form-control">
                                                     <option value="" disabled selected>---</option>
-                                                    @foreach($restaurants as $restaurant)
+                                                    @foreach($foods as $food)
 
                                                         <option
-                                                            value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                                                            value="{{ $food->id }}">{{ $food->name }}
+                                                            ({{ $food->restaurant->name }})
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                                 @error('restaurant_id')

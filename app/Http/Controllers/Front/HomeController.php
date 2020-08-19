@@ -22,11 +22,13 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $data = [
-            'foods' => Food::with('restaurant')->orderBy('id')->get(),
+            'foods' => Food::with(['restaurants','feature_food'])->orderBy('id')->get(),
             'feature_restaurants' => FeatureRestaurant::with(['restaurant'])
                 ->orderBy('order', 'asc')
                 ->get()
         ];
+        return $data;
+
 
         return view('front.home')->with($data);
     }

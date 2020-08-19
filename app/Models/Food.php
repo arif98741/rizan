@@ -21,5 +21,12 @@ class Food extends Model
         return $this->hasMany(Offer::class);
     }
 
+    public function feature_food()
+    {
+        return $this->hasOne(FeatureFood::class);
+    }
+
+
+
 
 }
