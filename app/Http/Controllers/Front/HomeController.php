@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\FeatureFood;
 use App\Models\FeatureRestaurant;
-use App\Models\Food;
 use App\Models\Xml;
 use File;
 use Illuminate\Contracts\View\Factory;
@@ -22,12 +22,16 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $data = [
-            'foods' => Food::with(['restaurant','feature_food'])->orderBy('id')->get(),
+            //  'foods' => Food::with(['restaurant','feature_food'])->orderBy('id')->get(),
+            'foods' => FeatureFood::join('foods', 'foods.id', '=', 'feature_foods.food_id')
+                ->join('restaurants', 'restaurants.id', '=', 'foods.restaurant_id')
+                ->select('foods.*','restaurants.name as restaurant_name','restaurants.slug as restaurant_slug')
+                ->get(),
             'feature_restaurants' => FeatureRestaurant::with(['restaurant'])
                 ->orderBy('order', 'asc')
                 ->get()
         ];
-        return $data;
+        //return $data['foods'];
 
 
         return view('front.home')->with($data);

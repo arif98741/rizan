@@ -58,7 +58,7 @@
                 <div class="row">
                     @foreach($foods as $food)
                         <div class="col-sm-4 item-each">
-                            <a href="{{ url('food/'.$food->restaurant->slug.'/'.$food->slug) }}">
+                            <a href="{{ url('food/'.$food->restaurant_slug.'/'.$food->slug) }}">
                                 <img src="{{ asset('uploads/food/thumbnail/'.$food->feature_photo) }}"
                                      style="width: 100%;" class="img-fluid"
                                      Get New Account
@@ -73,7 +73,7 @@
                                         <i class="fas fa-star"></i>
                                         <i class="far fa-star"></i>
                                     </div>
-                                    <p class="res-avl">Available on <span>{{ $food->restaurant->name }}</span></p>
+                                    <p class="res-avl">Available on <span>{{ $food->restaurant_name }}</span></p>
                                 </div>
                             </a>
                         </div>
