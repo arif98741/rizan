@@ -16,7 +16,7 @@
             </li>
             <li>
                 <a @if(url()->current() == url('restaurant/food/create')): class="aActive"
-                   @endif href="{{ route('restaurant.food.create') }}" style="border-color: #1A237E">
+                   @endif href="{{ route('restaurant.food.create') }}">
                     <i class="fas fa-palette"></i>
                     <span>Add Food Item</span>
                 </a>

@@ -19,14 +19,14 @@
                                     <p class="desg">{{ $team_member->designation }}</p>
                                     <div class="social-icon">
                                         <a title="facebook"
-                                           href="https://{{ $team_member->facebook }}?ref={{ url('/') }}">
+                                           href="https://{{ $team_member->facebook }}?ref={{ url('/') }}" target="_blank">
                                             <i class="fab fa-facebook-square"></i>
                                         </a>
                                         <a title="instagram"
-                                           href="https://{{ $team_member->instagram }}?ref={{ url('/') }}">
+                                           href="https://{{ $team_member->instagram }}?ref={{ url('/') }}" target="_blank">
                                             <i class="fab fa-instagram"></i>
                                         </a>
-                                        <a title="twitter" href="https://{{ $team_member->twitter }}?ref={{ url('/') }}">
+                                        <a title="twitter" href="https://{{ $team_member->twitter }}?ref={{ url('/') }}" target="_blank">
                                             <i class="fab fa-twitter-square"></i>
                                         </a>
                                     </div>

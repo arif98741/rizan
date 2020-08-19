@@ -27,7 +27,7 @@
                     <p class="description black-clr-txt">
                         {!! $place->initial_details !!}
                     </p>
-                    <h5 class="what-see-heading">এই ট্যুরে যা যা দেখবেন:</h5>
+                    <h5 class="what-see-heading">সেখানে যা যা দেখবেন:</h5>
                     <p class="what-see black-clr-txt">
                         {!! $place->tourist_attractions !!}
                     </p>

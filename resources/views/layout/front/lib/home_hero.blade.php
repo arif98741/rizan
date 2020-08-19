@@ -18,19 +18,19 @@
     <div class="social-icon">
         <ul>
             <li>
-                <a href="http://{{ $site->facebook }}">
+                <a href="http://{{ $site->facebook }}" target="_blank">
                     <i class="fab fa-facebook-square"></i>
                 </a>
                 </i>
             </li>
             <li>
-                <a href="http://{{ $site->twitter }}">
+                <a href="http://{{ $site->twitter }}" target="_blank">
                     <i class="fab fa-twitter"></i>
                 </a>
                 </i>
             </li>
             <li>
-                <a href="http://{{ $site->instagram }}">
+                <a href="http://{{ $site->instagram }}" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
                 </i>

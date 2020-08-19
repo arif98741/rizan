@@ -1,13 +1,13 @@
 <section class="res-admin">
     <nav class="navbar navbar-expand navbar-fixed-top navTop">
         <a class="navbar-brand" href="{{ url('restaurant/dashboard') }}">
-            Foods-Khujun
+            Treat Lover
         </a>
         <button class="navbar-toggler" onclick="toggleHide()">
             <i class="fas fa-bars"></i>
         </button>
         <a class="brndHide" href="{{ url('restaurant/dashboard') }}">
-            Foods-Khujun
+            Treat Lover
         </a>
         <ul class="navbar-nav ml-auto">
 
@@ -25,9 +25,6 @@
                     {{ csrf_field() }}
                 </form>
 
-                <div class="dropdown-menu profileDrop" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Logout</a>
-                </div>
             </li>
         </ul>
     </nav>
