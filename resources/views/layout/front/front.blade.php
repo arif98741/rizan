@@ -27,7 +27,7 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" href="{{ asset('asset/front/css/bootstrap.min.css') }}">
     <!-- font-awesome css -->
-    <link rel="stylesheet" href="{{ asset('asset/front/font-awesome/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/front/font-awesome/css/all.min.css') }}">
     <!-- custom css -->
     <link rel="stylesheet" href="{{ asset('asset/front/css/style.css') }}">
     <!-- google-font css -->

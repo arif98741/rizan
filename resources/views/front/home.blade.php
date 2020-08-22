@@ -86,23 +86,5 @@
         </div>
     </section>
     <!-- popular food end -->
-    <script
-        src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-    <script>
-        var x = 5;
-        var y = 9;
-        $.ajax({
-            url: '{{ url('getData')  }}/' + x + '/' + y,
-            method: 'get',
-            dataType: 'text',
-            success: function (s) {
-                console.log(s);
-            },
-            error: function (e) {
-
-            }
-        })
-    </script>
 
 @endsection
