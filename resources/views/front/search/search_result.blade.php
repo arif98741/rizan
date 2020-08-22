@@ -121,7 +121,7 @@
                                          src="{{ asset('uploads/place/thumbnail/'.$place->feature_photo) }}"
                                          alt="{{ $place->place_name }} - {{ url('/') }}">
                                     <div class="title">
-                                        <h5 class="name">{{ $place->location }}</h5>
+                                        <h5 class="name">{{ $place->place_name }}</h5>
                                         <p class="price">BDT {{ $place->price }}</p>
                                         <div class="review-icon">
                                             <i class="fas fa-star"></i>

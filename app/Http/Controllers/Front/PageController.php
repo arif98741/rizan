@@ -29,7 +29,7 @@ class PageController extends Controller
     public function teamMembers()
     {
         $data = [
-            'team_members' => TeamMember::orderBy('name')->get()
+            'team_members' => TeamMember::orderBy('name', 'asc')->get()
         ];
         return view('front.page.team_members')->with($data);
     }

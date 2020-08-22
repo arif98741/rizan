@@ -13,8 +13,5 @@ Route::namespace('API')->group(function () {
         Route::post('/single_food', 'RestaurantController@singleFood');
     });
 
-
     Route::post('/single_food', 'FoodController@singleFood');
-
-
 });

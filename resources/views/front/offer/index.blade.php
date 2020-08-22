@@ -6,6 +6,7 @@
     </section>
     <!-- hero end -->
 
+
     <!-- offer item start -->
     @foreach($offers as $offer)
         <section class="offer-item">
@@ -34,7 +35,17 @@
             </div>
         </section>
     @endforeach
+    <nav>
+        {{ $offers->links() }}
+    </nav>
 
-    <!-- offer item end -->
+    <!-- menu end -->
+    @push('extra-js')
+        <script>
+            $(document).ready(function () {
+                $('nav').addClass('pagination justify-content-center');
+            });
+        </script>
+    @endpush
 
 @endsection

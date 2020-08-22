@@ -35,20 +35,23 @@
             <div class="social-icon">
                 <ul>
                     <li>
-                        <a href="@if(!empty($restaurant->facebook)) http://{{ $restaurant->facebook }} @else#@endif" target="_blank">
+                        <a href="@if(!empty($restaurant->facebook)) http://{{ $restaurant->facebook }} @else#@endif"
+                           target="_blank">
                             <i class="fab fa-facebook-square"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="@if(!empty($restaurant->instagram)) http://{{ $restaurant->instagram }} @else#@endif" target="_blank"
+                        <a href="@if(!empty($restaurant->instagram)) http://{{ $restaurant->instagram }} @else#@endif"
+                           target="_blank"
                         >
                             <i class="fab fa-instagram"></i>
                         </a>
                         </i>
                     </li>
                     <li>
-                        <a href="@if(!empty($restaurant->website)) http://{{ $restaurant->website }} @else#@endif" target="_blank"
+                        <a href="@if(!empty($restaurant->website)) http://{{ $restaurant->website }} @else#@endif"
+                           target="_blank"
                         >
                             <i class="fas fa-globe"></i>
                         </a>
@@ -200,16 +203,16 @@
             @endif
         </div>
     </section>
-    <div class="row">
-        <div class="offset-md-5 ">
-
-        </div>
-        <div class="col-md-4">
-            <nav aria-label="Page navigation example pull-right">
-                {{ $reviews->links() }}
-            </nav>
-        </div>
-    </div>
-
+    <nav>
+        {{ $reviews->links() }}
+    </nav>
+    <!-- menu end -->
+    @push('extra-js')
+        <script>
+            $(document).ready(function () {
+                $(' nav').addClass('pagination justify-content-center');
+            });
+        </script>
+    @endpush
 
 @endsection

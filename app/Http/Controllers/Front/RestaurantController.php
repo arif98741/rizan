@@ -22,7 +22,7 @@ class RestaurantController extends Controller
     {
         $data = [
             'restaurants' => Restaurant::with(['restaurant_category'])
-                ->orderBy('id' 'asc')
+                ->orderBy('id', 'asc')
                 ->paginate(env('PAGINATE_PER_PAGE'))
         ];
 

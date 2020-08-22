@@ -13,7 +13,7 @@ class PlaceController extends Controller
     public function index()
     {
         $data = [
-            'places' => Place::orderBy('id', 'desc')->paginate(9)
+            'places' => Place::orderBy('id', 'desc')->paginate(1)
         ];
 
         return view('front.place.index')->with($data);

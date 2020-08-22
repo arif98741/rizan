@@ -125,20 +125,21 @@
                 @endforeach
             @else
                 <hr>
-                    <p class="text-bold text-center no-review">No reviews yet</p>
+                <p class="text-bold text-center no-review">No reviews yet</p>
                 <hr>
             @endif
         </div>
     </section>
-    <div class="row">
-        <div class="offset-md-5 ">
+    <nav>
+        {{ $reviews->links() }}
+    </nav>
 
-        </div>
-        <div class="col-md-4">
-            <nav aria-label="Page navigation example pull-right">
-                {{ $reviews->links() }}
-            </nav>
-        </div>
-    </div>
-
+    <!-- menu end -->
+    @push('extra-js')
+        <script>
+            $(document).ready(function () {
+                $('nav').addClass('pagination justify-content-center');
+            });
+        </script>
+    @endpush
 @endsection

@@ -30,7 +30,8 @@ Route::namespace('Admin')->group(function () {
     //XML Generate and Show table
     Route::resource('xml', 'XmlController')->except('show', 'update');
 
-    //allroutes code;
-    //$allRoutes = Route::getRoutes()->get();
+
+//    $allRoutes = Route::getRoutes()->get();
+//    dd($allRoutes);
 
 });

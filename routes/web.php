@@ -27,6 +27,15 @@ Route::group(['prefix' => 'restaurant'], function () {
     Route::post('/password/reset', 'Restaurant\Auth\ResetPasswordController@reset')->name('password . email');
     Route::get('/password/reset', 'Restaurant\Auth\ForgotPasswordController@showLinkRequestForm')->name('password . reset');
     Route::get('/password/reset/{token}', 'Restaurant\Auth\ResetPasswordController@showResetForm');
+
+
+    Route::group(['namespace' => 'Restaurant', 'middleware' => ['web', 'restaurant', 'auth:restaurant'],
+        'as' => 'restaurant.', 'name'], function () {
+        Route::get('dashboard', 'RestaurantController@dashboard')->name('dashboard');
+        Route::resource('food', 'FoodController')->except('show');
+        Route::resource('offer', 'OfferController')->except('show');
+    });
+
 });
 
 /**
@@ -52,7 +61,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::namespace('Front')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/restaurants', 'RestaurantController@index');
-   // Route::get('/restaurant/view/{slug}', 'RestaurantController@viewBySlug');
+    // Route::get('/restaurant/view/{slug}', 'RestaurantController@viewBySlug');
     Route::get('/restaurant/{slug}', 'RestaurantController@viewBySlug');
     Route::match(['get', 'post'], '/restaurant/comment', 'RestaurantController@restaurant_comment');
     Route::match(['get', 'post'], '/food/comment', 'FoodController@food_comment');

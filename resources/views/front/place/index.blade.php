@@ -33,13 +33,21 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="offset-md-5 col-md-6">
-                    {{ $places->links() }}
-                </div>
-            </div>
+
+            <nav>
+                {{ $places->links() }}
+            </nav>
+
         </div>
 
     </section>
     <!-- menu end -->
+    <!-- menu end -->
+    @push('extra-js')
+        <script>
+            $(document).ready(function () {
+                $('nav').addClass('pagination justify-content-center');
+            });
+        </script>
+    @endpush
 @endsection
