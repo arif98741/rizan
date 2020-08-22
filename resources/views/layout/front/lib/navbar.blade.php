@@ -83,17 +83,17 @@ $site = \Illuminate\Support\Facades\Cache::get('site_details');
                 <div class="input-group">
 
 
-                        <input type="text" id="key" name="key" placeholder="Search foods, restaurants or places"
-                               autofocus
-                               class="form-control" aria-label="Amount (to the nearest dollar)" autofocus="">
-                        <input type="hidden" id="sort_by" name="sort" value="asc">
-                        <div class="input-group-append">
+                    <input type="text" id="key" name="key" placeholder="Search foods, restaurants or places"
+                           autofocus
+                           class="form-control" aria-label="Amount (to the nearest dollar)" autofocus="">
+                    <input type="hidden" id="sort_by" name="sort" value="asc">
+                    <div class="input-group-append">
                         <span class="input-group-text cross-btn" onclick="hideSearch()"> <i
                                 class="far fa-times-circle"></i> </span>
-                            <span class="input-group-text srch-btn" onclick="searchFunction()"> <i
-                                    class="fas fa-search"></i> </span>
-                        </div>
-                        <input type="submit" style="display: none">
+                        <span class="input-group-text srch-btn" onclick="searchFunction()"> <i
+                                class="fas fa-search"></i> </span>
+                    </div>
+                    <input type="submit" style="display: none">
                 </div>
             </div>
         </div>

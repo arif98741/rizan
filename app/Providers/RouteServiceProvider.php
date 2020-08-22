@@ -65,7 +65,7 @@ class RouteServiceProvider extends ServiceProvider
         //TODO:: this middleware security should be removed in future
         Route::group([
             'middleware' => ['web', 'admin', 'auth:admin'],
-            'prefix' => 'admin',
+            'prefix' => 'test',
             'as' => 'admin.',
             'namespace' => $this->namespace,
         ], function ($router) {

@@ -29,8 +29,6 @@ Route::namespace('Admin')->group(function () {
     Route::match(['get', 'post'], 'setting', 'AdminController@setting')->name('setting');
     //XML Generate and Show table
     Route::resource('xml', 'XmlController')->except('show', 'update');
-
-
 //    $allRoutes = Route::getRoutes()->get();
 //    dd($allRoutes);
 

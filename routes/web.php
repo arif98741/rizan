@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 //TODO:: redirect to admin login
-Route::get('/admin', function () {
-    return redirect('admin/login');
+Route::get('/test', function () {
+    return redirect('test/login');
 });
 
 
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'restaurant'], function () {
 /**
  * admin routes
  */
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'test'], function () {
     Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('login');
     Route::post('/login', 'Admin\Auth\LoginController@login');
     Route::post('/logout', 'Admin\Auth\LoginController@logout')->name('logout');
