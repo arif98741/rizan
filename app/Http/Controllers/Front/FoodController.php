@@ -45,7 +45,7 @@ class FoodController extends Controller
                 ->whereHas('food', function ($query) use ($slug) {
                     $query->where('slug', $slug);
                 })->orderBy('id', 'desc')
-                ->paginate(1)
+                ->paginate(env('COMMENT_PER_PAGE'))
         ];
 
         $data['og']['og_title'] = $data['food']->name;
