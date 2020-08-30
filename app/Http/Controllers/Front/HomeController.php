@@ -44,7 +44,7 @@ class HomeController extends Controller
         $xml = Xml::orderBy('id', 'desc')->first();
         if ($xml != null) {
             $file_name = $xml->file_name;
-            return redirect(asset('/public/uploads/sitemap/' . $file_name));
+            return redirect(asset('/uploads/sitemap/' . $file_name));
         } else {
             return redirect(route('home'));
         }
