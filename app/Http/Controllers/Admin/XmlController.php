@@ -42,7 +42,6 @@ class XmlController extends Controller
             'xmls' => Xml::orderBy('id', 'desc')->get()
         ];
 
-
         return view('admin.xml.index')->with($data);
     }
 

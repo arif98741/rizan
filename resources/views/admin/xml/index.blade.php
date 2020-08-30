@@ -42,6 +42,7 @@
                                     <th width="5%">Serial</th>
                                     <th width="30%">Title</th>
                                     <th width="15%">File</th>
+                                    <th width="15%">Created on</th>
                                     <th width="20%">Description</th>
                                     <th width="15%">Action</th>
                                 </tr>
@@ -52,6 +53,7 @@
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $xml->title }}</td>
                                         <td>{{ $xml->file_name }}</td>
+                                        <td>{{ date('Y-m-d h:i:s',strtotime($xml->created_at)) }}</td>
                                         <td>{{ substr($xml->description,0,29) }}</td>
 
                                         <td>
