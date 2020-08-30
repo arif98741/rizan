@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="{{ url('admin/restaurant/feature/add') }}"> Add
+                            <li class="breadcrumb-item active"><a href="{{ url('test/restaurant/feature/add') }}"> Add
                                     Feature Restaurant</a></li>
                             <li class="breadcrumb-item active">Feature Restaurant list</li>
                         </ol>
@@ -62,14 +62,14 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-warning btn-sm"
-                                               href="{{ url('admin/restaurant/feature/delete',$feature_restaurant->id) }}"
+                                               href="{{ url('test/restaurant/feature/delete',$feature_restaurant->id) }}"
                                                onclick="event.preventDefault();
                                                    document.getElementById('vendor-delete-form{{ $feature_restaurant->id }}').submit();">
                                                 Delete
                                             </a>
                                             <form id="vendor-delete-form{{ $feature_restaurant->id }}"
                                                   onclick="return(confirm('are you sure to delete?'))"
-                                                  action="{{ url('admin/restaurant/feature/delete',$feature_restaurant->id) }}"
+                                                  action="{{ url('test/restaurant/feature/delete',$feature_restaurant->id) }}"
                                                   method="post" style="display: none;">
                                                 {{ csrf_field() }} @method('DELETE')
                                             </form>

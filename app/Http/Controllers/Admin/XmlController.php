@@ -17,13 +17,13 @@ use App\Models\Page;
 use App\Models\Place;
 use App\Models\Restaurant;
 use App\Models\Xml;
+use File;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 use Session;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Storage;
-use File;
 
 /**
  * Class XmlController

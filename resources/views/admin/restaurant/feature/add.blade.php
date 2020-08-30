@@ -34,7 +34,7 @@
                                 <h3 class="card-title">Feature Restaurant</h3>
                             </div>
 
-                            <form role="form" action="{{ url('admin/restaurant/feature/store') }}" method="post"
+                            <form role="form" action="{{ url('test/restaurant/feature/store') }}" method="post"
                                   enctype="multipart/form-data">
                                 @csrf
                                 @method('post')

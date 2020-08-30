@@ -33,7 +33,6 @@ class HomeController extends Controller
         ];
         //return $data['foods'];
 
-
         return view('front.home')->with($data);
     }
 
@@ -47,7 +46,6 @@ class HomeController extends Controller
             $file_name = $xml->file_name;
             return redirect(asset('/uploads/sitemap/' . $file_name));
         } else {
-
             return redirect(route('home'));
         }
     }

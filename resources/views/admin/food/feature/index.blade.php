@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="{{ url('admin/food/feature/add') }}"> Add
+                            <li class="breadcrumb-item active"><a href="{{ url('test/food/feature/add') }}"> Add
                                     Feature Food</a></li>
                             <li class="breadcrumb-item active">Feature Food list</li>
                         </ol>
@@ -60,14 +60,14 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-warning btn-sm"
-                                               href="{{ url('admin/food/feature/delete',$feature_food->id) }}"
+                                               href="{{ url('test/food/feature/delete',$feature_food->id) }}"
                                                onclick="event.preventDefault();
                                                    document.getElementById('vendor-delete-form{{ $feature_food->id }}').submit();">
                                                 Delete
                                             </a>
                                             <form id="vendor-delete-form{{ $feature_food->id }}"
                                                   onclick="return(confirm('are you sure to delete?'))"
-                                                  action="{{ url('admin/food/feature/delete',$feature_food->id) }}"
+                                                  action="{{ url('test/food/feature/delete',$feature_food->id) }}"
                                                   method="post" style="display: none;">
                                                 {{ csrf_field() }} @method('DELETE')
                                             </form>

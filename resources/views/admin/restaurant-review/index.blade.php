@@ -63,10 +63,10 @@
                                         <td>
 
                                             @if($review->status == 0)
-                                                <a href="{{ url('admin/restaurant_review/change-status/'.$review->id.'/1') }}"
+                                                <a href="{{ url('test/restaurant_review/change-status/'.$review->id.'/1') }}"
                                                    class="btn btn-sm btn-warning">Pending</a>
                                             @else
-                                                <a href="{{ url('admin/restaurant_review/change-status/'.$review->id.'/0') }}"
+                                                <a href="{{ url('test/restaurant_review/change-status/'.$review->id.'/0') }}"
                                                    class="btn btn-sm btn-success">Published</a>
                                             @endif
 
