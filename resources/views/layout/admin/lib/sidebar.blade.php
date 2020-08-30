@@ -70,12 +70,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/food/feature') }}" class="nav-link">
+                            <a href="{{ url('test/food/feature') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Feature Food</p>
                             </a>
                         </li>
-                      
+
                     </ul>
 
                 </li>
@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/restaurant/feature') }}" class="nav-link">
+                            <a href="{{ url('test/restaurant/feature') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Feature Restaurant</p>
                             </a>
