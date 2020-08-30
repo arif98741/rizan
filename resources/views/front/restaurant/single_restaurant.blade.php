@@ -210,7 +210,7 @@
     @push('extra-js')
         <script>
             $(document).ready(function () {
-                $(' nav').addClass('pagination justify-content-center');
+             //   $('nav').addClass('pagination justify-content-center');
             });
         </script>
     @endpush
