@@ -68,7 +68,7 @@
             </form>
 
             <p class="mb-1">
-                <a href="{{ url('/test/password/reset') }}">I forgot my password</a> |
+{{--                <a href="{{ url('/test/password/reset') }}">I forgot my password</a> |--}}
                 <a href="{{ url('/') }}">Homepage</a>
             </p>
 
