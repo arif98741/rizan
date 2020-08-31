@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Food;
 use App\Models\Restaurant;
 use App\Models\Setting;
@@ -11,6 +12,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Session;
 
@@ -24,7 +26,6 @@ class AdminController extends Controller
         ];
 
 
-
         return view('admin.dashboard')->with($data);
     }
 
@@ -34,7 +35,10 @@ class AdminController extends Controller
      */
     public function setting(Request $request)
     {
+
+
         if ($request->isMethod('post')) {
+
             $setting = Setting::find(1);
             $setting->contact = $request->contact;
             $setting->email = $request->email;
@@ -44,6 +48,11 @@ class AdminController extends Controller
             $setting->pinterest = $request->pinterest;
             $setting->instagram = $request->instagram;
             $setting->analytics = $request->analytics;
+            if (!empty($request->password)) {
+                $admin = Admin::find(1);
+                $admin->password = Hash::make($request->password);
+                $admin->save();
+            }
             if ($setting->save()) {
                 Session::flash('success', 'Setting updated successful');
                 return redirect(route('admin.setting'));

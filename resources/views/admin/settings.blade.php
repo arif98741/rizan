@@ -160,6 +160,16 @@
                                                 @enderror
 
                                             </div>
+                                            <div class="form-group">
+                                                <label for="location">Password</label>
+                                                <input type="text" name="password"
+                                                       class="form-control"
+                                                       placeholder="Enter password">
+                                                @error('password')
+                                                <p class="text-red mt-1">{{ $message }}</p>
+                                                @enderror
+
+                                            </div>
 
 
                                         </div>
@@ -181,71 +191,6 @@
         </section>
         <!-- /.content -->
     </div>
-    @push('extra-js')
 
-        <script>
-            $(document).ready(function () {
-                /**
-                 * email check ins database
-                 */
-                $('#email').blur(function () {
-                    let email = $(this).val();
-                    if (email == '') {
-                        $('#email-message').html('Field must not be empty');
-                    } else {
-                        $.ajax({
-                            'url': '{{ url('api/restaurant/check_email') }}',
-                            'dataType': 'json',
-                            'method': 'post',
-                            'data': {
-                                'email': email,
-                                'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
-                            },
-                            'success': function (response) {
-                                if (response.code == '200') {
-                                    $('#email-message').html('Email already exist. Please Use another');
-                                } else {
-                                    $('#email-message').html('');
-                                }
-                            }, error: function (e) {
-                                console.log(e);
-                            }
-                        })
-                    }
-
-                });
-
-                /**
-                 * contact check ins database
-                 */
-                $('#contact').blur(function () {
-                    let contact = $(this).val();
-                    if (contact == '') {
-                        $('#contact-message').html('Field must not be empty');
-                    } else {
-                        $.ajax({
-                            'url': '{{ url('api/restaurant/check_contact') }}',
-                            'dataType': 'json',
-                            'method': 'post',
-                            'data': {
-                                'contact': contact,
-                                'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
-                            },
-                            'success': function (response) {
-                                if (response.code == '200') {
-                                    $('#contact-message').html('Contact already exist. Please Use another');
-                                } else {
-                                    $('#contact-message').html('');
-                                }
-                            }, error: function (e) {
-                                console.log(e);
-                            }
-                        })
-                    }
-
-                });
-            });
-        </script>
-    @endpush
 @endsection
 
