@@ -193,7 +193,7 @@
                             <span class="review-date">{{ date('d M Y',strtotime($review->created_at)) }}</span>
                             <hr>
                         </div>
-                        <p class="black-clr-txt">{{ $review->comment }}</p>
+                        <p class="black-clr-txt">{{ \ConsoleTVs\Profanity\Builder::blocker($review->comment)->filter() }}</p>
                     </div>
                 @endforeach
             @else

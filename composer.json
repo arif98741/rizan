@@ -11,6 +11,7 @@
         "php": "^7.2",
         "ext-json": "*",
         "alaminfirdows/laravel-multi-auth": "^0.0.1@alpha",
+        "consoletvs/profanity": "^3.0",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^6.2",

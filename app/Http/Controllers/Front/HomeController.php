@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\FeatureFood;
 use App\Models\FeatureRestaurant;
 use App\Models\Xml;
-use File;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use File;
 use Storage;
 
 class HomeController extends Controller

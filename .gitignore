@@ -19,3 +19,4 @@ public/storage
 template/admin
 class
 public/uploads/*
+.idea

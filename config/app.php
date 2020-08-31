@@ -174,7 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Spatie\Sitemap\SitemapServiceProvider::class
+        Spatie\Sitemap\SitemapServiceProvider::class,
+        ConsoleTVs\Profanity\ProfanityServiceProvider::class,
+
 
     ],
 
@@ -226,7 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Profanity' => ConsoleTVs\Profanity\Facades\Profanity::class,
     ],
 
 ];
