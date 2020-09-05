@@ -8,6 +8,7 @@ use App\Models\FeatureRestaurant;
 use App\Models\Xml;
 use App\Providers\SiteHelper;
 use File;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
