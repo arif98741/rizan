@@ -133,7 +133,7 @@ class XmlController extends Controller
             $sitemap->add(Url::create("/page/{$object->slug}"));
         });
 
-        $file_name = time() . '.xml';
+        $file_name = 'sitemap' . '.xml';
         $sitemap->writeToFile(HelperController::baseBath() . 'sitemap/sitemap_' . $file_name);
         return 'sitemap_' . $file_name;
     }
