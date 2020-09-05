@@ -32,7 +32,7 @@ class SearchController extends Controller
                 ->orWhere('location', 'like', '%' . $key . '%')
                 ->orderBy('id', $sort)
                 ->paginate(env('PAGINATE_PER_PAGE')),
-            'foods' => Food::with('restaurant')
+            'foods' => Food::with('restaurant','food_review')
                 ->where('name', 'like', '%' . $key . '%')
                 ->orderBy('id', $sort)
                 ->paginate(env('PAGINATE_PER_PAGE')),

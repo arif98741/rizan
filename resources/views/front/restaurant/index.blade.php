@@ -24,11 +24,29 @@
                                         <span>{{ $restaurant->location }}</span>
                                     </div>
                                     <div class="review-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
+                                        <?php
+                                        $count = $restaurant->restaurant_review->count();
+                                        $rating = $restaurant->restaurant_review->sum('rating');
+                                        if ($count == 0) {
+                                            $totalRating = 0;
+                                        } else {
+
+                                            $totalRating = $rating / $count;
+                                        }
+                                        $intTotalRating = floor($totalRating);
+                                        $fraction = $totalRating - $intTotalRating;
+                                        ?>
+                                        @for($i=1; $i<=$totalRating; $i++)
+                                            <i class="fas fa-star"></i>
+                                        @endfor
+                                        @if(is_numeric( $fraction ) && floor( $fraction ) != $fraction)
+                                            <i class="fas fa-star-half"></i>
+                                        @endif
+
+                                        @for($i=1; $i<=(5-$totalRating); $i++)
+                                            <i class="far fa-star"></i>
+                                        @endfor
+                                        <span>({{ number_format((float)$totalRating, 2, '.', '') }} of {{ $count }} ratings)</span>
                                     </div>
                                 </div>
                             </a>

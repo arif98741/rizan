@@ -35,10 +35,7 @@ class AdminController extends Controller
      */
     public function setting(Request $request)
     {
-
-
         if ($request->isMethod('post')) {
-
             $setting = Setting::find(1);
             $setting->contact = $request->contact;
             $setting->email = $request->email;

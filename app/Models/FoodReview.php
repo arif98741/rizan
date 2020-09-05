@@ -11,6 +11,7 @@ class FoodReview extends Model
         'email',
         'food_id',
         'restaurant_id',
+        'rating',
         'comment',
         'ip',
         'next_comment',

@@ -23,11 +23,29 @@
                                     <h5 class="name">{{ $food->name }}</h5>
                                     <p class="price">BDT {{ $food->price }}</p>
                                     <div class="review-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
+                                        <?php
+                                        $count = $food->food_review->count();
+                                        $rating = $food->food_review->sum('rating');
+                                        if ($count == 0) {
+                                            $totalRating = 0;
+                                        } else {
+
+                                            $totalRating = $rating / $count;
+                                        }
+                                        $intTotalRating = floor($totalRating);
+                                        $fraction = $totalRating - $intTotalRating;
+                                        ?>
+                                        @for($i=1; $i<=$totalRating; $i++)
+                                            <i class="fas fa-star"></i>
+                                        @endfor
+                                        @if(is_numeric( $fraction ) && floor( $fraction ) != $fraction)
+                                            <i class="fas fa-star-half"></i>
+                                        @endif
+
+                                        @for($i=1; $i<=(5-$totalRating); $i++)
+                                            <i class="far fa-star"></i>
+                                        @endfor
+                                        <span>({{ $totalRating }} of {{ $count }} ratings)</span>
                                     </div>
                                     <p class="res-avl">Available on <span>{{ $food->restaurant->name }}</span></p>
                                 </div>

@@ -21,7 +21,7 @@ class RestaurantController extends Controller
     public function index()
     {
         $data = [
-            'restaurants' => Restaurant::with(['restaurant_category'])
+            'restaurants' => Restaurant::with(['restaurant_category','restaurant_review'])
                 ->orderBy('id', 'asc')
                 ->paginate(env('PAGINATE_PER_PAGE'))
         ];
@@ -36,13 +36,11 @@ class RestaurantController extends Controller
      */
     public function viewBySlug($slug)
     {
-
-        $restaurant = Restaurant::with(['restaurant_category'])
+        $restaurant = Restaurant::with(['restaurant_category', 'restaurant_review'])
             ->where('slug', $slug)
             ->firstOrFail();
-
         $data = [
-            'foods' => Food::with('restaurant')
+            'foods' => Food::with('restaurant', 'food_review')
                 ->whereHas('restaurant', function ($query) use ($slug) {
                     $query->where('slug', $slug);
                 })->paginate(9),
@@ -73,7 +71,6 @@ class RestaurantController extends Controller
 
             $commentData['ip'] = $_SERVER['REMOTE_ADDR'];
             $commentData['next_comment'] = $this->nextComment();
-
             $commentData['restaurant_id'] = $request->restaurant_id;
             $commentData['status'] = 1;
             $restaurant = Restaurant::where('id', $commentData['restaurant_id'])->first();
@@ -112,6 +109,7 @@ class RestaurantController extends Controller
             'name' => 'required|min:3',
             'email' => 'required',
             'restaurant_id' => 'required',
+            'rating' => 'required',
             'comment' => 'required',
 
         ]);
@@ -122,7 +120,7 @@ class RestaurantController extends Controller
      * @param int $minute
      * @return string
      */
-    private function nextComment($minute = 120)
+    private function nextComment($minute = 5)
     {
         $carbon_date = Carbon::parse(date('Y-m-d H:i:s'));
         $carbon_date->addMinute($minute);

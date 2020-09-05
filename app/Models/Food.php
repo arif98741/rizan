@@ -26,4 +26,10 @@ class Food extends Model
         return $this->hasOne(FeatureFood::class);
     }
 
+    public function food_review()
+    {
+        return $this->hasMany(FoodReview::class);
+    }
+
+
 }

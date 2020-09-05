@@ -18,6 +18,7 @@ class CreateRestaurantReviewsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->unsignedBigInteger('restaurant_id');
+            $table->enum('rating', [1, 2, 3, 4, 5]);
             $table->text('comment')->nullable();
             $table->string('ip')->nullable();
             $table->timestamp('next_comment');

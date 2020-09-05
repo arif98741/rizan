@@ -10,6 +10,7 @@ class RestaurantReview extends Model
         'name',
         'email',
         'restaurant_id',
+        'rating',
         'comment',
         'ip',
         'next_comment',
@@ -20,5 +21,7 @@ class RestaurantReview extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+
+
 
 }

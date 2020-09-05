@@ -79,7 +79,6 @@ Route::namespace('Front')->group(function () {
     //SiteMap Generate
     Route::get('sitemap', 'HomeController@siteMap');
     Route::get('webping', 'HomeController@generateXmlUsingWebPing');
-
 });
 
 

@@ -21,7 +21,7 @@ class FoodController extends Controller
     public function index()
     {
         $data = [
-            'foods' => Food::with('restaurant')
+            'foods' => Food::with('restaurant','food_review')
                 ->orderBy('id', 'asc')
                 ->paginate(env('PAGINATE_PER_PAGE')),
         ];
@@ -37,7 +37,7 @@ class FoodController extends Controller
     public function viewBySlug(Request $request, $restaurant_slug, $slug)
     {
         $data = [
-            'food' => Food::with('restaurant')
+            'food' => Food::with('restaurant','food_review')
                 ->where('slug', $slug)
                 ->firstOrFail(),
             'reviews' => FoodReview::with('food')
@@ -66,11 +66,12 @@ class FoodController extends Controller
 
             $commentData = $this->commentValidation();
             $commentData['ip'] = $_SERVER['REMOTE_ADDR'];
-            $commentData['next_comment'] = $this->nextComment();
+            $commentData['next_comment'] = $this->nextComment(5);
             $commentData['food_id'] = $request->food_id;
             $commentData['restaurant_id'] = $request->restaurant_id;
             $commentData['food_id'] = $request->food_id;
             $commentData['status'] = 1;
+
             $restaurant = Restaurant::find($commentData['restaurant_id'])->first();
             $food = Food::where('id', $request->food_id)->first();
 
@@ -109,6 +110,7 @@ class FoodController extends Controller
             'email' => 'required',
             'food_id' => 'required',
             'comment' => 'required',
+            'rating' => 'required',
         ]);
     }
 
@@ -117,7 +119,7 @@ class FoodController extends Controller
      * @param int $minute
      * @return string
      */
-    private function nextComment($minute = 5)
+    private function nextComment($minute = 0)
     {
         $carbon_date = Carbon::parse(date('Y-m-d H:i:s'));
         $carbon_date->addMinute($minute);

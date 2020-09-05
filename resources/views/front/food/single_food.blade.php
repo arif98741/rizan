@@ -9,19 +9,39 @@
                     <div class="food-info">
                         <h5 class="food-name">{{ $food->name }}</h5>
                         <span class="price">BDT {{ $food->price }}</span>
-                        <div class="review-icon">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                        <div class="review-icon total-review">
+                            <?php
+                            $count = $food->food_review->count();
+                            $rating = $food->food_review->sum('rating');
+                            if ($count == 0) {
+                                $totalRating = 0;
+                            } else {
+
+                                $totalRating = $rating / $count;
+                            }
+                            $intTotalRating = floor($totalRating);
+                            $fraction = $totalRating - $intTotalRating;
+                            ?>
+                            @for($i=1; $i<=$totalRating; $i++)
+                                <i class="fas fa-star"></i>
+                            @endfor
+                            @if(is_numeric( $fraction ) && floor( $fraction ) != $fraction)
+                                <i class="fas fa-star-half"></i>
+                            @endif
+
+                            @for($i=1; $i<=(5-$totalRating); $i++)
+                                <i class="far fa-star"></i>
+                            @endfor
+                            <span>({{ $totalRating }} of {{ $count }} ratings)</span>
                         </div>
+
                         <h6 class="res-name"><a
                                 href="{{ url('restaurant/'.$food->restaurant->slug) }}">{{ $food->restaurant->name }}</a>
                         </h6>
                         <p class="description black-clr-txt">{{ $food->description }}</p>
                     </div>
                 </div>
+
                 <div class="col-md-6 order-first order-md-2 food-img">
                     <img src="{{ asset('uploads/food/feature/'.$food->feature_photo)}}"
                          alt="{{ $food->name }} - {{ url('/') }}" class="img-fluid">
@@ -68,16 +88,22 @@
                         @enderror
                     </div>
                     <div class="col-sm-6">
-                        <div class="review-icon">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                        <div class="review-icon single-review">
+                            <i class="far fa-star star-id1" sl="1"></i>
+                            <i class="far fa-star star-id2" sl="2"></i>
+                            <i class="far fa-star star-id3" sl="3"></i>
+                            <i class="far fa-star star-id4" sl="4"></i>
+                            <i class="far fa-star star-id5" sl="5"></i>
+                            <br>
+                            @error('rating')
+                            <small class="text-red mt-1">{{ $message }}</small><br>
+                            @enderror
+                            <small>You can give rating from 1 to 5 range where 1 is poor and 5 is excellent</small>
+                            <input type="hidden" name="rating" id="rating-value">
+
                         </div>
                     </div>
                 </div>
-
 
                 <div class="text-center">
                     <input name="food_id" class="form-control" type="hidden" value="{{ $food->id }}"
@@ -108,11 +134,12 @@
                             </div>
                             <div class="col">
                                 <div class="review-icon">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
+                                    @for($i=1; $i<=$review->rating; $i++)
+                                        <i class="fas fa-star"></i>
+                                    @endfor
+                                    @for($i=1; $i<=(5-$review->rating); $i++)
+                                        <i class="far fa-star"></i>
+                                    @endfor
                                 </div>
                             </div>
                         </div>
@@ -134,11 +161,31 @@
         {{ $reviews->links() }}
     </nav>
 
+    <style>
+        .single-review .far,
+        .single-review .fas {
+            cursor: pointer;
+        }
+    </style>
+
     <!-- menu end -->
     @push('extra-js')
         <script>
             $(document).ready(function () {
                 $('nav').addClass('pagination justify-content-center');
+                $('.single-review .fa-star').click(function () {
+                    let sl = $(this).attr('sl');
+
+                    for (i = 1; i <= 5; i++) {
+
+                        $('.star-id' + i).removeClass('fas');
+                    }
+                    for (i = 1; i <= sl; i++) {
+
+                        $('.star-id' + i).addClass('fas');
+                    }
+                    $('#rating-value').val(sl);
+                });
             });
         </script>
     @endpush

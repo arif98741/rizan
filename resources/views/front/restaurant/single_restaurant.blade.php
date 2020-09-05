@@ -24,12 +24,31 @@
                 <i class="fas fa-map-marker-alt"></i>
                 <span>{{ $restaurant->location }}</span>
             </div>
-            <div class="review-icon">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
+            <div class="review-icon total-review">
+                <?php
+                $count = $restaurant->restaurant_review->count();
+                $rating = $restaurant->restaurant_review->sum('rating');
+                if ($count == 0) {
+                    $totalRating = 0;
+                } else {
+
+                    $totalRating = $rating / $count;
+                }
+                $intTotalRating = floor($totalRating);
+                $fraction = $totalRating - $intTotalRating;
+                ?>
+                @for($i=1; $i<=$totalRating; $i++)
+                    <i class="fas fa-star"></i>
+                @endfor
+                @if(is_numeric( $fraction ) && floor( $fraction ) != $fraction)
+                    <i class="fas fa-star-half"></i>
+                @endif
+
+                @for($i=1; $i<=(5-$totalRating); $i++)
+                    <i class="far fa-star"></i>
+                @endfor
+                <span>({{ number_format((float)$totalRating, 2, '.', '') }} of {{ $count }} ratings)</span>
+
             </div>
 
             <div class="social-icon">
@@ -81,11 +100,29 @@
                                     <h5 class="name">{{ $food->name }}</h5>
                                     <p class="price">BDT {{ $food->price }}</p>
                                     <div class="review-icon">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
+                                        <?php
+                                        $count = $food->food_review->count();
+                                        $rating = $food->food_review->sum('rating');
+                                        if ($count == 0) {
+                                            $totalRating = 0;
+                                        } else {
+
+                                            $totalRating = $rating / $count;
+                                        }
+                                        $intTotalRating = floor($totalRating);
+                                        $fraction = $totalRating - $intTotalRating;
+                                        ?>
+                                        @for($i=1; $i<=$totalRating; $i++)
+                                            <i class="fas fa-star"></i>
+                                        @endfor
+                                        @if(is_numeric( $fraction ) && floor( $fraction ) != $fraction)
+                                            <i class="fas fa-star-half"></i>
+                                        @endif
+
+                                        @for($i=1; $i<=(5-$totalRating); $i++)
+                                            <i class="far fa-star"></i>
+                                        @endfor
+                                        <span>({{ $totalRating }} of {{ $count }} ratings)</span>
                                     </div>
                                 </div>
                             </a>
@@ -144,12 +181,19 @@
                         @enderror
                     </div>
                     <div class="col-sm-6">
-                        <div class="review-icon">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
+                        <div class="review-icon single-review">
+                            <i class="far fa-star star-id1" sl="1"></i>
+                            <i class="far fa-star star-id2" sl="2"></i>
+                            <i class="far fa-star star-id3" sl="3"></i>
+                            <i class="far fa-star star-id4" sl="4"></i>
+                            <i class="far fa-star star-id5" sl="5"></i>
+                            <br>
+                            @error('rating')
+                            <small class="text-red mt-1">{{ $message }}</small><br>
+                            @enderror
+                            <small>You can give rating from 1 to 5 range where 1 is poor and 5 is excellent</small>
+                            <input type="hidden" name="rating" id="rating-value">
+
                         </div>
                     </div>
                 </div>
@@ -180,13 +224,12 @@
                                 <h5 class="person-name">{{ $review->name }}</h5>
                             </div>
                             <div class="col">
-                                <div class="review-icon">
+                                @for($i=1; $i<=$review->rating; $i++)
                                     <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                @endfor
+                                @for($i=1; $i<=(5-$review->rating); $i++)
                                     <i class="far fa-star"></i>
-                                </div>
+                                @endfor
                             </div>
                         </div>
                         <div class="date">
@@ -206,11 +249,30 @@
     <nav>
         {{ $reviews->links() }}
     </nav>
+    <style>
+        .single-review .far,
+        .single-review .fas {
+            cursor: pointer;
+        }
+    </style>
     <!-- menu end -->
     @push('extra-js')
         <script>
             $(document).ready(function () {
-             //   $('nav').addClass('pagination justify-content-center');
+                //   $('nav').addClass('pagination justify-content-center');
+                $('.single-review .fa-star').click(function () {
+                    let sl = $(this).attr('sl');
+
+                    for (i = 1; i <= 5; i++) {
+
+                        $('.star-id' + i).removeClass('fas');
+                    }
+                    for (i = 1; i <= sl; i++) {
+
+                        $('.star-id' + i).addClass('fas');
+                    }
+                    $('#rating-value').val(sl);
+                });
             });
         </script>
     @endpush

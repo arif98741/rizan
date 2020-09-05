@@ -161,10 +161,10 @@
 
                                             </div>
                                             <div class="form-group">
-                                                <label for="location">Password</label>
+                                                <label for="location">Change Password</label>
                                                 <input type="text" name="password"
                                                        class="form-control"
-                                                       placeholder="Enter password">
+                                                       placeholder="Enter new password">
                                                 @error('password')
                                                 <p class="text-red mt-1">{{ $message }}</p>
                                                 @enderror
