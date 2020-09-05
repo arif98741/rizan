@@ -134,7 +134,7 @@ class XmlController extends Controller
         });
 
         $file_name = 'sitemap' . '.xml';
-        $sitemap->writeToFile(HelperController::baseBath() . 'sitemap/sitemap_' . $file_name);
+        $sitemap->writeToFile(HelperController::baseBath() . 'sitemap/' . $file_name);
         return 'sitemap_' . $file_name;
     }
 
