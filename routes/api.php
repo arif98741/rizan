@@ -15,3 +15,4 @@ Route::namespace('API')->group(function () {
 
     Route::post('/single_food', 'FoodController@singleFood');
 });
+///usr/local/bin/php -q /home/wjnomemz/public_html/new_file.php

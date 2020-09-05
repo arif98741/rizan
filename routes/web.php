@@ -78,6 +78,7 @@ Route::namespace('Front')->group(function () {
     Route::get('/search', 'SearchController@index')->name('search');
     //SiteMap Generate
     Route::get('sitemap', 'HomeController@siteMap');
+    Route::get('webping', 'HomeController@generateXmlUsingWebPing');
 
 });
 

@@ -17,6 +17,7 @@ use App\Models\Page;
 use App\Models\Place;
 use App\Models\Restaurant;
 use App\Models\Xml;
+use App\Providers\SiteHelper;
 use File;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
@@ -67,7 +68,7 @@ class XmlController extends Controller
         $xml->title = $request->title;
         $xml->description = $request->description;
         $xml->file_name = $this->generateXML();
-        $this->webPing();
+        SiteHelper::webPing();
         if ($xml->save()) {
             Session::flash('success', 'Generated xml successfully');
             return redirect(route('admin.xml.index'));
@@ -139,16 +140,4 @@ class XmlController extends Controller
         return 'sitemap_' . $file_name;
     }
 
-    /**
-     * Ping to google search console after generating xml as new file
-     */
-    private function webPing()
-    {
-        $url = 'https://www.google.com/ping?sitemap=https://treatlover.com/public/uploads/sitemap/sitemap_sitemap.xml';
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch); // Close the connection
-    }
 }
