@@ -1,4 +1,4 @@
-name: PHP Script
+name: PHP Initialization
 
 on:
   push:

@@ -1,12 +1,11 @@
-name: Laravel
+name: Laravel Test
 
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
 
 jobs:
   laravel-tests:
-
     runs-on: ubuntu-latest
 
     steps:

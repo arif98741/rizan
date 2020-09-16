@@ -24,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (!Cache::has('site_details')) {
-            $setting = Setting::first();
-            Cache::put('site_details', $setting, 300); //5minutes;
-        }
+        // if (!Cache::has('site_details')) {
+        //     $setting = Setting::first();
+        //     Cache::put('site_details', $setting, 300); //5minutes;
+        // }
     }
 }

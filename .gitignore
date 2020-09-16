@@ -16,7 +16,9 @@ public/storage
 *.log
 .idea
 .phpintel
-template/admin
 class
 public/uploads/*
 .idea
+nbproject
+.vscode
+template
