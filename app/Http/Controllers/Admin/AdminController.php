@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Claim;
-use App\Models\Notice;
-use App\Models\Researchwork;
+use App\Models\Admin;
+use App\Models\Food;
+use App\Models\Restaurant;
 use App\Models\Setting;
-use App\Models\Student;
-use App\Models\Subscriber;
-use App\Models\Subscription;
-use App\Models\Teacher;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\View\View;
 use Session;
 
 class AdminController extends Controller
@@ -21,11 +21,18 @@ class AdminController extends Controller
     public function dashboard(Request $request)
     {
         $data = [
-
+           // 'total_restaurant' => Restaurant::all()->count(),
+          //  'total_food' => Food::all()->count(),
         ];
+
+
         return view('admin.dashboard')->with($data);
     }
 
+    /**
+     * @param Request $request
+     * @return Application|Factory|RedirectResponse|Redirector|View
+     */
     public function setting(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -37,15 +44,21 @@ class AdminController extends Controller
             $setting->twitter = $request->twitter;
             $setting->pinterest = $request->pinterest;
             $setting->instagram = $request->instagram;
+            $setting->analytics = $request->analytics;
+            if (!empty($request->password)) {
+                $admin = Admin::find(1);
+                $admin->password = Hash::make($request->password);
+                $admin->save();
+            }
             if ($setting->save()) {
                 Session::flash('success', 'Setting updated successful');
-                return redirect(route('admin.dashboard'));
+                return redirect(route('admin.setting'));
             } else {
-                Session::flash('error', 'Update successful');
+                Session::flash('error', 'Update failed. Unexpected error.');
                 return redirect(route('admin.setting'));
             }
         }
         $setting = Setting::first();
-        return view('admin.setting')->with(compact('setting'));
+        return view('admin.settings')->with(compact('setting'));
     }
 }

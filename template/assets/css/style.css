@@ -56,9 +56,13 @@ a {
 .navigation-home .navbar {
   padding: 0;
 }
+.navigation-home .navbar-brand {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
 .navigation-home .navbar-brand img {
   width: 80px;
-  height: auto;
+  height: 60px;
 }
 .navigation-home .nav-link {
   color: #1A237E;
@@ -70,7 +74,10 @@ a {
 
 /* hero part*/
 .hero-home {
-  background: url('../img/hero-bg-min.jpg') right center;
+  background: url('../img/hero-bg-min.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 100vh;
   color: #fff;
   position: relative;
@@ -205,7 +212,7 @@ a {
   background-image: linear-gradient(to right, #1A437B, #1D245C);
 }
 
-/* popular food */
+/* popular product */
 .popular-food-home {
   padding: 3rem 0;
   font-family: 'Roboto', sans-serif;
@@ -362,7 +369,7 @@ a {
  .input-group {
   margin: 8px 0;
 }
-.navigation-with-search .hidden-search-bar 
+.navigation-with-search .hidden-search-bar
   .srch-btn {
   padding: 10px 30px;
   cursor: pointer;
@@ -378,7 +385,10 @@ a {
 
 /* hero single-restaurant part*/
 .hero-single-res {
-  background: url('../img/restaurant-bg.png') center center;
+  /*background: url('../img/restaurant-bg.png') center center;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 70vh;
   color: #fff;
   position: relative;
@@ -537,6 +547,9 @@ a {
 }
 
 /* review & comments single-res */
+.no-review {
+  color: ;
+}
 .review-rating-read {
   padding: 3rem 0;
   font-family: 'Roboto', sans-serif;
@@ -578,8 +591,8 @@ a {
 }
 /* single-restaurant end */
 
-/* single food start */
-/* hero single-food part*/
+/* single product start */
+/* hero single-product part*/
 .hero-single-food {
   margin: 6rem 0 4rem;
 }
@@ -616,7 +629,7 @@ a {
   border-radius: 8px;
 }
 
-/* submit review single-food */
+/* submit review single-product */
 .submit-review-single-food {
   padding: 3rem 0;
   background: #F7F7F7;
@@ -650,7 +663,7 @@ a {
   background-image: linear-gradient(to right, #1A437B, #1D245C);
 }
 
-/* review & comments single-food */
+/* review & comments single-product */
 .review-rating-read-sin-food {
   padding: 3rem 0;
   font-family: 'Roboto', sans-serif;
@@ -691,7 +704,7 @@ a {
 .hero-single-food .black-clr-txt {
   color: #505050;
 }
-/* single food end */
+/* single product end */
 
 /* single place start */
 /* hero single-place part*/
@@ -725,7 +738,7 @@ a {
 .single-place-desc .location i {
   margin-right: 2px;
 }
-.single-place-desc .what-see-heading, 
+.single-place-desc .what-see-heading,
 .single-place-desc .how-goto-heading {
   margin-top: 2rem;
   font-weight: 600;
@@ -736,10 +749,13 @@ a {
 }
 /* single place end */
 
-/* all-food start */
-/* hero all-food part*/
+/* all-product start */
+/* hero all-product part*/
 .hero-all-food {
-  background: url('../img/all-food-bg.jpg') center center;
+  background: url('../img/all-food-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-all-food .all-food-heading {
@@ -757,7 +773,7 @@ a {
   box-shadow: 0 2px 11px 0 rgba(0,0,0,.14);
 }
 
-/* menu all-food */
+/* menu all-product */
 .menu-all-food {
   padding: 3rem 0;
   font-family: 'Roboto', sans-serif;
@@ -822,12 +838,15 @@ a {
 .menu-all-food .pagination .page-link {
   color: #1A237E;
 }
-/* all-food end */
+/* all-product end */
 
 /* all-restaurant start */
 /* hero all-restaurant part*/
 .hero-all-restaurant {
-  background: url('../img/all-restaurant-bg.jpg') center center;
+  background: url('../img/all-restaurant-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-all-restaurant .all-restaurant-heading {
@@ -970,7 +989,7 @@ a {
   margin-right: 5px;
 }
 
-/* food list */
+/* product list */
 .food-list-search .headline {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
@@ -1035,7 +1054,10 @@ a {
 /* all-place start */
 /* hero all-place part*/
 .hero-all-place {
-  background: url('../img/all-place-bg.jpg') center center;
+  background: url('../img/all-place-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .hero-all-place .all-place-heading {
   text-align: center;
@@ -1119,7 +1141,10 @@ a {
 /* current offer start */
 /* hero current offer */
 .hero-current-offer {
-  background: url('../img/burger.png') center center;
+  background: url('../img/burger.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-current-offer .current-offer-heading {
@@ -1354,7 +1379,7 @@ a {
     box-shadow: none;
   }
 
-  /* all-food */
+  /* all-product */
   .menu-all-food .item-each:hover {
     box-shadow: none;
   }
@@ -1441,7 +1466,7 @@ a {
     width: 95%;
   }
 
-  /* single food */
+  /* single product */
   .hero-single-food .hero-container {
     width: 90%;
   }
@@ -1452,7 +1477,7 @@ a {
     width: 95%;
   }
 
-  /* all-food */
+  /* all-product */
   .menu-all-food .menu-container {
     width: 90%;
   }
@@ -1520,7 +1545,7 @@ a {
     display: none;
   }
 
-  /* single food */
+  /* single product */
   .hero-single-food .food-img {
     text-align: left;
     margin-bottom: 2rem;
@@ -1567,7 +1592,7 @@ a {
     font-size: 35px;
     margin-left: 1rem;
    }
-  .popular-res-home .headline, 
+  .popular-res-home .headline,
   .popular-food-home .headline {
   font-size: 30px;
   text-align: center;
@@ -1610,12 +1635,12 @@ a {
     margin-bottom: 1rem;
   }
 
-  /* single food */
+  /* single product */
   .submit-review-single-food .review-icon {
     margin-bottom: 1rem;
   }
 
-  /* all-food */
+  /* all-product */
   .hero-all-food .all-food-heading {
     padding: 8rem 0 6rem;
     font-size: 30px;
@@ -1694,13 +1719,13 @@ a {
     font-size: 30px;
   }
 
-  /* single food */
+  /* single product */
   .submit-review-single-food .headline,
   .review-rating-read-sin-food .headline {
     font-size: 30px;
   }
 
-  /* all-food */
+  /* all-product */
   .hero-all-food .all-food-heading {
     font-size: 24px;
   }

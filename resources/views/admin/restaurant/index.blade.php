@@ -41,7 +41,6 @@
                                 <tr>
                                     <th>Serial</th>
                                     <th>Name</th>
-                                    <th>Category</th>
                                     <th>Location</th>
                                     <th>Email</th>
                                     <th>Photo</th>
@@ -53,11 +52,12 @@
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $restaurant->name }}</td>
-                                        <td>{{ $restaurant->restaurant_category->category_name }}</td>
-
                                         <td>{{ $restaurant->location }}</td>
                                         <td>{{ $restaurant->email }}</td>
-                                        <td>X</td>
+                                        <td><img style="width:80px; height: 60px;"
+                                                 src="{{ asset('uploads/restaurant/thumbnail/'.$restaurant->feature_photo) }}
+                                                     ">
+                                        </td>
                                         <td>
                                             <a href="{{ route('admin.restaurant.edit',$restaurant->id) }}"
                                                class="btn btn-sm btn-primary">Edit</a>
@@ -73,6 +73,9 @@
                                                   method="post" style="display: none;">
                                                 {{ csrf_field() }} @method('DELETE')
                                             </form>
+                                            <a class="btn btn-success btn-sm" target="1"
+                                               href="{{ url('restaurant/'.$restaurant->slug) }}"> View
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

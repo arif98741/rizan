@@ -1,12 +1,9 @@
 <?php
+/*
+Route::namespace('Restaurant')->group(function () {
 
-Route::get('/home', function () {
-    $users[] = Auth::user();
-    $users[] = Auth::guard()->user();
-    $users[] = Auth::guard('restaurant')->user();
-
-    //dd($users);
-
-    return view('restaurant.home');
-})->name('home');
-
+    Route::get('dashboard', 'RestaurantController@dashboard')->name('dashboard');
+    Route::resource('product', 'FoodController')->except('show');
+    Route::resource('offer', 'OfferController')->except('show');
+    //we are working on it
+});*/

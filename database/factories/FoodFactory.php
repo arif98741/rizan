@@ -12,6 +12,6 @@ $factory->define(Food::class, function (Faker $faker) {
         'slug' => \Illuminate\Support\Str::slug($faker->text(80)),
         'restaurant_id' => \App\Models\Restaurant::all()->random(),
         'description' => $faker->text(100),
-        'feature_photo' => $faker->text(50).$faker->randomElement(['.jpg','.png','.jpeg','.gif'])
+        'feature_photo' => $faker->text(50) . $faker->randomElement(['.jpg', '.png', '.jpeg', '.gif'])
     ];
 });

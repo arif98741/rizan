@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
+use AlAminFirdows\LaravelMultiAuth\Traits\LogsoutGuard;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use AlAminFirdows\LaravelMultiAuth\Traits\LogsoutGuard;
 
 class LoginController extends Controller
 {
@@ -29,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    public $redirectTo = '/admin/dashboard';
+    public $redirectTo = '/test/dashboard';
 
     /**
      * Create a new controller instance.
@@ -59,5 +60,33 @@ class LoginController extends Controller
     protected function guard()
     {
         return Auth::guard('admin');
+    }
+
+    /**
+     * Overide Default Logout Url
+     * @guard admin
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout(Request $request)
+    {
+        $activeGuards = 0;
+        $this->guard()->logout();
+        $urlPath = '/test';
+
+        foreach (config('auth.guards') as $guard => $guardConfig) {
+            if ($guardConfig['driver'] === 'session') {
+                if ($this->isActiveGuard($request, $guard)) {
+                    $activeGuards++;
+                }
+            }
+        }
+
+        if (!$activeGuards) {
+            $request->session()->flush();
+            $request->session()->regenerate();
+        }
+
+        return redirect()->to($urlPath);
     }
 }

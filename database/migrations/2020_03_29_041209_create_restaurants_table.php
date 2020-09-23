@@ -1,37 +1,37 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateRestaurantsTable extends Migration
 {
+
     public function up()
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('slug');
             $table->string('location');
             $table->unsignedBigInteger('restaurant_category_id')->nullable();
-            $table->string('email',100)->unique();
-            $table->string('contact',20)->unique();
+            $table->string('slug');
+            $table->string('email')->unique();
             $table->string('password');
-            $table->string('feature_photo');
-            $table->string('cover_photo');
+            $table->string('contact');
+            $table->text('map_code')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('website')->nullable();
+            $table->string('feature_photo');
+            $table->string('cover_photo');
+            $table->foreign('restaurant_category_id')->references('id')
+                ->on('restaurant_categories')->onDelete('set null')->onUpdate('cascade');
             $table->rememberToken();
-            $table->foreign('restaurant_category_id')->references('id')->on('restaurants')->onDelete('set null')->onUpdate('cascade');
-
             $table->timestamps();
         });
     }
 
-
     public function down()
     {
-        Schema::drop('companies');
-        Schema::dropForeign('company_category_id');
+        Schema::drop('restaurants');
     }
 }

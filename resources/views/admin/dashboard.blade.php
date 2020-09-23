@@ -23,6 +23,11 @@
 
         <!-- Main content -->
         <section class="content">
+            @if(Session::has('success'))
+                <p class="alert alert-success" id="message">{{ Session::get('success') }}</p>
+            @endif @if(Session::has('error'))
+                <p class="alert alert-warning" id="message">{{ Session::get('error') }}</p>
+            @endif
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
@@ -30,9 +35,9 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3>000</h3>
 
-                                <p>New Orders</p>
+                                <p>Total Restaurant</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -45,9 +50,9 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                <h3>000</h3>
 
-                                <p>Bounce Rate</p>
+                                <p>Total Food</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>

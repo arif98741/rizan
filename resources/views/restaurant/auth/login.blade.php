@@ -1,68 +1,77 @@
-@extends('restaurant.layout.auth')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login | Restaurant Admin</title>
+    <link rel="shortcut icon" href="{{ asset('asset/front/img/logo.png') }} - favicon.png" type="image/x-icon">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- font-awesome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ asset('asset/front/css/style.css') }}">
+    <!-- google-font css -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,800|Roboto:400,500,700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/restaurant/login') }}">
-                        {{ csrf_field() }}
+<section class="login-res-admin">
+    <div class="full-login">
+        <div class="logo">
+            <img src="{{ asset('asset/front/img/logo.png') }}" alt="">
+            <h5>Login to Restaurant Admin Account</h5>
+        </div>
+        <form action="{{ url('/restaurant/login') }}" method="post">
+            @method('post')
+            {{ csrf_field() }}
+            <div class="form-group">
+                <input name="email" type="email" class="form-control" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <input name="password" type="password" class="form-control" placeholder="Enter password">
+            </div>
+            <button type="submit" class="form-control submit-btn">Submit</button>
+        </form>
+        @if ($errors->has('email'))
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+            <span class="help-block text-red">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
+            <br>
+        @endif
+        @if ($errors->has('password'))
+            <span class="help-block text-red">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
+            <br>
+        @endif
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/restaurant/password/reset') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <a href="#" onclick="showNewAcAlert()">Forgot password?</a>
     </div>
-</div>
-@endsection
+</section>
+
+
+<!-- js for bootstrap -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!-- custom js -->
+<script>
+    function showSearch() {
+        document.getElementById("hidden-search-bar").style.display = "block";
+    }
+
+    function hideSearch() {
+        document.getElementById("hidden-search-bar").style.display = "none";
+    }
+
+    function showNewAcAlert() {
+        alert("Please contact with treatlover.com admin");
+    }
+</script>
+</body>
+</html>

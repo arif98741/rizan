@@ -28,7 +28,7 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Use your email and password to access admin panel</p>
 
-            <form method="POST" action="{{ url('/admin/login') }}">
+            <form method="POST" action="{{ url('/test/login') }}">
                 {{ csrf_field() }}
                 <div class="input-group mb-3">
                     <input name="email" type="email" class="form-control" placeholder="Email">
@@ -68,7 +68,7 @@
             </form>
 
             <p class="mb-1">
-                <a href="{{ url('/admin/password/reset') }}">I forgot my password</a> |
+{{--                <a href="{{ url('/test/password/reset') }}">I forgot my password</a> |--}}
                 <a href="{{ url('/') }}">Homepage</a>
             </p>
 

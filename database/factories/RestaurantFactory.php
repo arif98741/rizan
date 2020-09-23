@@ -8,17 +8,16 @@ use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
 
 
-
 $factory->define(Restaurant::class, function (Faker $faker) {
     return [
         'name' => $faker->company,
-        'slug' => Str::slug($faker->text(30),'-'),
+        'slug' => Str::slug($faker->text(30), '-'),
         'location' => $faker->city,
         'restaurant_category_id' => \App\Models\RestaurantCategory::all()->random(),
-        'email'=> $faker->unique()->safeEmail,
-        'contact'=> $faker->numberBetween(111111111,9999999999),
+        'email' => $faker->unique()->safeEmail,
+        'contact' => $faker->numberBetween(111111111, 9999999999),
         'password' => \Illuminate\Support\Facades\Hash::make('123'),
-        'feature_photo' => $faker->text(50).$faker->randomElement(['.jpg','.jpeg']),
-        'cover_photo' => $faker->text(50).$faker->randomElement(['.jpg','.jpeg']),
+        'feature_photo' => $faker->text(50) . $faker->randomElement(['.jpg', '.jpeg']),
+        'cover_photo' => $faker->text(50) . $faker->randomElement(['.jpg', '.jpeg']),
     ];
 });

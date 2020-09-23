@@ -35,7 +35,8 @@
                                 <h3 class="card-title">Edit Restaurant</h3>
                             </div>
 
-                            <form role="form" action="{{ route('admin.restaurant.update',$restaurant->id) }}" method="post">
+                            <form role="form" action="{{ route('admin.restaurant.update',$restaurant->id) }}"
+                                  enctype="multipart/form-data" method="post">
                                 @csrf
                                 @method('put')
                                 <div class="row">
@@ -198,6 +199,16 @@
 
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="slug">Map Code</label>
+                                                <textarea rows="5" id="map_code" class="form-control"><iframe src="{{ $restaurant->map_code }}" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></textarea>
+                                                <input type="hidden" name="map_code" value="{{ $restaurant->map_code }}"
+                                                       id="map_code_value">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
 
@@ -219,62 +230,17 @@
 
         <script>
             $(document).ready(function () {
-               /*
-                $('#email').blur(function () {
-                    let email = $(this).val();
-                    if (email == '') {
-                        $('#email-message').html('Field must not be empty');
-                    } else {
-                        $.ajax({
-                            'url': '{{ url('api/restaurant/check_email') }}',
-                            'dataType': 'json',
-                            'method': 'post',
-                            'data': {
-                                'email': email,
-                                'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
-                            },
-                            'success': function (response) {
-                                if (response.code == '200') {
-                                    $('#email-message').html('Email already exist. Please Use another');
-                                } else {
-                                    $('#email-message').html('');
-                                }
-                            }, error: function (e) {
-                                console.log(e);
-                            }
-                        })
-                    }
-
+                /**
+                 * get src url from map code
+                 */
+                $('#map_code').change(function () {
+                    var map_code = $(this).val();
+                    var src = map_code.split('src=')[1].split(/[ >]/)[0];
+                    console.log(src);
+                    src = src.replace('"', '');
+                    src = src.replace('"', '');
+                    $('#map_code_value').val(src);
                 });
-
-
-                $('#contact').blur(function () {
-                    let contact = $(this).val();
-                    if (contact == '') {
-                        $('#contact-message').html('Field must not be empty');
-                    } else {
-                        $.ajax({
-                            'url': '{{ url('api/restaurant/check_contact') }}',
-                            'dataType': 'json',
-                            'method': 'post',
-                            'data': {
-                                'contact': contact,
-                                'token': '$2y$10$a0ysRqMZxVO/8XJCNMyAouXBvwXoj5yP8.KkiRePF3lX2dOW52llK'
-                            },
-                            'success': function (response) {
-                                if (response.code == '200') {
-                                    $('#contact-message').html('Contact already exist. Please Use another');
-                                } else {
-                                    $('#contact-message').html('');
-                                }
-                            }, error: function (e) {
-                                console.log(e);
-                            }
-                        })
-                    }
-
-                });
-                */
             });
         </script>
     @endpush
